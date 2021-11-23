@@ -1,13 +1,18 @@
 [user]
  	name = Thomas Hoggard
  	email = mail@thomashoggard.com
+[core]
+	commitGraph = true
+	editor = nvim
+[init]
+	defaultBranch = main
 [push]
 	default = current
+[pull]
+	rebase = true
 [credential]
 	helper = libsecret
 [alias]
 	adog = log --all --decorate --oneline --graph
-[init]
-	defaultBranch = main
-[pull]
-	rebase = false
+        fpush = push --force-with-lease
+        blog = log main.. --oneline

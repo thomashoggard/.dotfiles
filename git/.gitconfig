@@ -16,3 +16,12 @@
 	adog = log --all --decorate --oneline --graph
         fpush = push --force-with-lease
         blog = log main.. --oneline
+; [pager]
+;         diff = delta
+;         log = delta
+;         reflog = delta
+;         show = delta
+; [interactive]
+;         diffFilter = delta --color-only --features=interactive
+; [delta]
+;         side-by-side = true

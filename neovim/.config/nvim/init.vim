@@ -54,6 +54,8 @@ else
   inoremap jk <esc>         " escape to normalmap
 endif
 
+nnoremap <leader>x :!chmod +x %<CR>
+
 
 " Plugins
 " ================================================================================ 

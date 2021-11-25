@@ -55,6 +55,7 @@ else
 endif
 
 nnoremap <leader>x :!chmod +x %<CR>
+nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
 
 " Plugins

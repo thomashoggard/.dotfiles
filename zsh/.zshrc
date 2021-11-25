@@ -55,6 +55,7 @@ export JAVA_HOME=/usr/lib64/jvm/java-14-openjdk/bin/javac
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-
 export DOTFILES=$HOME/.dotfiles
 source $HOME/.zsh_profile
+
+export VIM_CONFIG="$DOTFILES/nvim/.config/nvim/init.vim"

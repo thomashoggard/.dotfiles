@@ -1,4 +1,5 @@
 " Great place to find plugins: https://neovimcraft.com/
+let g:gitgutter_terminal_reports_focus=0
 
 " Conditionally render a plugin 
 function! Cond(cond, ...)
@@ -37,6 +38,7 @@ set mouse=a               " Enable mouse scrolling
 if exists('g:vscode')
   " VSCode specific globals
 else
+  set noswapfile
   set relativenumber " Show relative line numbers
   set number         " Show line numbers in the gutter
   set ignorecase 	   " Make searching case insensitive
@@ -55,13 +57,18 @@ endif
 " Plugins
 " ================================================================================ 
 call plug#begin('~/.config/nvim/plugged')
-"
+
+" Insert or delete brackets, params, quotes in pair.
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+
 " Comment out lines
-" Plug 'tpope/vim-commentary'   
 Plug 'numToStr/Comment.nvim'
 
-" quick scope
+Plug 'chrisbra/Colorizer' " Color previews for hex, rgb, hsl values.
+
 Plug 'unblevable/quick-scope' " Always-on highlight for a unique char in every word for f,F and family
+Plug 'folke/trouble.nvim' " Show linting errors in a panel
 
 if exists('g:vscode')
   highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
@@ -75,6 +82,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " lsp 
 Plug 'neovim/nvim-lspconfig'
@@ -106,8 +114,9 @@ Plug 'nvim-lualine/lualine.nvim'
 
 " themes
 Plug 'ayu-theme/ayu-vim'
-Plug 'Mofiqul/dracula.nvim'
-Plug 'catppuccin/nvim', { 'branch': 'dev-remaster' }
+Plug 'catppuccin/nvim'
+Plug 'sainnhe/sonokai'
+Plug 'yonlu/omni.vim'
 
 call plug#end()
 
@@ -115,12 +124,13 @@ call plug#end()
 " ================================================================================
 set termguicolors
 " let ayucolor="dark"
-" colorscheme ayu
-" colorscheme OceanicNext
-" colorscheme dracula
-colorscheme catppuccin
+ " colorscheme ayu
 
-
+" let g:sonokai_style = 'maia'
+" let g:sonokai_enable_italic = 1
+"
+"  colorscheme omni
+"
 " Key bindings
 " ================================================================================
 if exists('g:vscode')
@@ -150,6 +160,8 @@ else
   " Find files using Telescope command-line sugar.
   nnoremap <C-p> <cmd>Telescope find_files<cr>
   nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  " takes current selection and puts into telescope
+  vnoremap <leader>fg "zy:Telescope live_grep default_text=<C-r>z<cr>
   nnoremap <leader>fb <cmd>Telescope buffers<cr>
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
@@ -176,17 +188,67 @@ else
 
   " git
   nmap <leader>gs :Git<CR>
+  nmap <leader>gl :Git log<CR>
   nmap <leader>gc :Git commit<CR>
+  nmap <leader>gb :Git switch 
   nmap <leader>gp :Git push<CR>
+  nmap <leader>gP :Git pull<CR>
   nmap <leader>gf :diffget //2<CR>
   nmap <leader>gj :diffget //3<CR>
 endif
 
 lua << EOF
+  local catppuccin = require("catppuccin")
+
+  -- configure it
+  catppuccin.setup(
+      {
+          transparent_background = false,
+          styles = {
+              comments = "NONE",
+              functions = "NONE",
+              keywords = "NONE",
+              strings = "NONE",
+              variables = "NONE",
+          },
+          integrations = {
+              treesitter = true,
+              native_lsp = {
+                  enabled = true,
+                  virtual_text = {
+                      errors = "italic",
+                      hints = "italic",
+                      warnings = "italic",
+                      information = "italic",
+                  },
+                  underlines = {
+                      errors = "underline",
+                      hints = "underline",
+                      warnings = "underline",
+                      information = "underline",
+                  },
+              },
+              lsp_trouble = true,
+              lsp_saga = true,
+              gitgutter = true,
+              gitsigns = true,
+              telescope = true,
+              nvimtree = {
+                  enabled = true
+              },
+              bufferline = true,
+              markdown = true,
+              ts_rainbow = true,
+              hop = true,
+          },
+      }
+  )
+
+  vim.cmd[[colorscheme catppuccin]]
+
   require'nvim-tree'.setup {
     view = {
       relativenumber = true,
-      auto_resize = true,
     },
   }
 
@@ -316,6 +378,7 @@ lua << EOF
           client.resolved_capabilities.document_formatting = false
           client.resolved_capabilities.document_range_formatting = false
 
+          -- Does this formatting block do anything now that we configure formatting below in null-ls?
           local ts_utils = require("nvim-lsp-ts-utils")
           ts_utils.setup({
               eslint_bin = "eslint_d",
@@ -334,13 +397,41 @@ lua << EOF
       end,
   })
 
-  require("null-ls").config({})
-  lspconfig["null-ls"].setup({ on_attach = on_attach })
+
+  local null_ls = require("null-ls")
+  local b = null_ls.builtins
+
+  local sources = {
+    -- Html,css,json
+    b.formatting.prettierd,
+    -- [java|type]script(react)?
+    -- b.formatting.fixjson,
+    b.diagnostics.eslint_d,
+    b.formatting.eslint_d,
+    b.code_actions.eslint_d,
+    -- Lua
+    b.diagnostics.luacheck.with({
+        extra_args = { "--globals", "vim", "describe" },
+    }),
+    b.formatting.stylua,
+    -- Bash,zsh
+    b.formatting.shfmt.with({ extra_args = { "-i", "2", "-ci" } }),
+    b.diagnostics.shellcheck,
+    -- Vim
+    b.diagnostics.vint,
+    -- Yaml
+    b.diagnostics.yamllint,
+    -- Misc
+    b.code_actions.gitsigns,
+    b.hover.dictionary,
+  }
+
+  null_ls.setup({
+    on_attach = on_attach,
+    sources = sources
+  })
 
   require'lualine'.setup()
-
-  require('Comment').setup()
+  require'Comment'.setup()
 EOF
 
-" <C+.> should open a refactoring window
-" In visual mode, contents should be moved into telescope panel.

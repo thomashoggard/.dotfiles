@@ -4,9 +4,8 @@ local cmd = vim.cmd
 
 -- Boostrap Packer
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-local packer_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone','https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 -- Rerun PackerCompile everytime pluggins.lua is updated
@@ -36,9 +35,12 @@ return require('packer').startup(function(use)
   use 'unblevable/quick-scope' -- Always-on highlight for a unique char in every word for f,F and family
 
   -- Formatting
-  use 'jiangmiao/auto-pairs'  -- Insert or delete brackets, params, quotes in pair.
+  use 'jiangmiao/auto-pairs' -- Insert or delete brackets, params, quotes in pair.
   use 'tpope/vim-surround'
-  use 'numToStr/Comment.nvim' -- Comment out lines
+  use {
+    'numToStr/Comment.nvim', -- comment out lines
+    config = function() require('Comment').setup() end
+  }
 
   -- git
   use 'tpope/vim-fugitive'
@@ -49,11 +51,13 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
     config = function() require('plugins.lspconfig') end
   })
-  use 'williamboman/nvim-lsp-installer'  -- Helper for installing most language servers
+  use 'williamboman/nvim-lsp-installer' -- Helper for installing most language servers
 
   use 'folke/trouble.nvim' -- Show linting errors in a panel
-  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
   use 'onsails/lspkind-nvim' -- Adds vscode-like pictograms to neovim build-in lsp.
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils' -- Utils to improve the TypeScript development experience.
+  -- use 'glepnir/lspsaga.nvim'
 
   -- Autocomplete
   use 'L3MON4D3/LuaSnip' -- Snippet engine
@@ -72,15 +76,9 @@ return require('packer').startup(function(use)
     config = function() require('plugins.cmp') end,
   })
 
-  -- use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
-
+  use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
   -- windows
-  use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
-
-
-
-  -- use 'glepnir/lspsaga.nvim'
-  -- use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  -- use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
 
   -- statusline
   use 'nvim-lualine/lualine.nvim'

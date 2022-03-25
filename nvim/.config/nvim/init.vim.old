@@ -163,6 +163,7 @@ else
   " takes current selection and puts into telescope
   vnoremap <leader>fg "zy:Telescope live_grep default_text=<C-r>z<cr>
   nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fr <cmd>Telescope registers<cr>
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
   " Make current file executable
@@ -250,6 +251,11 @@ lua << EOF
     view = {
       relativenumber = true,
     },
+    -- actions = {
+    --   open_file = {
+    --     resize_window = true
+    --   }
+    -- }
   }
 
   require'nvim-treesitter.configs'.setup {
@@ -332,7 +338,13 @@ lua << EOF
   })
 
   -- Configure telescope
-  require('telescope').load_extension('fzy_native')
+  local telescope = require('telescope')
+  telescope.load_extension('fzy_native')
+  telescope.setup({  
+    defaults = { 
+      file_ignore_patterns = { "yarn.lock" }
+    } 
+  })
 
   -- Setup lspconfig.
   local lspconfig = require("lspconfig")

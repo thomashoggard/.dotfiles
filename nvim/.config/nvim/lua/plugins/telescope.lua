@@ -1,3 +1,10 @@
 local actions = require('telescope.actions')
+local telescope = require('telescope')
 
-require('telescope').load_extension('fzy_native')
+telescope.load_extension('fzy_native')
+
+telescope.setup({  
+  defaults = { 
+    file_ignore_patterns = { "yarn.lock" }
+  } 
+})

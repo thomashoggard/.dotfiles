@@ -1,6 +1,8 @@
 [user]
  	name = Thomas Hoggard
  	email = mail@thomashoggard.com
+[credential]
+	helper = libsecret
 [core]
 	commitGraph = true
 	editor = nvim
@@ -10,8 +12,6 @@
 	default = current
 [pull]
 	rebase = true
-[credential]
-	helper = libsecret
 [alias]
 	adog = log --all --decorate --oneline --graph
         fpush = push --force-with-lease

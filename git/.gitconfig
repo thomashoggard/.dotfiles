@@ -1,8 +1,9 @@
-[user]
- 	name = Thomas Hoggard
- 	email = mail@thomashoggard.com
-[credential]
-	helper = libsecret
+[init]
+    defaultBranch = main
+[include]
+  # A local gitconfig, outside of version control.
+  # If the file doesn't exist it is silently ignored
+  path = ~/.gitconfig-local
 [core]
 	commitGraph = true
 	editor = nvim
@@ -14,15 +15,15 @@
 	rebase = true
 [alias]
 	adog = log --all --decorate --oneline --graph
-        fpush = push --force-with-lease
-        blog = log main.. --oneline
+  fpush = push --force-with-lease
+  blog = log main.. --oneline
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
 [pager]
-        diff = delta
-        log = delta
-        reflog = delta
-        show = delta
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
 [interactive]
-        diffFilter = delta --color-only --features=interactive
+  diffFilter = delta --color-only --features=interactive
 [delta]
-        side-by-side = true
+  side-by-side = true

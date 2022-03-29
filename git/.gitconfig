@@ -1,9 +1,9 @@
-[init]
-    defaultBranch = main
 [include]
-  # A local gitconfig, outside of version control.
-  # If the file doesn't exist it is silently ignored
-  path = ~/.gitconfig-local
+  path = ~/.gitconfig-personal
+[include]
+  path = ~/.gitconfig-league
+[init]
+  defaultBranch = main
 [core]
 	commitGraph = true
 	editor = nvim

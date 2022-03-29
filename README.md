@@ -4,24 +4,21 @@
 
 Using `stow` you can create a symbolic link to the dotfile. It will add the link one directory up outside the parent you run the commend within.
 
+```bash
 cd ~/.dotfiles
-stow tmux
-
-### Stow personal fiels
-
-cd personal
-stow --target=${HOME} \*/
-
-### Stow league files
-
-cd league
-stow --target=${HOME} \*/
-
-## Git Config
-
-Create a `.gitconfig-local` which can import a context specific config.
-
+stow tmux # or */ for all folders
 ```
-[include]
-  path = ~/.gitconfig-personal
+
+### Stow Personal Files
+
+```bash
+cd personal
+stow --target=${HOME} */
+```
+
+### Stow League Files
+
+```bash
+cd league
+stow --target=${HOME} */
 ```

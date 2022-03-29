@@ -1,5 +1,6 @@
 require('catppuccin').setup({
   transparent_background = false,
+  term_colors = true,
   styles = {
     comments = "NONE",
     functions = "NONE",

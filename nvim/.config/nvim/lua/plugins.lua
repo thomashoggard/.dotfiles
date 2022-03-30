@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
   use 'chrisbra/Colorizer' -- Color previews for hex, rgb, hsl values.
   use 'unblevable/quick-scope' -- Always-on highlight for a unique char in every word for f,F and family
 
+
   -- Formatting
   use 'jiangmiao/auto-pairs' -- Insert or delete brackets, params, quotes in pair.
   use 'tpope/vim-surround'
@@ -110,8 +111,8 @@ return require('packer').startup(function(use)
   })
 
   use 'nvim-telescope/telescope-fzy-native.nvim'
-
   use 'junegunn/fzf.vim'
+  use 'davidgranstrom/nvim-markdown-preview'
 
   if packer_bootstrap then
     require('packer').sync()

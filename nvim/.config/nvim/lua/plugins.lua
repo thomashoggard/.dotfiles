@@ -45,6 +45,10 @@ return require('packer').startup(function(use)
   -- git
   use 'tpope/vim-fugitive'
   use 'airblade/vim-gitgutter'
+  use({
+    'f-person/git-blame.nvim', -- Shows virtual text for each line showing commit history.
+    config = function() require('plugins.gitblame') end
+  })
 
   -- LSP server
   use({
@@ -77,11 +81,12 @@ return require('packer').startup(function(use)
   })
 
   use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
-  -- windows
-  -- use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
 
   -- statusline
-  use 'nvim-lualine/lualine.nvim'
+  use({
+    'hoob3rt/lualine.nvim',
+    config = function() require('plugins.lualine') end,
+  })
 
   -- NvimTree
   use({

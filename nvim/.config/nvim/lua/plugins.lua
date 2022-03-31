@@ -32,23 +32,23 @@ return require('packer').startup(function(use)
   -- Colorizations
   use 'p00f/nvim-ts-rainbow'
   use 'chrisbra/Colorizer' -- Color previews for hex, rgb, hsl values.
-  use 'unblevable/quick-scope' -- Always-on highlight for a unique char in every word for f,F and family
 
+  -- Movement
+  use 'unblevable/quick-scope' -- Always-on highlight for a unique char in every word for f,F and family
 
   -- Formatting
   use 'jiangmiao/auto-pairs' -- Insert or delete brackets, params, quotes in pair.
   use 'tpope/vim-surround'
-  use {
+  use({
     'numToStr/Comment.nvim', -- comment out lines
     config = function() require('Comment').setup() end
-  }
+  })
 
   -- git
   use 'tpope/vim-fugitive'
-  use 'airblade/vim-gitgutter'
   use({
-    'f-person/git-blame.nvim', -- Shows virtual text for each line showing commit history.
-    config = function() require('plugins.gitblame') end
+    'lewis6991/gitsigns.nvim',
+    config = function() require("plugins.gitsigns") end
   })
 
   -- LSP server
@@ -96,6 +96,18 @@ return require('packer').startup(function(use)
     config = function() require('plugins.nvimtree') end,  -- Must add this manually
   })
 
+  -- Waiting until it's a bit more stable
+  -- use({
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   branch = "v2.x",
+  --   requires = { 
+  --     "nvim-lua/plenary.nvim",
+  --     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+  --     "MunifTanjim/nui.nvim" 
+  --   },
+  --   config = function () require('plugins.neotree') end,
+  -- })
+  
   -- Treesitter
   use({
     'nvim-treesitter/nvim-treesitter',

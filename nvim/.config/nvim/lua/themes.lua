@@ -33,6 +33,9 @@ require('catppuccin').setup({
     nvimtree = {
       enabled = true
     },
+    -- neotree = {
+    --   enabled = true,
+    -- },
     bufferline = true,
     markdown = true,
     ts_rainbow = true,

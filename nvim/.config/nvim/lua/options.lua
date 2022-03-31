@@ -1,4 +1,3 @@
-
 -- Visual
 vim.o.relativenumber = true -- Show relative line numbers
 vim.o.number = true -- Show line numbers in the gutter

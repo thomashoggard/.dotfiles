@@ -2,7 +2,7 @@
 
 ## Creating symbolic links
 
-Using `stow` you can create a symbolic link to the dotfile. It will add the link one directory up outside the parent you run the commend within.
+Using [stow](https://www.gnu.org/software/stow/) you can create a symbolic link to the dotfile. It will add the link one directory up outside the parent you run the commend within.
 
 ```bash
 cd ~/.dotfiles

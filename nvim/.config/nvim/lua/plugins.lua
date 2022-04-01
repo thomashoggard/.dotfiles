@@ -24,10 +24,12 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Themes
-  use 'ayu-theme/ayu-vim'
+  use 'Shatur/neovim-ayu'
   use 'catppuccin/nvim'
   use 'sainnhe/sonokai'
   use 'yonlu/omni.vim'
+  use 'folke/tokyonight.nvim'
+  use "rebelot/kanagawa.nvim"
 
   -- Colorizations
   use 'p00f/nvim-ts-rainbow'
@@ -35,6 +37,10 @@ return require('packer').startup(function(use)
   use({
     'lewis6991/spellsitter.nvim', -- Add tree-sitter highlighting to misspelled words.
     config = function() require('spellsitter').setup() end
+  })
+  use({
+    'lukas-reineke/indent-blankline.nvim', -- Add indentation line guides.
+    config = function() require('plugins.indent-blankline') end
   })
 
   -- Movement

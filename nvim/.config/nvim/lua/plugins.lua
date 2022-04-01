@@ -32,12 +32,20 @@ return require('packer').startup(function(use)
   -- Colorizations
   use 'p00f/nvim-ts-rainbow'
   use 'chrisbra/Colorizer' -- Color previews for hex, rgb, hsl values.
+  use({
+    'lewis6991/spellsitter.nvim', -- Add tree-sitter highlighting to misspelled words.
+    config = function() require('spellsitter').setup() end
+  })
 
   -- Movement
   use 'unblevable/quick-scope' -- Always-on highlight for a unique char in every word for f,F and family
 
   -- Formatting
-  use 'jiangmiao/auto-pairs' -- Insert or delete brackets, params, quotes in pair.
+  use({
+    'windwp/nvim-autopairs', -- Insert or delete brackets, params, quotes in pair.
+    config = function() require('nvim-autopairs').setup() end
+  })
+
   use 'tpope/vim-surround'
   use({
     'numToStr/Comment.nvim', -- comment out lines

@@ -64,6 +64,9 @@ lspconfig.tsserver.setup({
 local null_ls = require("null-ls")
 local b = null_ls.builtins
 
+
+-- null_ls.builtins.code_actions.gitsigns, -- Code actions from Gitsigns.
+
 local sources = {
   -- Html,css,json
   b.formatting.prettierd,

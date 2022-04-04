@@ -54,21 +54,21 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-surround'
   use({
-    'numToStr/Comment.nvim', -- comment out lines
+    'numToStr/Comment.nvim', -- Comment out lines.
     config = function() require('Comment').setup() end
   })
 
   -- git
   use 'tpope/vim-fugitive'
   use({
-    'lewis6991/gitsigns.nvim',
+    'lewis6991/gitsigns.nvim', -- Git blame virtual text, code change markers.
     config = function() require("plugins.gitsigns") end
   })
 
   -- LSP server
   use({
-    'neovim/nvim-lspconfig',
-    config = function() require('plugins.lspconfig') end
+    'neovim/nvim-lspconfig', -- Collection of configs for built-in LSP client.
+    config = function() require('lsp') end
   })
   use 'williamboman/nvim-lsp-installer' -- Helper for installing most language servers
 
@@ -77,6 +77,10 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim' -- Adds vscode-like pictograms to neovim build-in lsp.
   use 'jose-elias-alvarez/nvim-lsp-ts-utils' -- Utils to improve the TypeScript development experience.
   -- use 'glepnir/lspsaga.nvim'
+  use({
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+  })
 
   -- Autocomplete
   use 'L3MON4D3/LuaSnip' -- Snippet engine
@@ -85,17 +89,23 @@ return require('packer').startup(function(use)
     "hrsh7th/nvim-cmp",
     -- Sources for nvim-cmp
     requires = {
-      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-nvim-lua",
-      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lua", -- Completion for nvim Lua runtime API, ex. vim.lsp.*
+      "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp.
+      "hrsh7th/cmp-nvim-lsp-signature-help", -- Highlight current parameter in function signature.
     },
     config = function() require('plugins.cmp') end,
   })
 
-  use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
+  -- Finish setting up.
+  -- use({
+  --   "kosayoda/nvim-lightbulb",
+  --   config = function() require('plugins.nvim-lightbulb') end,
+  -- })
+  -- use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
 
   -- statusline
   use({

@@ -10,6 +10,7 @@ null_ls.setup({
     formatting.prettier_d_slim,
     diagnostics.eslint_d,
     code_actions.eslint_d,
-  },
+    diagnostics.codespell,
+  }
 })
 

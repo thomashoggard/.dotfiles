@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
   use "rebelot/kanagawa.nvim"
 
   -- Colorizations
+  use 'folke/lsp-colors.nvim'
   use 'p00f/nvim-ts-rainbow'
   use 'chrisbra/Colorizer' -- Color previews for hex, rgb, hsl values.
   use({
@@ -101,10 +102,10 @@ return require('packer').startup(function(use)
   })
 
   -- Finish setting up.
-  -- use({
-  --   "kosayoda/nvim-lightbulb",
-  --   config = function() require('plugins.nvim-lightbulb') end,
-  -- })
+  use({
+    "kosayoda/nvim-lightbulb",
+    config = function() require('plugins.nvim-lightbulb') end,
+  })
   -- use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
 
   -- statusline
@@ -124,10 +125,10 @@ return require('packer').startup(function(use)
   -- use({
   --   "nvim-neo-tree/neo-tree.nvim",
   --   branch = "v2.x",
-  --   requires = { 
+  --   requires = {
   --     "nvim-lua/plenary.nvim",
   --     "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-  --     "MunifTanjim/nui.nvim" 
+  --     "MunifTanjim/nui.nvim"
   --   },
   --   config = function () require('plugins.neotree') end,
   -- })

@@ -19,7 +19,7 @@ require('catppuccin').setup({
         information = "italic",
       },
       underlines = {
-        errors = "underline",
+        errors = "undercurl",
         hints = "underline",
         warnings = "underline",
         information = "underline",
@@ -43,15 +43,15 @@ require('catppuccin').setup({
   },
 })
 
-vim.cmd[[colorscheme catppuccin]]
+-- vim.cmd[[colorscheme catppuccin]]
 
 -- vim.g.tokyonight_style = "night"
 -- vim.cmd[[colorscheme tokyonight]]
 
--- vim.cmd[[colorscheme kanagawa]]
+vim.cmd[[colorscheme kanagawa]]
 
 -- require('ayu').setup({
---   mirage = false, 
+--   mirage = false,
 -- })
 --
 -- vim.cmd[[colorscheme ayu]]

@@ -69,3 +69,6 @@ nmap("<leader>gp", ":Git push<CR>")
 nmap("<leader>gP", ":Git pull<CR>")
 nmap("<leader>gf", ":diffget //2<CR>")
 nmap("<leader>gj", ":diffget //3<CR>")
+
+-- Code Action Menu
+nmap("<leader>.", ":CodeActionMenu<CR>")

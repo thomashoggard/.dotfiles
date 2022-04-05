@@ -6,6 +6,7 @@
 - fzf
 - fzy
 - ripgrep
+- codespell - `pip install codespell`
 
 Install Language Servers:
 

@@ -65,6 +65,12 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim', -- Git blame virtual text, code change markers.
     config = function() require("plugins.gitsigns") end
   })
+  use({ 
+    'TimUntersberger/neogit', 
+    requires = 'nvim-lua/plenary.nvim',
+    config = function() require("plugins.neogit") end
+  })
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- LSP server
   use({

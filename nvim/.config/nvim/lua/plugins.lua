@@ -56,8 +56,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use({
     'numToStr/Comment.nvim', -- Comment out lines.
-    config = function() require('Comment').setup() end
-  })
+    config = function() require('plugins.comment') end
+  });
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+
 
   -- git
   use 'tpope/vim-fugitive'
@@ -83,6 +85,7 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
   use 'onsails/lspkind-nvim' -- Adds vscode-like pictograms to neovim build-in lsp.
   use 'jose-elias-alvarez/nvim-lsp-ts-utils' -- Utils to improve the TypeScript development experience.
+  use 'b0o/schemastore.nvim' -- Add https://github.com/b0o/schemastore.nvim types for JSON
   -- use 'glepnir/lspsaga.nvim'
   use({
     'weilbith/nvim-code-action-menu',

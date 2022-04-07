@@ -1,1 +1,8 @@
-github.com/LunarVim/Neovim-from-scratch/tree/master/lua/user/lsp/settings
+return {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+    },
+  }
+}
+

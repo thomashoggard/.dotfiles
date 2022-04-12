@@ -48,11 +48,11 @@ require('catppuccin').setup({
 -- vim.g.tokyonight_style = "night"
 -- vim.cmd[[colorscheme tokyonight]]
 
-vim.cmd[[colorscheme kanagawa]]
+-- vim.cmd[[colorscheme kanagawa]]
 
--- require('ayu').setup({
---   mirage = false,
--- })
---
--- vim.cmd[[colorscheme ayu]]
+require('ayu').setup({
+  mirage = false,
+})
+
+vim.cmd[[colorscheme ayu]]
 -- vim.cmd[[colorscheme ayu-light]]

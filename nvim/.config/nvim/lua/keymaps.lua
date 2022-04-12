@@ -61,6 +61,7 @@ nnoremap("<leader>y", '"+y')
 nnoremap("<leader>Y", 'gg"+yG')
 
 -- Git
+nmap("<leader>gg", ":LazyGit<CR>")
 nmap("<leader>gs", ":Git<CR>")
 nmap("<leader>gl", ":Git log<CR>")
 nmap("<leader>gc", ":Git commit<CR>")

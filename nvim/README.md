@@ -7,6 +7,7 @@
 - fzy
 - ripgrep
 - codespell - `pip install codespell`
+- lazygit
 
 Install Language Servers:
 

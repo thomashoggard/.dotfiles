@@ -73,6 +73,7 @@ return require('packer').startup(function(use)
     config = function() require("plugins.neogit") end
   })
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use 'kdheepak/lazygit.nvim'
 
   -- LSP server
   use({

@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
   use 'yonlu/omni.vim'
   use 'folke/tokyonight.nvim'
   use "rebelot/kanagawa.nvim"
+  use "EdenEast/nightfox.nvim"
+  use "sainnhe/gruvbox-material"
 
   -- Colorizations
   use 'folke/lsp-colors.nvim'

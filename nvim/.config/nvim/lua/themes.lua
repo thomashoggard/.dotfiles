@@ -43,16 +43,28 @@ require('catppuccin').setup({
   },
 })
 
--- vim.cmd[[colorscheme catppuccin]]
-
+vim.cmd[[colorscheme catppuccin]]
+--
 -- vim.g.tokyonight_style = "night"
 -- vim.cmd[[colorscheme tokyonight]]
 
 -- vim.cmd[[colorscheme kanagawa]]
 
-require('ayu').setup({
-  mirage = false,
-})
-
-vim.cmd[[colorscheme ayu]]
+-- require('ayu').setup({
+--   mirage = false,
+-- })
+--
+-- vim.cmd[[colorscheme ayu]]
 -- vim.cmd[[colorscheme ayu-light]]
+
+-- vim.cmd[[colorscheme duskfox]]
+-- vim.cmd[[colorscheme nordfox]]
+-- Nightfox
+-- Dayfox
+-- Dawnfox
+-- Duskfox
+-- Nordfox
+-- Terafox
+
+
+-- vim.cmd[[colorscheme gruvbox-material]]

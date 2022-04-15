@@ -6,11 +6,15 @@ local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
 null_ls.setup({
-  sources = {
-    formatting.prettier_d_slim,
-    diagnostics.eslint_d,
-    code_actions.eslint_d,
-    diagnostics.codespell,
-  }
+	sources = {
+		formatting.stylua,
+		formatting.prettier,
+		diagnostics.eslint,
+		code_actions.eslint,
+		-- formatting.prettier_d_slim,
+		-- diagnostics.eslint_d,
+		-- code_actions.eslint_d,
+		diagnostics.codespell,
+		-- code_actions.gitsigns,
+	},
 })
-

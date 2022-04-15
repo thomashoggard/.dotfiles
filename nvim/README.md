@@ -15,8 +15,9 @@ Install Language Servers:
 npm install -g typescript-language-server typescript
 ```
 
-Install daemons
+Install Formatters and Diagnostics
 ```
+stylua (from pacman)
 npm install -g prettier_d_slim
 npm install -g eslint_d
 ```

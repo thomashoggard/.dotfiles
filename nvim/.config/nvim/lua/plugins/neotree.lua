@@ -1,8 +1,7 @@
-require('neo-tree').setup({
-  default_component_configs = {
-    indent = {
-      with_expanders = true
-    }
-  }
+require("neo-tree").setup({
+	default_component_configs = {
+		indent = {
+			with_expanders = true,
+		},
+	},
 })
-

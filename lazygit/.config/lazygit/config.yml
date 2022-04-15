@@ -1,3 +1,8 @@
+gui:
+  expandFocusedSidePanel: true
+  theme:
+    selectedLineBgColor:
+      - black
 git:
   paging:
     colorArg: always

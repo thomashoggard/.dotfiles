@@ -24,6 +24,9 @@ nnoremap("<Down>", ":resize -5<CR>")
 nnoremap("<Right>", ":vertical resize -20<CR>")
 nnoremap("<Left>", ":vertical resize +20<CR>")
 
+-- Buffers
+nnoremap("<leader>q", ":Bwipeout<CR>")
+
 -- Files & Search
 nnoremap("<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
 nnoremap("<C-n>", ":NvimTreeToggle<CR>")

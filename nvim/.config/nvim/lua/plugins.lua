@@ -2,7 +2,7 @@
 local fn = vim.fn
 local cmd = vim.cmd
 
--- Boostrap Packer
+-- Bootstrap Packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap = fn.system({
@@ -15,7 +15,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	})
 end
 
--- Rerun PackerCompile everytime pluggins.lua is updated
+-- Rerun :PackerCompile every time plugins.lua is updated
 cmd([[
   augroup packer_user_config
     autocmd!
@@ -56,6 +56,17 @@ return require("packer").startup(function(use)
 			require("plugins.indent-blankline")
 		end,
 	})
+
+	-- Buffer Management
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "*",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("plugins.bufferline")
+		end,
+	})
+	use("moll/vim-bbye")
 
 	-- Movement
 	use("unblevable/quick-scope") -- Always-on highlight for a unique char in every word for f,F and family

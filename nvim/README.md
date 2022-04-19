@@ -17,8 +17,10 @@ npm install -g typescript-language-server typescript
 
 Install Formatters and Diagnostics
 ```
-stylua (from pacman)
-npm install -g prettier_d_slim
+stylua 
+- manjaro: (from pacman)
+- mac: brew install stylua
+npm install -g @fsouza/prettierd
 npm install -g eslint_d
 ```
 

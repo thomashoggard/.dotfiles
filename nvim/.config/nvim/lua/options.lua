@@ -4,6 +4,7 @@ vim.o.number = true -- Show line numbers in the gutter
 vim.o.wrap = false -- Disable text wrap
 vim.o.cursorline = true -- highlight the line containing the cursor
 vim.o.termguicolors = true
+vim.wo.signcolumn = "yes" -- Always draw the sign column
 
 -- Behaviour
 vim.o.mouse = "a" -- Enable mouse scrolling

@@ -76,3 +76,6 @@ nmap("<leader>gj", ":diffget //3<CR>")
 
 -- Code Action Menu
 nmap("<leader>.", ":CodeActionMenu<CR>")
+
+-- Movement
+nmap("<leader>fw", ":HopWord<CR>")

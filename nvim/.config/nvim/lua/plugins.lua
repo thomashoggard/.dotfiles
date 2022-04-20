@@ -70,6 +70,13 @@ return require("packer").startup(function(use)
 
 	-- Movement
 	use("unblevable/quick-scope") -- Always-on highlight for a unique char in every word for f,F and family
+	use({
+		"phaazon/hop.nvim",
+		branch = "v1", -- optional but strongly recommended
+		config = function()
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	})
 
 	-- Formatting
 	use({

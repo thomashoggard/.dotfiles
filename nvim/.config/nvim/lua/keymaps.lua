@@ -71,6 +71,7 @@ nmap("<leader>gc", ":Git commit<CR>")
 nmap("<leader>gb", ":Git switch")
 nmap("<leader>gp", ":Git push<CR>")
 nmap("<leader>gP", ":Git pull<CR>")
+nmap("<leader>gd", ":Gdiffsplit!")
 nmap("<leader>gf", ":diffget //2<CR>")
 nmap("<leader>gj", ":diffget //3<CR>")
 

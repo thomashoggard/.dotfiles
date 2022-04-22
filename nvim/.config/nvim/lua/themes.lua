@@ -43,7 +43,11 @@ require("catppuccin").setup({
 	},
 })
 
-vim.cmd([[colorscheme catppuccin]])
+-- vim.cmd([[colorscheme catppuccin]])
+
+vim.g.everforest_background = "hard"
+vim.cmd([[colorscheme everforest]])
+
 --
 -- vim.g.tokyonight_style = "night"
 -- vim.cmd[[colorscheme tokyonight]]

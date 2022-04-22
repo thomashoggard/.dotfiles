@@ -39,6 +39,7 @@ return require("packer").startup(function(use)
 	use("rebelot/kanagawa.nvim")
 	use("EdenEast/nightfox.nvim")
 	use("sainnhe/gruvbox-material")
+	use("sainnhe/everforest")
 
 	-- Colorizations
 	use("folke/lsp-colors.nvim")

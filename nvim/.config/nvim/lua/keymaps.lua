@@ -1,82 +1,63 @@
-local Utils = require("utils")
-
--- local exprnnoremap = Utils.exprnnoremap
-local nnoremap = Utils.nnoremap
-local vnoremap = Utils.vnoremap
--- local xnoremap = Utils.xnoremap
-local inoremap = Utils.inoremap
--- local tnoremap = Utils.tnoremap
-local nmap = Utils.nmap
--- local xmap = Utils.xmap
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-inoremap("jk", "<Esc>")
+vim.keymap.set("i", "jk", "<Esc>")
 
 -- Strong left & right
-nnoremap("H", "_")
-nnoremap("L", "$")
+vim.keymap.set("n", "H", "_")
+vim.keymap.set("n", "L", "&")
 
 -- Window
-nnoremap("<Up>", ":resize +5<CR>")
-nnoremap("<Down>", ":resize -5<CR>")
-nnoremap("<Right>", ":vertical resize -20<CR>")
-nnoremap("<Left>", ":vertical resize +20<CR>")
+vim.keymap.set("n", "<Up>", ":resize +5<CR>")
+vim.keymap.set("n", "<Down>", ":resize -5<CR>")
+vim.keymap.set("n", "<Right>", ":vertical resize -20<CR>")
+vim.keymap.set("n", "<Left>", ":vertical resize +20<CR>")
 
 -- Buffers
-nnoremap("<leader>q", ":Bwipeout<CR>")
+vim.keymap.set("n", "<leader>q", ":Bwipeout<CR>")
 
 -- Files & Search
-nnoremap("<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
-nnoremap("<C-n>", ":NvimTreeToggle<CR>")
-nnoremap("<leader>r", ":NvimTreeRefresh<CR>")
-nnoremap("<leader>n", ":NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>")
+vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>")
 
 -- Find files using Telescope command-line sugar.
-nnoremap("<C-p>", "<cmd>Telescope find_files<cr>")
-nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
-
+vim.keymap.set("n", "<C-p>", require("telescope.builtin").find_files)
+vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep)
+vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers)
+vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags)
 -- Takes current selection and puts into telescope
-vnoremap("<leader>fg", '"zy:Telescope live_grep default_text=<C-r>z<cr>')
-nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
-nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
+vim.keymap.set("v", "<leader>fg", '"zy:Telescope live_grep default_text=<C-r>z<cr>')
 
 -- Make current file executable
-nnoremap("<leader>x", ":!chmod +x %<CR>")
+vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")
 
--- Reload nvim config
-nnoremap("<leader><CR>", ":so $VIM_CONFIG<CR>")
-
--- quickfixlist
-nnoremap("<C-j>", ":cnext<CR>")
-nnoremap("<C-k>", ":cprev<CR>")
+-- quick fix list
+vim.keymap.set("n", "<C-j>", ":cnext<CR>")
+vim.keymap.set("n", "<C-k>", ":cprev<CR>")
 
 -- Move lines up or down
-vnoremap("J", ":m '>+1<CR>gv=gv")
-vnoremap("K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Copy & Paste
-nnoremap("<leader>p", "o<esc>Pk<CR>")
-vnoremap("<leader>p", '"_dP')
-vnoremap("<leader>y", '"+y')
-nnoremap("<leader>y", '"+y')
-nnoremap("<leader>Y", 'gg"+yG')
+vim.keymap.set("n", "<leader>p", "o<esc>Pk<CR>")
+vim.keymap.set("v", "<leader>p", '"_dP')
+vim.keymap.set({ "v", "n" }, "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", 'gg"+yG')
 
 -- Git
-nmap("<leader>gg", ":LazyGit<CR>")
-nmap("<leader>gs", ":Git<CR>")
-nmap("<leader>gl", ":Git log<CR>")
-nmap("<leader>gc", ":Git commit<CR>")
-nmap("<leader>gb", ":Git switch")
-nmap("<leader>gp", ":Git push<CR>")
-nmap("<leader>gP", ":Git pull<CR>")
-nmap("<leader>gd", ":Gdiffsplit!")
-nmap("<leader>gf", ":diffget //2<CR>")
-nmap("<leader>gj", ":diffget //3<CR>")
-
--- Code Action Menu
-nmap("<leader>.", ":CodeActionMenu<CR>")
+vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>")
+vim.keymap.set("n", "<leader>gs", ":Git<CR>")
+vim.keymap.set("n", "<leader>gl", ":Git log<CR>")
+vim.keymap.set("n", "<leader>gc", ":Git commit<CR>")
+vim.keymap.set("n", "<leader>gb", ":Git switch")
+vim.keymap.set("n", "<leader>gp", ":Git push<CR>")
+vim.keymap.set("n", "<leader>gP", ":Git pull<CR>")
+vim.keymap.set("n", "<leader>gd", ":Gdiffsplit!")
+vim.keymap.set("n", "<leader>gf", ":diffget //2<CR>")
+vim.keymap.set("n", "<leader>gj", ":diffget //3<CR>")
 
 -- Movement
-nmap("<leader>fw", ":HopWord<CR>")
+vim.keymap.set("n", "<leader>fw", ":HopWord<CR>", { silent = true })

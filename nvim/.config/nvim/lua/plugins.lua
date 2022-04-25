@@ -155,12 +155,12 @@ return require("packer").startup(function(use)
 	})
 
 	-- Finish setting up.
-	use({
-		"kosayoda/nvim-lightbulb",
-		config = function()
-			require("plugins.nvim-lightbulb")
-		end,
-	})
+	--use({
+	--	"kosayoda/nvim-lightbulb",
+	--	config = function()
+	--		require("plugins.nvim-lightbulb")
+	--	end,
+	--})
 	-- use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
 
 	-- statusline

@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
 		"dockerfile",
 		"go",
 		"markdown",
+		"bash",
 	},
 	highlight = {
 		enable = true,

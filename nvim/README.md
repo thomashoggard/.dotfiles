@@ -17,11 +17,11 @@ npm install -g typescript-language-server typescript
 
 Install Formatters and Diagnostics
 ```
-stylua 
-- manjaro: (from pacman)
-- mac: brew install stylua
 npm install -g @fsouza/prettierd
 npm install -g eslint_d
+
+shfmt
+- manjaro: (from pacman)
 ```
 
 `:LspInstall <name>`
@@ -34,8 +34,8 @@ npm install -g eslint_d
 ◍ sumneko_lua (lua)
 ◍ tsserver (typescript, javascript)
 ◍ yamlls 
+◍ bashls 
 ```
-
 
 ## Commands
 

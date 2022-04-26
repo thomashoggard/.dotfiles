@@ -1,2 +1,2 @@
-cd personal
+cd ${HOME}/personal
 stow --target=${HOME} */

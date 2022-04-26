@@ -55,7 +55,7 @@ vim.keymap.set("n", "<leader>gc", ":Git commit<CR>")
 vim.keymap.set("n", "<leader>gb", ":Git switch")
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>")
 vim.keymap.set("n", "<leader>gP", ":Git pull<CR>")
-vim.keymap.set("n", "<leader>gd", ":Gdiffsplit!")
+vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!<CR>")
 vim.keymap.set("n", "<leader>gf", ":diffget //2<CR>")
 vim.keymap.set("n", "<leader>gj", ":diffget //3<CR>")
 

@@ -1,2 +1,2 @@
-cd league
+cd ${HOME}/league
 stow --target=${HOME} */

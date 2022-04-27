@@ -22,3 +22,5 @@ vim.o.autoindent = true
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.swapfile = false
 vim.o.spell = true
+
+vim.opt.fillchars:append('diff:╱')

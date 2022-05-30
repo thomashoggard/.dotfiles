@@ -1,6 +1,5 @@
-vim.g.nvim_tree_create_in_closed_folder = 1
-
 require("nvim-tree").setup({
+  create_in_closed_folder = true,
   renderer = {
     indent_markers = {
       enable = true,
@@ -13,7 +12,7 @@ require("nvim-tree").setup({
   },
   actions = {
     open_file = {
-      resize_window = true,
+      resize_window = false,
     },
   },
 })

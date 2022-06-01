@@ -75,27 +75,6 @@ vim.cmd [[colorscheme catppuccin]]
 -- vim.g.everforest_background = "hard"
 -- vim.cmd([[colorscheme everforest]])
 
-
---
--- vim.g.tokyonight_style = "night"
--- vim.cmd[[colorscheme tokyonight]]
-
--- vim.cmd[[colorscheme kanagawa]]
-
--- require('ayu').setup({
---   mirage = false,
--- })
---
--- vim.cmd[[colorscheme ayu]]
--- vim.cmd[[colorscheme ayu-light]]
-
--- vim.cmd[[colorscheme duskfox]]
--- vim.cmd[[colorscheme nordfox]]
--- Nightfox
--- Dayfox
--- Dawnfox
--- Duskfox
--- Nordfox
--- Terafox
-
--- vim.cmd[[colorscheme gruvbox-material]]
+-- Set git merge marker highlights
+vim.api.nvim_set_hl(0, 'DiffAdd', { fg = "#ffffff", bg = "#1d3b40" })
+vim.api.nvim_set_hl(0, 'DiffText', { fg = "#ffffff", bg = "#1d3450" })

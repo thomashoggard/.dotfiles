@@ -76,8 +76,8 @@ vim.cmd [[colorscheme catppuccin]]
 -- vim.cmd([[colorscheme everforest]])
 
 -- Set git merge marker highlights - See :h diff.txt
-vim.api.nvim_set_hl(0, 'DiffAdd', { fg = "#ffffff", bg = "#1d3b40" })
-vim.api.nvim_set_hl(0, 'DiffText', { fg = "#ffffff", bg = "#1d3450" })
+vim.api.nvim_set_hl(0, 'DiffText', { fg = "#ffffff", bg = "#1d3b40" })
+vim.api.nvim_set_hl(0, 'DiffAdd', { fg = "#ffffff", bg = "#1d3450" })
 
 -- Unset diff highlight groups
 -- DiffChange

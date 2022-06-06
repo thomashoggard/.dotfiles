@@ -111,6 +111,7 @@ return require("packer").startup(function(use)
       require("plugins.neogit")
     end,
   })
+  use('kdheepak/lazygit.nvim')
   use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
   use { 'akinsho/git-conflict.nvim', config = function()
     require('git-conflict').setup({

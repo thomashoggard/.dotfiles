@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
   use("EdenEast/nightfox.nvim")
   use("sainnhe/gruvbox-material")
   use("sainnhe/everforest")
+  use 'navarasu/onedark.nvim'
 
   -- Colorizations
   use("folke/lsp-colors.nvim")

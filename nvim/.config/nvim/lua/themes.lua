@@ -1,6 +1,6 @@
 require("catppuccin").setup({
   -- transparent_background = false,
-  term_colors = false,
+  term_colors = true,
   -- styles = {
   --   comments = "italic",
   --   conditionals = "italic",
@@ -69,8 +69,13 @@ require("catppuccin").setup({
   }
 })
 
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-vim.cmd [[colorscheme catppuccin]]
+-- vim.g.catppuccin_flavour = "mocha"
+-- vim.cmd [[colorscheme catppuccin]]
+
+-- require('onedark').setup {
+--   style = 'deep'
+-- }
+vim.cmd([[colorscheme onedark]])
 
 -- vim.g.everforest_background = "hard"
 -- vim.cmd([[colorscheme everforest]])

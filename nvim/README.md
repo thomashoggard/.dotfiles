@@ -8,6 +8,7 @@
 - ripgrep
 - codespell - `pip install codespell`
 - lazygit
+- zk: `brew install zk`
 
 Install Language Servers:
 
@@ -35,6 +36,7 @@ shfmt
 ◍ tsserver (typescript, javascript)
 ◍ yamlls 
 ◍ bashls 
+zk
 ```
 
 ## Commands

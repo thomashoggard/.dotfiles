@@ -21,6 +21,8 @@ vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>")
 vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<leader>e", ":!open %:p:h<CR>", { silent = true })
+
 
 -- Find files using Telescope command-line sugar.
 vim.keymap.set("n", "<C-p>", require("telescope.builtin").find_files)

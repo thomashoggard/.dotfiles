@@ -70,12 +70,16 @@ require("catppuccin").setup({
 })
 
 -- vim.g.catppuccin_flavour = "mocha"
--- vim.cmd [[colorscheme catppuccin]]
+vim.cmd [[colorscheme catppuccin]]
 
 -- require('onedark').setup {
 --   style = 'deep'
 -- }
-vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme onedark]])
+
+-- require('onedarkpro').setup({
+--   dark_theme = 'onedark_dark'
+-- })
 
 -- vim.g.everforest_background = "hard"
 -- vim.cmd([[colorscheme everforest]])

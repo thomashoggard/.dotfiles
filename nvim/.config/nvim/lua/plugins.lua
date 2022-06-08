@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
   use("sainnhe/gruvbox-material")
   use("sainnhe/everforest")
   use 'navarasu/onedark.nvim'
+  use 'olimorris/onedarkpro.nvim'
 
   -- Colorizations
   use("folke/lsp-colors.nvim")

@@ -71,3 +71,5 @@ vim.keymap.set("n", "<leader>fw", ":HopWord<CR>", { silent = true })
 
 -- Tabs
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ts", ":tab new<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tt", ":tab split<CR>", { silent = true })

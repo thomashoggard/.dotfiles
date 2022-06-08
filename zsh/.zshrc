@@ -26,8 +26,7 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 alias vi="nvim"
 alias vim="nvim"
 
-
-export ZSH="/home/thoggard/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="dracula"
 
@@ -47,15 +46,10 @@ gco() {
     git checkout $(git branch | fzf)
 }
 
-
-# java
-export JAVA_HOME=/usr/lib64/jvm/java-14-openjdk/bin/javac
-
-# volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
 export DOTFILES=$HOME/.dotfiles
 source $HOME/.zsh_profile
 
 export VIM_CONFIG="$DOTFILES/nvim/.config/nvim/init.lua"
+
+source "$HOME/.zsh-additional-settings"
+

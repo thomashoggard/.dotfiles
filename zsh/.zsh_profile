@@ -1,1 +1,4 @@
 bindkey -s "^f" "tmux-sessionizer\n"
+
+GPG_TTY=$(tty)
+export GPG_TTY

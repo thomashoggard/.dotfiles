@@ -202,6 +202,15 @@ return require("packer").startup(function(use)
     run = ":TSUpdate",
   })
 
+  use({
+    'nvim-treesitter/nvim-treesitter-context', -- shows the context of the function as you scroll through the code.
+    config = function()
+      require("treesitter-context").setup({
+        enable = true
+      })
+    end,
+  });
+
   -- Telescope
   use({
     "nvim-telescope/telescope.nvim",

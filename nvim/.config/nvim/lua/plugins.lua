@@ -160,10 +160,17 @@ return require("packer").startup(function(use)
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua", -- Completion for nvim Lua runtime API, ex. vim.lsp.*
       "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp.
-      "hrsh7th/cmp-nvim-lsp-signature-help", -- Highlight current parameter in function signature.
+      -- "hrsh7th/cmp-nvim-lsp-signature-help", -- Highlight current parameter in function signature.
     },
     config = function()
       require("plugins.cmp")
+    end,
+  })
+
+  use({
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("lsp_signature").setup()
     end,
   })
 

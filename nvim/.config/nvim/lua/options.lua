@@ -22,5 +22,6 @@ vim.o.autoindent = true
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.swapfile = false
 vim.o.spell = true
+vim.o.pumheight = 30 -- Maximum number of items to show in popups (cmp)
 
 vim.opt.fillchars:append('diff:╱')

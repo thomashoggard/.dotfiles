@@ -3,7 +3,27 @@ local lspkind = require("lspkind")
 
 local cmp = require("cmp")
 
+local border = {
+  { "╭", "CmpBorder" },
+  { "─", "CmpBorder" },
+  { "╮", "CmpBorder" },
+  { "│", "CmpBorder" },
+  { "╯", "CmpBorder" },
+  { "─", "CmpBorder" },
+  { "╰", "CmpBorder" },
+  { "│", "CmpBorder" },
+}
+
 cmp.setup({
+  window = {
+    documentation = {
+      border = border,
+    },
+    completion = {
+      border = border,
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+    },
+  },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -42,13 +62,13 @@ cmp.setup({
   formatting = {
     format = lspkind.cmp_format({
       with_text = true,
-      menu = {
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[Latex]",
-      },
+      -- menu = {
+      --   buffer = "[Buffer]",
+      --   nvim_lsp = "[LSP]",
+      --   luasnip = "[LuaSnip]",
+      --   nvim_lua = "[Lua]",
+      --   latex_symbols = "[Latex]",
+      -- },
     }),
   },
   sources = {

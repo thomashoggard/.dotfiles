@@ -168,11 +168,19 @@ return require("packer").startup(function(use)
   })
 
   use({
-    "ray-x/lsp_signature.nvim",
+    "ray-x/lsp_signature.nvim", -- Highlight current parameter in function signature.
     config = function()
       require("lsp_signature").setup()
     end,
   })
+
+  use({
+    "rafamadriz/friendly-snippets",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end
+  })
+
 
   -- Finish setting up.
   --use({

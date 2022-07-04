@@ -31,16 +31,16 @@ return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- Themes
-  use("Shatur/neovim-ayu")
+  -- use("Shatur/neovim-ayu")
   use("catppuccin/nvim")
-  use("sainnhe/sonokai")
-  use("yonlu/omni.vim")
-  use("folke/tokyonight.nvim")
-  use("rebelot/kanagawa.nvim")
-  use("EdenEast/nightfox.nvim")
+  -- use("sainnhe/sonokai")
+  -- use("yonlu/omni.vim")
+  -- use("folke/tokyonight.nvim")
+  -- use("rebelot/kanagawa.nvim")
+  -- use("EdenEast/nightfox.nvim")
   use("sainnhe/gruvbox-material")
-  use("sainnhe/everforest")
-  use 'navarasu/onedark.nvim'
+  -- use("sainnhe/everforest")
+  -- use 'navarasu/onedark.nvim'
   use 'olimorris/onedarkpro.nvim'
 
   -- Colorizations
@@ -148,7 +148,13 @@ return require("packer").startup(function(use)
   })
 
   -- Autocomplete
-  use("L3MON4D3/LuaSnip") -- Snippet engine
+  use({
+    "L3MON4D3/LuaSnip", -- Snippet engine
+    -- after = 'nvim-cmp',
+    config = function()
+      require("plugins.luasnip")
+    end
+  })
 
   use({
     "hrsh7th/nvim-cmp",
@@ -174,12 +180,13 @@ return require("packer").startup(function(use)
     end,
   })
 
-  use({
-    "rafamadriz/friendly-snippets",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end
-  })
+  -- use({
+  --   "rafamadriz/friendly-snippets",
+  --   config = function()
+  --     -- require("luasnip.loaders.from_vscode").lazy_load()
+  --     require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } }) -- Load snippets from my-snippets folder
+  --   end
+  -- })
 
 
   -- Finish setting up.

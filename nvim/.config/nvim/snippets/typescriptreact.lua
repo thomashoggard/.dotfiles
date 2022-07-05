@@ -8,12 +8,6 @@ local rep = require("luasnip.extras").rep
 
 local snippets, autosnippets = {}, {}
 
-local log = s("log", fmt([[
-console.log({});
-]], {
-  i(1, ""),
-}))
-table.insert(snippets, log)
 
 local reactComponent = s("rc", fmt([[
 type {}Props = {{}}
@@ -36,6 +30,5 @@ const [{}, set{}] = React.useState({})
   i(3, ""),
 }))
 table.insert(snippets, useState)
-
 
 return snippets, autosnippets

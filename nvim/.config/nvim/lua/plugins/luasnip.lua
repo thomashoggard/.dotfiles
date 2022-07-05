@@ -10,3 +10,4 @@ vim.keymap.set("n", "<Leader><Leader>s", "<cmd>LuaSnipEdit<cr>", { silent = true
 -- })
 
 ls.filetype_extend("NeogitCommitMessage", { "gitcommit" })
+ls.filetype_extend("typescriptreact", { "typescript" })

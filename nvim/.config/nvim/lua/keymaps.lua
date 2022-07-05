@@ -8,10 +8,10 @@ vim.keymap.set("n", "H", "_")
 vim.keymap.set("n", "L", "&")
 
 -- Window
-vim.keymap.set("n", "<Up>", ":resize +5<CR>")
-vim.keymap.set("n", "<Down>", ":resize -5<CR>")
-vim.keymap.set("n", "<Right>", ":vertical resize -20<CR>")
-vim.keymap.set("n", "<Left>", ":vertical resize +20<CR>")
+vim.keymap.set("n", "<Up>", ":resize +4<CR>")
+vim.keymap.set("n", "<Down>", ":resize -4<CR>")
+vim.keymap.set("n", "<Right>", ":vertical resize -10<CR>")
+vim.keymap.set("n", "<Left>", ":vertical resize +10<CR>")
 
 -- Buffers
 vim.keymap.set("n", "<leader>q", ":Bwipeout<CR>")

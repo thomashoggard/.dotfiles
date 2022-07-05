@@ -1,4 +1,7 @@
-require("catppuccin").setup({
+local colors = require 'catppuccin.api.colors'.get_colors() -- fetch colors with API
+local catppuccin = require("catppuccin")
+
+catppuccin.setup({
   -- transparent_background = false,
   term_colors = true,
   -- styles = {
@@ -67,6 +70,10 @@ require("catppuccin").setup({
     -- telekasten = false,
     symbols_outline = true,
   }
+})
+
+catppuccin.remap({
+  VertSplit = { fg = colors.pink },
 })
 
 -- vim.g.catppuccin_flavour = "mocha"

@@ -100,11 +100,11 @@ cmp.setup({
     }),
   },
   sources = {
+    { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "buffer" },
     { name = "path" },
     { name = "cmdline" },
-    { name = "luasnip" },
     { name = "nvim_lua" },
     -- { name = 'tzachar/cmp-tabnine' },
     { name = "nvim_lsp_signature_help" },

@@ -61,15 +61,15 @@ return require("packer").startup(function(use)
   })
 
   -- Buffer Management
-  use({
-    "akinsho/bufferline.nvim",
-    tag = "*",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("plugins.bufferline")
-    end,
-  })
-  use("moll/vim-bbye")
+  -- use({
+  --   "akinsho/bufferline.nvim",
+  --   tag = "*",
+  --   requires = "kyazdani42/nvim-web-devicons",
+  --   config = function()
+  --     require("plugins.bufferline")
+  --   end,
+  -- })
+  use("moll/vim-bbye") -- Delete buffers without closing it's window.
 
   -- Movement
   use("unblevable/quick-scope") -- Always-on highlight for a unique char in every word for f,F and family

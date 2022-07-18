@@ -7,6 +7,7 @@
 [core]
 	commitGraph = true
 	editor = nvim
+	ignorecase = false
 [init]
 	defaultBranch = main
 [push]

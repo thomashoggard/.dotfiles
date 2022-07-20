@@ -45,7 +45,18 @@ return require("packer").startup(function(use)
 
   -- Colorizations
   use("folke/lsp-colors.nvim")
-  use("p00f/nvim-ts-rainbow")
+  use({ "p00f/nvim-ts-rainbow",
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        highlight = {
+          -- ...
+        },
+        -- ...
+        rainbow = {
+          extended_mode = false,
+        }
+      }
+    end, })
   use("chrisbra/Colorizer") -- Color previews for hex, rgb, hsl values.
   use({
     "lewis6991/spellsitter.nvim", -- Add tree-sitter highlighting to misspelled words.
@@ -86,6 +97,13 @@ return require("packer").startup(function(use)
     "windwp/nvim-autopairs", -- Insert or delete brackets, params, quotes in pair.
     config = function()
       require("nvim-autopairs").setup()
+    end,
+  })
+
+  use({
+    "windwp/nvim-ts-autotag", -- Automatically add and rename html tags.
+    config = function()
+      require('nvim-ts-autotag').setup()
     end,
   })
 

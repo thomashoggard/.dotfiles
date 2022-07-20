@@ -11,7 +11,7 @@
 [init]
 	defaultBranch = main
 [push]
-	default = current
+	default = current ; Automatically set upstream branch when pushing.
 [pull]
 	rebase = true
 [alias]

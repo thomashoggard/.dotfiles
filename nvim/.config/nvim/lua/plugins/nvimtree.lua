@@ -15,4 +15,7 @@ require("nvim-tree").setup({
       resize_window = false,
     },
   },
+  filters = {
+    exclude = { '.env' }
+  }
 })

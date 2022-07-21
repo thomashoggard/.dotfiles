@@ -22,6 +22,7 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>")
 vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>")
 vim.keymap.set("n", "<leader>e", ":!open %:p:h<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ms", require("nvim-tree.marks.navigation").select)
 
 
 -- Find files using Telescope command-line sugar.

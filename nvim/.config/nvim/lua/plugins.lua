@@ -261,6 +261,8 @@ return require("packer").startup(function(use)
   })
 
   use("nvim-telescope/telescope-fzy-native.nvim")
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
   use("junegunn/fzf.vim")
   use("davidgranstrom/nvim-markdown-preview")
 

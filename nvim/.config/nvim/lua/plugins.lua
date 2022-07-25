@@ -146,13 +146,16 @@ return require("packer").startup(function(use)
   end }
 
   -- LSP server
+  use({ "williamboman/mason.nvim" })
+  use({ "williamboman/mason-lspconfig.nvim" })
+  use({ "WhoIsSethDaniel/mason-tool-installer.nvim" }) -- Automatically installs 3rd party tools
+
   use({
     "neovim/nvim-lspconfig", -- Collection of configs for built-in LSP client.
     config = function()
       require("lsp")
     end,
   })
-  use("williamboman/nvim-lsp-installer") -- Helper for installing most language servers
 
   use("folke/trouble.nvim") -- Show linting errors in a panel
   use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.

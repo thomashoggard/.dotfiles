@@ -37,6 +37,7 @@ vim.keymap.set("v", "<leader>fg", '"zy:Telescope live_grep default_text=<C-r>z<c
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")
 
 -- quick fix list
+vim.keymap.set("n", "<C-c>", ":cclose<CR>")
 vim.keymap.set("n", "<C-j>", ":cnext<CR>")
 vim.keymap.set("n", "<C-k>", ":cprev<CR>")
 

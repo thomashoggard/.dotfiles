@@ -31,17 +31,17 @@ return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
 
   -- Themes
-  -- use("Shatur/neovim-ayu")
   use("catppuccin/nvim")
+  -- use("Shatur/neovim-ayu")
+  -- use("sainnhe/gruvbox-material")
+  -- use("olimorris/onedarkpro.nvim")
   -- use("sainnhe/sonokai")
   -- use("yonlu/omni.vim")
   -- use("folke/tokyonight.nvim")
   -- use("rebelot/kanagawa.nvim")
   -- use("EdenEast/nightfox.nvim")
-  use("sainnhe/gruvbox-material")
   -- use("sainnhe/everforest")
   -- use 'navarasu/onedark.nvim'
-  use 'olimorris/onedarkpro.nvim'
 
   -- Colorizations
   use("folke/lsp-colors.nvim")

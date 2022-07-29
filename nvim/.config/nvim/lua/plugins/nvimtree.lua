@@ -8,13 +8,13 @@ require("nvim-tree").setup({
   view = {
     adaptive_size = true,
     hide_root_folder = true,
-    relativenumber = true,
+    -- relativenumber = true,
   },
-  actions = {
-    open_file = {
-      resize_window = false,
-    },
-  },
+  -- actions = {
+  --   open_file = {
+  --     resize_window = false,
+  --   },
+  -- },
   filters = {
     exclude = { '.env' }
   }

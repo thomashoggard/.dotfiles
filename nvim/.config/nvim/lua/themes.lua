@@ -32,7 +32,7 @@ catppuccin.setup({
   }
 })
 
--- vim.g.catppuccin_flavour = "mocha"
+vim.g.catppuccin_flavour = "mocha"
 vim.cmd [[colorscheme catppuccin]]
 
 -- require('onedark').setup {

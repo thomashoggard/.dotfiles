@@ -53,3 +53,10 @@ export VIM_CONFIG="$DOTFILES/nvim/.config/nvim/init.lua"
 
 source "$HOME/.zsh-additional-settings"
 
+light() {
+  kitty +kitten themes --reload-in=all Catppuccin-Latte
+}
+
+dark() {
+  kitty +kitten themes --reload-in=all Catppuccin-Mocha
+}

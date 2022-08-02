@@ -32,8 +32,23 @@ catppuccin.setup({
   }
 })
 
+-- Default theme
 vim.g.catppuccin_flavour = "mocha"
 vim.cmd [[colorscheme catppuccin]]
+
+function light()
+  vim.o.background = "light"
+  vim.cmd [[colorscheme gruvbox-material]]
+end
+
+function dark()
+  vim.o.background = "dark"
+  vim.cmd [[colorscheme catppuccin]]
+end
+
+vim.cmd("command Light silent lua light()")
+vim.cmd("command Dark silent lua dark()")
+
 
 -- require('onedark').setup {
 --   style = 'deep'
@@ -50,7 +65,3 @@ vim.cmd [[colorscheme catppuccin]]
 -- Set git merge marker highlights - See :h diff.txt
 vim.api.nvim_set_hl(0, 'DiffText', { fg = "#ffffff", bg = "#1d3b40" })
 vim.api.nvim_set_hl(0, 'DiffAdd', { fg = "#ffffff", bg = "#1d3450" })
-
--- Unset diff highlight groups
--- DiffChange
--- DiffDelete

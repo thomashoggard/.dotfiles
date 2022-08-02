@@ -33,7 +33,7 @@ return require("packer").startup(function(use)
   -- Themes
   use("catppuccin/nvim")
   -- use("Shatur/neovim-ayu")
-  -- use("sainnhe/gruvbox-material")
+  use("sainnhe/gruvbox-material")
   -- use("olimorris/onedarkpro.nvim")
   -- use("sainnhe/sonokai")
   -- use("yonlu/omni.vim")

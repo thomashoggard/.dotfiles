@@ -1,3 +1,5 @@
+vim.g.catppuccin_flavour = "mocha"
+
 local colors = require("catppuccin.palettes").get_palette()
 local catppuccin = require("catppuccin")
 
@@ -33,7 +35,6 @@ catppuccin.setup({
 })
 
 -- Default theme
-vim.g.catppuccin_flavour = "mocha"
 vim.cmd [[colorscheme catppuccin]]
 
 function light()

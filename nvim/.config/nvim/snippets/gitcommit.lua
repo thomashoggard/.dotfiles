@@ -2,79 +2,81 @@ local ls = require "luasnip"
 
 local s = ls.s --> snippet
 local i = ls.i --> insert node
+local c = ls.c --> choice node
+local t = ls.t --> text node
 local fmt = require("luasnip.extras.fmt").fmt
 
 local snippets, autosnippets = {}, {}
 
 local conventionalCommit = s("cc", fmt([[
-{}({}): {}
+{}{}: {}
 ]], {
   i(1, "type"),
-  i(2, "scope"),
+  c(2, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(3, "title"),
 }))
 table.insert(snippets, conventionalCommit)
 
 local fixConventionalCommit = s("fix", fmt([[
-fix({}): {}
+fix{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, fixConventionalCommit)
 
 local featConventionalCommit = s("feat", fmt([[
-feat({}): {}
+feat{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, featConventionalCommit)
 
 local buildConventionalCommit = s("build", fmt([[
-build({}): {}
+build{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, buildConventionalCommit)
 
 local choreConventionalCommit = s("chore", fmt([[
-chore({}): {}
+chore{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, choreConventionalCommit)
 
 local docsConventionalCommit = s("docs", fmt([[
-docs({}): {}
+docs{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, docsConventionalCommit)
 
 local refactorConventionalCommit = s("refactor", fmt([[
-refactor({}): {}
+refactor{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, refactorConventionalCommit)
 
 local performanceConventionalCommit = s("perf", fmt([[
-perf({}): {}
+perf{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, performanceConventionalCommit)
 
 local testConventionalCommit = s("test", fmt([[
-test({}): {}
+test{}: {}
 ]], {
-  i(1, "scope"),
+  c(1, { t(""), fmt([[({})]], { i(1, "scope") }) }),
   i(2, "title"),
 }))
 table.insert(snippets, testConventionalCommit)

@@ -71,6 +71,8 @@ return require("packer").startup(function(use)
     end,
   })
 
+  use("numToStr/FTerm.nvim") -- Floating terminal
+
   -- Buffer Management
   -- use({
   --   "akinsho/bufferline.nvim",

@@ -30,4 +30,29 @@ const [<>, set<>] = React.useState(<>)
 }))
 table.insert(snippets, useState)
 
+-- local useContext = s("uc", fmt([[
+-- export type Context = {} | undefined;
+--
+-- const {}Context = React.createContext<Context>(undefined);
+--
+-- export const {}Provider = {}Context.Provider;
+--
+-- export function use{}() {{
+--   const context = React.useContext({}Context);
+--   if (context === undefined) {{
+--     throw new Error('use{} must be used within a {}Provider');
+--   }}
+--   return context;
+-- }}
+-- ]], {
+--   i(2, ""),
+--   i(1, ""),
+--   rep(2),
+--   rep(2),
+--   rep(2),
+--   rep(2),
+--   rep(2),
+-- }))
+-- table.insert(snippets, useContext)
+
 return snippets, autosnippets

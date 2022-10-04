@@ -60,8 +60,7 @@ vim.cmd("command Dark silent lua dark()")
 --   dark_theme = 'onedark_dark'
 -- })
 
--- vim.g.everforest_background = "hard"
--- vim.cmd([[colorscheme everforest]])
+vim.g.everforest_background = "hard"
 
 -- Set git merge marker highlights - See :h diff.txt
 vim.api.nvim_set_hl(0, 'DiffText', { fg = "#ffffff", bg = "#1d3b40" })

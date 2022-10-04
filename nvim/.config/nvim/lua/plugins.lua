@@ -34,13 +34,13 @@ return require("packer").startup(function(use)
   use("catppuccin/nvim")
   -- use("Shatur/neovim-ayu")
   use("sainnhe/gruvbox-material")
+  use("sainnhe/everforest")
   -- use("olimorris/onedarkpro.nvim")
   -- use("sainnhe/sonokai")
   -- use("yonlu/omni.vim")
   -- use("folke/tokyonight.nvim")
   -- use("rebelot/kanagawa.nvim")
   -- use("EdenEast/nightfox.nvim")
-  -- use("sainnhe/everforest")
   -- use 'navarasu/onedark.nvim'
 
   -- Colorizations

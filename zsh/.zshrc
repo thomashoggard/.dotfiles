@@ -28,7 +28,7 @@ alias vim="nvim"
 
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="dracula"
+ZSH_THEME="robbyrussell"
 
 plugins=(git colorize tmux aws docker)
 

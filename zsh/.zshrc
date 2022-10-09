@@ -60,3 +60,7 @@ light() {
 dark() {
   kitty +kitten themes --reload-in=all Catppuccin-Mocha
 }
+
+path+=("$HOME/.local/bin")
+
+export PATH

@@ -52,12 +52,6 @@ return require("packer").startup(function(use)
     end, })
   use("chrisbra/Colorizer") -- Color previews for hex, rgb, hsl values.
   use({
-    "lewis6991/spellsitter.nvim", -- Add tree-sitter highlighting to misspelled words.
-    config = function()
-      require("spellsitter").setup()
-    end,
-  })
-  use({
     "lukas-reineke/indent-blankline.nvim", -- Add indentation line guides.
     config = function()
       require("plugins.indent-blankline")

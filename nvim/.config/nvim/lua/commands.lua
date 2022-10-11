@@ -19,3 +19,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     })
   end
 })
+
+-- Take camel case into consideration for spell checker
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("spell", { clear = true }),
+  callback = function()
+    vim.opt_local.spelloptions:append("camel")
+  end
+})

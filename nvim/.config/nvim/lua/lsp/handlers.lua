@@ -125,7 +125,7 @@ local function lsp_keymaps(bufnr)
   vim.cmd([[ command! SaveWithoutFormat execute 'noautocmd w' ]])
 
   -- Automatically format file on save
-  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
 end
 
 M.on_attach = function(client, bufnr)

@@ -8,19 +8,19 @@ vim.keymap.set("n", "H", "_")
 vim.keymap.set("n", "L", "&")
 
 -- Window
-vim.keymap.set("n", "<Up>", ":resize +4<CR>")
-vim.keymap.set("n", "<Down>", ":resize -4<CR>")
-vim.keymap.set("n", "<Right>", ":vertical resize -10<CR>")
-vim.keymap.set("n", "<Left>", ":vertical resize +10<CR>")
+vim.keymap.set("n", "<Up>", ":resize +4<CR>", { silent = true })
+vim.keymap.set("n", "<Down>", ":resize -4<CR>", { silent = true })
+vim.keymap.set("n", "<Right>", ":vertical resize -10<CR>", { silent = true })
+vim.keymap.set("n", "<Left>", ":vertical resize +10<CR>", { silent = true })
 
 -- Buffers
 vim.keymap.set("n", "<leader>q", ":Bwipeout<CR>")
 
 -- Files & Search
 vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>")
-vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>", { silent = true })
+vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>e", ":!open %:p:h<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ms", require("nvim-tree.marks.navigation").select)
 
@@ -31,7 +31,7 @@ vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep)
 vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers)
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags)
 -- Takes current selection and puts into telescope
-vim.keymap.set("v", "<leader>fg", '"zy:Telescope live_grep default_text=<C-r>z<cr>')
+vim.keymap.set("v", "<leader>fg", '"zy:Telescope live_grep default_text=<C-r>z<cr>', { silent = true })
 
 -- Make current file executable
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")

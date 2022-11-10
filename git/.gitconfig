@@ -19,6 +19,7 @@
   fpush = push --force-with-lease
   blog = log main.. --oneline
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
+  odiff = !sh -c 'git diff origin/$(git branch --show-current)'
 [pager]
   diff = delta
   log = delta

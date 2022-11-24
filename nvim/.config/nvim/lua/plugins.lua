@@ -28,6 +28,7 @@ return require("packer").startup(function(use)
   -- use("Shatur/neovim-ayu")
   use("sainnhe/gruvbox-material")
   use("sainnhe/everforest")
+  use 'rmehri01/onenord.nvim'
   -- use("olimorris/onedarkpro.nvim")
   -- use("sainnhe/sonokai")
   -- use("yonlu/omni.vim")
@@ -59,17 +60,8 @@ return require("packer").startup(function(use)
   })
 
   use("numToStr/FTerm.nvim") -- Floating terminal
-
-  -- Buffer Management
-  -- use({
-  --   "akinsho/bufferline.nvim",
-  --   tag = "*",
-  --   requires = "kyazdani42/nvim-web-devicons",
-  --   config = function()
-  --     require("plugins.bufferline")
-  --   end,
-  -- })
   use("moll/vim-bbye") -- Delete buffers without closing it's window.
+  use('simnalamburt/vim-mundo') -- undotree navigation
 
   -- Movement
   use("unblevable/quick-scope") -- Always-on highlight for a unique char in every word for f,F and family
@@ -190,22 +182,6 @@ return require("packer").startup(function(use)
     end,
   })
 
-  -- use({
-  --   "rafamadriz/friendly-snippets",
-  --   config = function()
-  --     -- require("luasnip.loaders.from_vscode").lazy_load()
-  --     require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } }) -- Load snippets from my-snippets folder
-  --   end
-  -- })
-
-
-  -- Finish setting up.
-  --use({
-  --	"kosayoda/nvim-lightbulb",
-  --	config = function()
-  --		require("plugins.nvim-lightbulb")
-  --	end,
-  --})
   -- use({'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'})
 
   -- statusline

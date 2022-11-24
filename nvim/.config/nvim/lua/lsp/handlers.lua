@@ -18,7 +18,6 @@ M.setup = function()
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
 
-  -- TODO: Configure options.
   local config = {
     virtual_text = false,
     signs = {

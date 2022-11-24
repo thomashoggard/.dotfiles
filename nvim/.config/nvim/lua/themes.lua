@@ -4,25 +4,25 @@ local colors = require("catppuccin.palettes").get_palette()
 local catppuccin = require("catppuccin")
 
 catppuccin.setup({
-  custom_highlights = {
-    VertSplit = { fg = colors.pink },
-  },
+  -- custom_highlights = {
+  --   VertSplit = { fg = colors.pink },
+  -- },
   -- transparent_background = false,
   term_colors = true,
-  -- styles = {
-  --   comments = "italic",
-  --   conditionals = "italic",
-  --   loops = "NONE",
-  --   functions = "NONE",
-  --   keywords = "NONE",
-  --   strings = "NONE",
-  --   variables = "NONE",
-  --   numbers = "NONE",
-  --   booleans = "NONE",
-  --   properties = "NONE",
-  --   types = "NONE",
-  --   operators = "NONE",
-  -- },
+  styles = {
+    comments = { "italic" },
+    conditionals = { "italic" },
+    loops = {},
+    functions = {},
+    keywords = {},
+    strings = {},
+    variables = {},
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = {},
+    operators = {},
+  },
   integrations = {
     lsp_trouble = true,
     cmp = true,

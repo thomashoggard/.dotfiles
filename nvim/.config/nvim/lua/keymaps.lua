@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+
 vim.keymap.set("i", "jk", "<Esc>")
 
 -- Strong left & right
@@ -15,6 +16,9 @@ vim.keymap.set("n", "<Left>", ":vertical resize +10<CR>", { silent = true })
 
 -- Buffers
 vim.keymap.set("n", "<leader>q", ":Bwipeout<CR>")
+
+-- Undo
+vim.keymap.set('n', "<F5>", ":MundoToggle<CR>", { silent = true })
 
 -- Files & Search
 vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")

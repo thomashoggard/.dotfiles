@@ -10,7 +10,8 @@ local servers = {
   "html",
   "bashls",
   "yamlls",
-  "dockerls"
+  "dockerls",
+  "denols"
 }
 
 local tools = {

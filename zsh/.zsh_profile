@@ -1,4 +1,8 @@
 bindkey -s "^f" "tmux-sessionizer\n"
 
+# kitty
+# bindkey "\e[1;3D" backward-word # ⌥←
+# bindkey "\e[1;3C" forward-word # ⌥→
+
 GPG_TTY=$(tty)
 export GPG_TTY

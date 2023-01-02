@@ -1,6 +1,6 @@
 [submodule "personal"]
 	path = personal
-	url = https://github.com/thomashoggard/.dotfiles-personal.git
+	url = git@github.com:thomashoggard/.dotfiles-personal.git
 [submodule "league"]
 	path = league
-	url = https://github.com/thomashoggard/.dotfiles-league.git
+	url = git@github.com:thomashoggard/.dotfiles-league.git

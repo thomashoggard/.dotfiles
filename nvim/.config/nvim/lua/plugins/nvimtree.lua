@@ -1,5 +1,4 @@
 require("nvim-tree").setup({
-  create_in_closed_folder = true,
   open_on_setup = true,
   -- renderer = {
   --   indent_markers = {

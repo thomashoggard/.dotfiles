@@ -51,6 +51,8 @@ source $HOME/.zsh_profile
 
 export VIM_CONFIG="$DOTFILES/nvim/.config/nvim/init.lua"
 
+source /usr/share/nvm/init-nvm.sh
+
 source "$HOME/.zsh-additional-settings"
 
 light() {

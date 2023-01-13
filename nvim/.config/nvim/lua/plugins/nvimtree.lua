@@ -1,21 +1,19 @@
-require("nvim-tree").setup({
-  open_on_setup = true,
-  -- renderer = {
-  --   indent_markers = {
-  --     enable = true,
-  --   },
-  -- },
-  view = {
-    adaptive_size = true,
-    hide_root_folder = true,
-    -- relativenumber = true,
+return {
+  {
+    "kyazdani42/nvim-tree.lua",
+    lazy = false,
+    keys = {
+      { "<C-n>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle nvim-tree", silent = true },
+      { "<leader>r", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh nvim-tree", silent = true },
+      { "<leader>n", "<cmd>NvimTreeFindFile<CR>", desc = "Find find", silent = true },
+    },
+    opts = {
+      open_on_setup = true,
+      view = {
+        adaptive_size = true,
+        hide_root_folder = true,
+      },
+    }
   },
-  -- actions = {
-  --   open_file = {
-  --     resize_window = false,
-  --   },
-  -- },
-  filters = {
-    exclude = { '.env' }
-  }
-})
+  { "nvim-tree/nvim-web-devicons" }
+}

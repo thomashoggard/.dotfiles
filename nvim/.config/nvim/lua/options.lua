@@ -15,15 +15,23 @@ opt.ignorecase = true -- Make searching case insensitive
 opt.smartcase = true -- ^unless the query has capital letters
 opt.splitright = true -- Split new vertical windows to the right
 opt.splitbelow = true -- Split new horizontal windows to the bottom
+opt.scrolloff = 12
+opt.autoindent = true
+opt.completeopt = "menu,menuone,noselect"
+opt.spell = true
+opt.updatetime = 50
+opt.pumheight = 10 -- Maximum number of items to show in popups (cmp)
+opt.fillchars:append('diff:╱')
+
+-- Indent
 opt.expandtab = true -- Convert tabs to spaces.
 opt.shiftwidth = 2
 opt.tabstop = 2
 opt.softtabstop = 2
-opt.scrolloff = 12
 opt.smartindent = true
-opt.autoindent = true
-opt.completeopt = "menu,menuone,noselect"
+
+-- Undo
 opt.swapfile = false
-opt.spell = true
-opt.pumheight = 10 -- Maximum number of items to show in popups (cmp)
-opt.fillchars:append('diff:╱')
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+opt.undofile = true

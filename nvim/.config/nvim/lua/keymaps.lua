@@ -1,6 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 vim.keymap.set("i", "jk", "<Esc>")
 
 -- TODO: Add ability to switch between buffers quickly, maybe like how we do the quick fix list?

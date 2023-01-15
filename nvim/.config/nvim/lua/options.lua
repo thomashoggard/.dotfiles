@@ -1,27 +1,29 @@
--- Visual
-vim.o.relativenumber = true -- Show relative line numbers
-vim.o.number = true -- Show line numbers in the gutter
-vim.o.wrap = false -- Disable text wrap
-vim.o.cursorline = true -- highlight the line containing the cursor
-vim.o.termguicolors = true
-vim.o.laststatus = 3 -- Enable the global statusline
-vim.wo.signcolumn = "yes" -- Always draw the sign column
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- Behaviour
-vim.o.mouse = "a" -- Enable mouse scrolling
-vim.o.ignorecase = true -- Make searching case insensitive
-vim.o.smartcase = true -- ^unless the query has capital letters
-vim.o.splitright = true -- Split new vertical windows to the right
-vim.o.splitbelow = true -- Split new horizontal windows to the bottom
-vim.o.expandtab = true -- Convert tabs to spaces.
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.scrolloff = 12
-vim.o.smartindent = true
-vim.o.autoindent = true
-vim.o.completeopt = "menu,menuone,noselect"
-vim.o.swapfile = false
-vim.o.spell = true
-vim.o.pumheight = 30 -- Maximum number of items to show in popups (cmp)
-vim.opt.fillchars:append('diff:╱')
+local opt = vim.opt
+
+opt.relativenumber = true -- Show relative line numbers
+opt.number = true -- Show line numbers in the gutter
+opt.wrap = false -- Disable text wrap
+opt.cursorline = true -- highlight the line containing the cursor
+opt.termguicolors = true
+opt.laststatus = 3 -- Enable the global statusline
+opt.signcolumn = "yes" -- Always draw the sign column
+opt.mouse = "a" -- Enable mouse scrolling
+opt.ignorecase = true -- Make searching case insensitive
+opt.smartcase = true -- ^unless the query has capital letters
+opt.splitright = true -- Split new vertical windows to the right
+opt.splitbelow = true -- Split new horizontal windows to the bottom
+opt.expandtab = true -- Convert tabs to spaces.
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.scrolloff = 12
+opt.smartindent = true
+opt.autoindent = true
+opt.completeopt = "menu,menuone,noselect"
+opt.swapfile = false
+opt.spell = true
+opt.pumheight = 10 -- Maximum number of items to show in popups (cmp)
+opt.fillchars:append('diff:╱')

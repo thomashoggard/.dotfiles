@@ -22,16 +22,17 @@ return {
     }
   },
   {
-    "simnalamburt/vim-mundo",
+    "mbbill/undotree",
+    cmd = "UndotreeToggle",
     keys = {
-      { "<F5>", ":MundoToggle<cr>", silent = true }
+      { "<F5>", ":UndotreeToggle<CR>", silent = true }
     }
   },
   {
     -- Delete buffers without closing it's window.
     "moll/vim-bbye",
     keys = {
-      { "<leader>q", ":Bwipeout<cr>", silent = true }
+      { "<leader>q", ":Bwipeout<CR>", silent = true }
     }
   }
 }

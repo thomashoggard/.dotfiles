@@ -21,3 +21,26 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spelloptions:append("camel")
   end
 })
+
+-- Format on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    vim.lsp.buf.format()
+  end
+})
+
+-- Format the current buffer
+vim.api.nvim_create_user_command("Format",
+  function()
+    vim.lsp.buf.format()
+  end,
+  {}
+)
+
+-- Save the current buffer without running the autocmd formatter.
+vim.api.nvim_create_user_command("SaveWithoutFormat",
+  function()
+    vim.api.nvim_exec('noautocmd w', false)
+  end,
+  {}
+)

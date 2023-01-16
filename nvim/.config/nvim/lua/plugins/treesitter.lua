@@ -4,20 +4,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "bash",
-          "javascript",
-          "json",
-          "lua",
-          "typescript",
-          "tsx",
-          "css",
-          "yaml",
-          "dockerfile",
-          "go",
-          "markdown",
-          "bash",
-        },
+        -- TODO: Do I still need highlight, or is this a default?
         highlight = {
           enable = true,
         },

@@ -55,6 +55,25 @@ return {
         "html",
       })
 
+      -- Configure sumneko_lua to understand nvim config files.
+      lsp.configure('sumneko_lua', {
+        settings = {
+          Lua = {
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = { "vim" },
+            },
+            workspace = {
+              -- Make the server aware of Neovim runtime files
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true,
+              },
+            },
+          },
+        },
+      })
+
       -- Connect json LSP to JSON schemastore.
       lsp.configure('jsonls', {
         settings = {

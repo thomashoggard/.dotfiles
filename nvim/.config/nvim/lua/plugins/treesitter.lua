@@ -1,13 +1,9 @@
--- TODO: Review this config, ensure it still makes sense.
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("nvim-treesitter.configs").setup({
-        -- TODO: Do I still need highlight, or is this a default?
-        highlight = {
-          enable = true,
-        },
+        ensure_installed = "all",
         context_commentstring = {
           enable = true,
         },

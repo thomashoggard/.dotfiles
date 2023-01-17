@@ -35,7 +35,6 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
       "saadparwaiz1/cmp_luasnip",
-      -- "hrsh7th/cmp-nvim-lsp-signature-help", -- Highlight current parameter in function signature.
     },
     config = function()
       local luasnip = require("luasnip")

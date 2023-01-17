@@ -15,6 +15,15 @@ return {
       },
       -- Adds VSCode pictograms to cmp.
       { "onsails/lspkind-nvim" },
+      -- Show function signatures when you type.
+      {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+          require("lsp_signature").setup()
+        end,
+      },
+      -- Add https://github.com/b0o/schemastore.nvim types for JSON
+      { "b0o/schemastore.nvim" },
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
@@ -44,6 +53,16 @@ return {
         "sumneko_lua",
         "prismals",
         "html",
+      })
+
+      -- Connect json LSP to JSON schemastore.
+      lsp.configure('jsonls', {
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+          },
+        }
       })
 
       lsp.setup()

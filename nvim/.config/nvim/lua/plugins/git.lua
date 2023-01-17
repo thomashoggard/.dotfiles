@@ -28,7 +28,10 @@ return {
     }
   },
   {
-    "TimUntersberger/neogit",
+    "timuntersberger/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    },
     keys = {
       { "<leader>gg", ":Neogit<cr>" },
       { "<leader>gl", ":Neogit log<cr>" },

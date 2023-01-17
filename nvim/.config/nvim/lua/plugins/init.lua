@@ -9,7 +9,8 @@ return {
       keys = "etovxqpdygfblzhckisuran"
     }
   },
-  { "unblevable/quick-scope" }, -- Always-on highlight for a unique char in every word for f,F and family
+  -- Always-on highlight for a unique char in every word for f,F and family
+  { "unblevable/quick-scope" },
   { -- Insert or delete brackets, params, quotes in pair.
     "windwp/nvim-autopairs",
     config = function()
@@ -28,7 +29,8 @@ return {
       require("nvim-surround").setup()
     end
   },
-  { "folke/trouble.nvim" }, -- Show linting errors in a panel
+  -- Show linting errors in a panel
+  { "folke/trouble.nvim" },
   {
     "weilbith/nvim-code-action-menu",
     cmd = "CodeActionMenu",

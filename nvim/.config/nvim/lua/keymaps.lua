@@ -6,13 +6,6 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set({ "n", "v" }, "H", "_")
 vim.keymap.set({ "n", "v" }, "L", "g_")
 
--- TODO: Currently C-k and C-j are already bound.
--- Move to window using the <ctrl> hjkl keys
--- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
--- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
--- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
--- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
-
 -- Files & Search
 vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
 -- vim.keymap.set("n", "<leader>e", ":!open %:p:h<CR>", { silent = true })

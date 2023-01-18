@@ -3,7 +3,6 @@ return {
     "williamboman/mason.nvim",
     lazy = false,
     config = function()
-      -- TODO: Is there a way to tell lazy.nvim that "mason" is the setup we should call.
       require("mason").setup()
     end,
   },

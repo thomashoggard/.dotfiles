@@ -64,7 +64,6 @@ return {
     }
   },
   {
-    -- TODO: Verify git mergetool still works with conflicts
     "akinsho/git-conflict.nvim",
     opts = {
       default_mappings = true, -- disable buffer local mapping created by this plugin

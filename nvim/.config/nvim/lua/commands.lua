@@ -22,6 +22,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+-- Stop nvim from adding a comment to a new line when using 'o' or 'O'.
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt_local.formatoptions:remove("o")
+  end
+})
+
 -- Format on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()

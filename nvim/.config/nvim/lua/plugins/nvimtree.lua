@@ -8,7 +8,6 @@ return {
       { "<leader>n", "<cmd>NvimTreeFindFile<CR>", desc = "Find find", silent = true },
     },
     opts = {
-      open_on_setup = true,
       view = {
         adaptive_size = true,
         hide_root_folder = true,

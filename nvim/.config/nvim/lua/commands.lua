@@ -51,3 +51,21 @@ vim.api.nvim_create_user_command("SaveWithoutFormat",
   end,
   {}
 )
+
+-- Switches the colorscheme to light mode.
+vim.api.nvim_create_user_command("Light",
+  function()
+    vim.o.background = "light"
+    vim.cmd [[colorscheme gruvbox-material]]
+  end,
+  {}
+)
+
+-- Switches the colorscheme to dark mode.
+vim.api.nvim_create_user_command("Dark",
+  function()
+    vim.o.background = "dark"
+    vim.cmd [[colorscheme catppuccin]]
+  end,
+  {}
+)

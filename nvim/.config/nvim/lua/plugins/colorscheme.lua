@@ -1,19 +1,3 @@
-vim.api.nvim_create_user_command("Light",
-  function()
-    vim.o.background = "light"
-    vim.cmd [[colorscheme gruvbox-material]]
-  end,
-  {}
-)
-
-vim.api.nvim_create_user_command("Dark",
-  function()
-    vim.o.background = "dark"
-    vim.cmd [[colorscheme catppuccin]]
-  end,
-  {}
-)
-
 return {
   {
     "catppuccin/nvim",

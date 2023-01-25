@@ -8,7 +8,6 @@ vim.api.nvim_set_hl(0, 'DiffText', { fg = "#ffffff", bg = "#1d3b40" })
 vim.api.nvim_set_hl(0, 'DiffAdd', { fg = "#ffffff", bg = "#1d3450" })
 
 return {
-  { "tpope/vim-fugitive", cmd = "G" },
   {
     -- Git blame virtual text, code change markers.
     "lewis6991/gitsigns.nvim",
@@ -29,6 +28,7 @@ return {
   },
   {
     "timuntersberger/neogit",
+    cmd = "Neogit",
     dependencies = {
       "nvim-lua/plenary.nvim"
     },

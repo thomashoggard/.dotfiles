@@ -49,3 +49,12 @@ statusline
 Memoizing
 everlong
 cr
+nvimdiff
+cmd
+nvimdiff
+mergetool
+diffoff
+wincmd
+colorscheme
+catppuccin
+gruvbox

@@ -29,10 +29,14 @@
   diffFilter = delta --color-only --features=interactive
 [delta]
   side-by-side = true
-[merge]
-	tool = fugitive
 [mergetool]
 	keepBackup = false
-[mergetool "fugitive"]
-  cmd = nvim -c \"G mergetool\"
 	trustExitCode = true
+[mergetool "nvimdiff4"]
+  cmd = nvim $MERGED
+[merge]
+	tool = nvimdiff4
+; [merge]
+; 	tool = nvimdiff
+; [mergetool "vimdiff"]
+;   layout = "(LOCAL,REMOTE)/MERGED"

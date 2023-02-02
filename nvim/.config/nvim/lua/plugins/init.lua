@@ -11,13 +11,15 @@ return {
   },
   -- Always-on highlight for a unique char in every word for f,F and family
   { "unblevable/quick-scope" },
-  { -- Insert or delete brackets, params, quotes in pair.
+  -- Insert or delete brackets, params, quotes in pair.
+  {
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup()
     end
   },
-  { -- Automatically add and rename html tags.
+  -- Automatically add and rename html tags.
+  {
     "windwp/nvim-ts-autotag",
     config = function()
       require("nvim-ts-autotag").setup()
@@ -45,11 +47,25 @@ return {
       { "<F5>", ":UndotreeToggle<CR>", silent = true }
     }
   },
+  -- Delete buffers without closing it's window.
   {
-    -- Delete buffers without closing it's window.
     "moll/vim-bbye",
     keys = {
       { "<leader>q", ":Bwipeout<CR>", silent = true }
     }
-  }
+  },
+  -- More pretty quickfix list.
+  {
+    "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+    config = function()
+      require("pqf").setup()
+    end
+  },
+  -- Center currently focused buffer to the middle of the screen.
+  -- {
+  --   "shortcuts/no-neck-pain.nvim",
+  --   opts = {
+  --     width = 150
+  --   }
+  -- }
 }

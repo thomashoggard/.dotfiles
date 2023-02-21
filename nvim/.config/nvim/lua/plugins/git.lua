@@ -1,8 +1,3 @@
--- Git
--- vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit!<CR>")
--- vim.keymap.set("n", "<leader>gf", ":diffget //2<CR>")
--- vim.keymap.set("n", "<leader>gj", ":diffget //3<CR>")
-
 -- Set git merge marker highlights - See :h diff.txt
 vim.api.nvim_set_hl(0, 'DiffText', { fg = "#ffffff", bg = "#1d3b40" })
 vim.api.nvim_set_hl(0, 'DiffAdd', { fg = "#ffffff", bg = "#1d3450" })
@@ -38,29 +33,6 @@ return {
     },
     opts = {
       disable_commit_confirmation = true,
-      -- sections = {
-      -- untracked = {
-      --   folded = true
-      -- },
-      -- unstaged = {
-      --   folded = true
-      -- },
-      -- staged = {
-      --   folded = true
-      -- },
-      -- stashes = {
-      --   folded = true
-      -- },
-      -- unpulled = {
-      --   folded = true
-      -- },
-      -- unmerged = {
-      --   folded = true
-      -- },
-      -- recent = {
-      --   folded = true
-      -- },
-      -- },
     }
   },
   {

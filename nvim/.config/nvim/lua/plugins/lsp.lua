@@ -50,13 +50,13 @@ return {
       lsp.ensure_installed({
         "tsserver",
         "jsonls",
-        "sumneko_lua",
+        "lua_ls",
         "prismals",
         "html",
       })
 
       -- Configure sumneko_lua to understand nvim config files.
-      lsp.configure('sumneko_lua', {
+      lsp.configure('lua_ls', {
         settings = {
           Lua = {
             diagnostics = {

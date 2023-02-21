@@ -61,11 +61,4 @@ return {
       require("pqf").setup()
     end
   },
-  -- Center currently focused buffer to the middle of the screen.
-  -- {
-  --   "shortcuts/no-neck-pain.nvim",
-  --   opts = {
-  --     width = 150
-  --   }
-  -- }
 }

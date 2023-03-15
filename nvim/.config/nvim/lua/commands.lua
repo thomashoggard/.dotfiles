@@ -69,3 +69,11 @@ vim.api.nvim_create_user_command("Dark",
   end,
   {}
 )
+
+-- Delete all buffers
+vim.api.nvim_create_user_command("Bd",
+  function()
+    vim.cmd [[%bd]]
+  end,
+  {}
+)

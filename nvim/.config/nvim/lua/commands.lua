@@ -77,3 +77,10 @@ vim.api.nvim_create_user_command("Bd",
   end,
   {}
 )
+
+-- Open nvim-tree on startup
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    require("nvim-tree.api").tree.open()
+  end
+})

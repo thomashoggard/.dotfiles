@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-  # selected=$((find ~/repos ~/repos/league-web/modules -mindepth 1 -maxdepth 1 -type d && echo "~/.dotfiles") | fzf)
-  selected=$((find ~ ~/Documents ~/repos ~/repos/league-web/modules ~/repos/league-web/capabilities -mindepth 1 -maxdepth 1 -type d) | fzf)
+  selected=$((cat "$HOME/tmux-sessionizer-directories.txt" | xargs -I% find ~ "$HOME/%" -mindepth 1 -maxdepth 1 -type d) | fzf)
 fi
 
 if [[ -z $selected ]]; then

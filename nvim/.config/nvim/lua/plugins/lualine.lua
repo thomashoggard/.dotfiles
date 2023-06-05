@@ -2,22 +2,14 @@ return {
   {
     "hoob3rt/lualine.nvim",
     opts = {
-      winbar = {
-        lualine_a = {},
-        lualine_b = {},
+      sections = {
         lualine_c = { 'filename' },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
+        lualine_x = { 'filetype' },
       },
-      inactive_winbar = {
-        lualine_a = {},
-        lualine_b = {},
+      inactive_sections = {
         lualine_c = { 'filename' },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-      }
+        lualine_x = { 'filetype' },
+      },
     }
   }
 }

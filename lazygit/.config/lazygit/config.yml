@@ -1,8 +1,8 @@
 gui:
-  expandFocusedSidePanel: true
+  # expandFocusedSidePanel: true
   showIcons: true
   showRandomTip: false
-  showBottomLine: true 
+  showBottomLine: true
   theme:
     selectedLineBgColor:
       - black
@@ -10,4 +10,4 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
-promptToReturnFromSubprocess: false
+# promptToReturnFromSubprocess: false

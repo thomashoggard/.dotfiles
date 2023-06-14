@@ -29,7 +29,8 @@
 [interactive]
   diffFilter = delta --color-only --features=interactive
 [delta]
-  side-by-side = true
+  side-by-side = false
+  diff-so-fancy = false
 [mergetool]
 	keepBackup = false
 	trustExitCode = true

@@ -6,9 +6,18 @@ return {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {},  -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = {      -- Manages Neorg workspaces
+          ["core.defaults"] = {},
+          ["core.concealer"] = {
+            config = {
+              icons = {
+                code_block = {
+                  conceal = true,
+                  width = 'content'
+                }
+              }
+            }
+          },
+          ["core.dirman"] = {
             config = {
               workspaces = {
                 league = "~/notes/league",

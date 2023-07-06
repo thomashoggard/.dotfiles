@@ -4,9 +4,6 @@ return {
     name = "catppuccin",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme catppuccin]])
-    end,
     opts = {
       flavour = "mocha",
       term_colors = true,
@@ -25,5 +22,11 @@ return {
     config = function()
       vim.g.everforest_background = "hard"
     end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "everforest",
+    },
   }
 }

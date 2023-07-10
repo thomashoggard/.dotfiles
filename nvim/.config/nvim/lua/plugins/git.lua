@@ -29,7 +29,7 @@ return {
     }
   },
   {
-    "timuntersberger/neogit",
+    "NeogitOrg/neogit",
     cmd = "Neogit",
     dependencies = {
       "nvim-lua/plenary.nvim"

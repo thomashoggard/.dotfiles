@@ -12,7 +12,10 @@ return {
         lsp_trouble = true,
         neogit = true,
       }
-    }
+    },
+    config = function()
+      vim.cmd [[colorscheme catppuccin]]
+    end
   },
   {
     "sainnhe/gruvbox-material"
@@ -21,12 +24,7 @@ return {
     "sainnhe/everforest",
     config = function()
       vim.g.everforest_background = "hard"
+      -- vim.cmd [[colorscheme everforest]]
     end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "everforest",
-    },
   }
 }

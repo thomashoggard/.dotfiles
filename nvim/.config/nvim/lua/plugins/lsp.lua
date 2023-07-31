@@ -55,6 +55,11 @@ return {
         "html",
       })
 
+      local util = require('lspconfig.util');
+      lsp.configure('tsserver', {
+        root_dir = util.root_pattern('.git')
+      })
+
       -- Configure sumneko_lua to understand nvim config files.
       lsp.configure('lua_ls', {
         settings = {

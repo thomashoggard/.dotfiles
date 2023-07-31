@@ -17,6 +17,10 @@ return {
       view = {
         adaptive_size = true,
       },
+      git = {
+        -- Increasing the timeout to support large projects
+        timeout = 5000
+      }
     }
   },
 }

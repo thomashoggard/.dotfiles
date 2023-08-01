@@ -7,14 +7,23 @@ return {
     opts = {
       flavour = "mocha",
       term_colors = true,
+      transparent_background = false,
       integrations = {
         hop = true,
         lsp_trouble = true,
         neogit = true,
-      }
+      },
+      color_overrides = {
+        mocha = {
+          -- base = "#000000",
+          -- mantle = "#000000",
+          -- crust = "#000000",
+        },
+      },
     },
-    config = function()
-      vim.cmd [[colorscheme catppuccin]]
+    config = function(_, opts)
+      require('catppuccin').setup(opts)
+      vim.cmd.colorscheme 'catppuccin'
     end
   },
   {

@@ -34,5 +34,5 @@ opt.smartindent = true
 -- Undo
 opt.swapfile = false
 opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
-opt.undofile = true
+-- opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+-- opt.undofile = true

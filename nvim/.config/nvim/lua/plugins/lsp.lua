@@ -58,6 +58,10 @@ return {
         "html",
       })
 
+      vim.diagnostic.config({
+        virtual_text = false,
+      })
+
       require('lspconfig').tsserver.setup({
         root_dir = require('lspconfig.util').root_pattern('.git')
       })

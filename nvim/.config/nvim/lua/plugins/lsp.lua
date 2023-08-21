@@ -1,18 +1,11 @@
 return {
   {
     'VonHeikemen/lsp-zero.nvim',
-    priority = 100, -- Ensure we setup LSP before other plugins like null-ls.
     dependencies = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
-      {
-        'jayp0521/mason-null-ls.nvim',
-        opts = {
-          ensure_installed = { "prettierd", "eslint_d" },
-        },
-      },
       -- Adds VSCode pictograms to cmp.
       { "onsails/lspkind-nvim" },
       -- Show function signatures when you type.
@@ -30,11 +23,10 @@ return {
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-cmdline' },
-      { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-nvim-lua' },
-
       -- Snippets
+      { 'saadparwaiz1/cmp_luasnip' },
       { 'L3MON4D3/LuaSnip' },
     },
     config = function()
@@ -44,24 +36,34 @@ return {
         }
       })
 
-      local lsp = require('lsp-zero')
-      lsp.preset('recommended')
+      local lsp = require('lsp-zero').preset({
+        name = 'recommended',
+        set_lsp_keymaps = {
+          omit = { 'gi' },
+        },
+      })
+
+      lsp.set_sign_icons({
+        error = '✘',
+        warn = '▲',
+        hint = '⚑',
+        info = '»'
+      })
 
       lsp.ensure_installed({
         "tsserver",
+        "bashls",
         "jsonls",
         "lua_ls",
-        "prismals",
         "html",
       })
 
-      local util = require('lspconfig.util');
-      lsp.configure('tsserver', {
-        root_dir = util.root_pattern('.git')
+      require('lspconfig').tsserver.setup({
+        root_dir = require('lspconfig.util').root_pattern('.git')
       })
 
       -- Configure sumneko_lua to understand nvim config files.
-      lsp.configure('lua_ls', {
+      require('lspconfig').lua_ls.setup({
         settings = {
           Lua = {
             diagnostics = {
@@ -80,7 +82,7 @@ return {
       })
 
       -- Connect json LSP to JSON schemastore.
-      lsp.configure('jsonls', {
+      require('lspconfig').jsonls.setup({
         settings = {
           json = {
             schemas = require('schemastore').json.schemas(),
@@ -89,14 +91,10 @@ return {
         }
       })
 
-      lsp.extend_lspconfig({
-        set_lsp_keymaps = {
-          omit = { 'gi' },
-        },
-      })
+      lsp.setup()
 
+      -- Configure cmp
       local cmp = require('cmp')
-      local lspkind = require('lspkind')
 
       cmp.setup({
         window = {
@@ -104,7 +102,7 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         formatting = {
-          format = lspkind.cmp_format({
+          format = require('lspkind').cmp_format({
             with_text = true,
           }),
         },

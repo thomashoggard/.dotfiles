@@ -89,7 +89,11 @@ return {
         }
       })
 
-      lsp.setup()
+      lsp.extend_lspconfig({
+        set_lsp_keymaps = {
+          omit = { 'gi' },
+        },
+      })
 
       local cmp = require('cmp')
       local lspkind = require('lspkind')

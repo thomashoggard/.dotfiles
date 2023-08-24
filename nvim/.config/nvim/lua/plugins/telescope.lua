@@ -6,6 +6,7 @@ return {
       { "<C-p>",      ":Telescope git_files<cr>",            desc = "Find Git files",        silent = true },
       { "<leader>fp", ":Telescope find_files<cr>",           desc = "Find files",            silent = true },
       { "<leader>fs", ":Telescope lsp_document_symbols<cr>", desc = "Find document symbols", silent = true },
+      { "<leader>fr", ":Telescope resume<cr>",               desc = "Resume",                silent = true },
       {
         "<leader>fg",
         ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",

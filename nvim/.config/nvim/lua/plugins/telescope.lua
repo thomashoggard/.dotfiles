@@ -33,7 +33,7 @@ return {
         silent = true
       },
       {
-        "<leader>fw",
+        "<leader>fd",
         ":Telescope grep_string<cr>",
         desc = "Find word",
         silent = true

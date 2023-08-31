@@ -28,6 +28,10 @@ return {
       -- Snippets
       { 'saadparwaiz1/cmp_luasnip' },
       { 'L3MON4D3/LuaSnip' },
+
+      -- null-ls
+      { "jose-elias-alvarez/null-ls.nvim" },
+      { "nvim-lua/plenary.nvim" }
     },
     config = function()
       require('mason.settings').set({
@@ -61,6 +65,8 @@ return {
       vim.diagnostic.config({
         virtual_text = false,
       })
+
+
 
       require('lspconfig').tsserver.setup({
         root_dir = require('lspconfig.util').root_pattern('.git')
@@ -96,6 +102,16 @@ return {
       })
 
       lsp.setup()
+
+      -- Configure null-ls
+      local null_ls = require('null-ls')
+
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.prettierd,
+          null_ls.builtins.code_actions.eslint_d,
+        }
+      })
 
       -- Configure cmp
       local cmp = require('cmp')

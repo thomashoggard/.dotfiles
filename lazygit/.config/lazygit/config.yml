@@ -1,5 +1,4 @@
 gui:
-  # expandFocusedSidePanel: true
   showIcons: true
   showRandomTip: false
   showBottomLine: true
@@ -10,4 +9,16 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
-# promptToReturnFromSubprocess: false
+
+customCommands:
+  - key: n
+    context: "localBranches"
+    prompts:
+      - type: "input"
+        title: >
+          New Branch Name? (Branch is off of '{{.CheckedOutBranch.Name}}')
+        key: "BranchName"
+        initialValue: ""
+    command: >
+      git checkout -b {{.Form.BranchName}}
+    loadingText: "Creating branch"

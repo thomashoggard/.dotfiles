@@ -8,6 +8,7 @@
 	commitGraph = true
 	editor = nvim
 	ignorecase = false
+	excludesfile = /Users/thoggard/.gitignore_global
 [init]
 	defaultBranch = main
 [push]
@@ -19,6 +20,7 @@
 	updateRefs = true ; Automatically update stacked branches.
 [alias]
 	adog = log --all --decorate --oneline --graph
+  ldog = log --graph --abbrev-commit --decorate --date=relative --oneline --branches
   fpush = push --force-with-lease
   blog = log main.. --oneline
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
@@ -45,3 +47,5 @@
 ; 	tool = nvimdiff
 ; [mergetool "vimdiff"]
 ;   layout = "(LOCAL,REMOTE)/MERGED"
+[advice]
+	addEmptyPathspec = false

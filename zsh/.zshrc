@@ -26,6 +26,7 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 alias vi="nvim"
 alias vim="nvim"
 alias nvim="nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
+alias lg="lazygit"
 
 export ZSH="$HOME/.oh-my-zsh"
 

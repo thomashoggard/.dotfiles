@@ -1,7 +1,6 @@
 local ls = require "luasnip"
-
-local s = ls.s --> snippet
-local i = ls.i --> insert node
+local s = ls.snippet
+local i = ls.insert_node
 local fmta = require("luasnip.extras.fmt").fmta
 
 local snippets, autosnippets = {}, {}

@@ -23,7 +23,7 @@ return {
     },
     config = function(_, opts)
       require('catppuccin').setup(opts)
-      vim.cmd.colorscheme 'catppuccin'
+      -- vim.cmd.colorscheme 'catppuccin'
     end
   },
   {
@@ -35,5 +35,29 @@ return {
       vim.g.everforest_background = "hard"
       -- vim.cmd [[colorscheme everforest]]
     end,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      background = {
+        dark = "dragon"
+      },
+    },
+    config = function(_, opts)
+      require('kanagawa').setup(opts);
+      vim.cmd.colorscheme 'kanagawa'
+    end
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    lazy = false,
+    priority = 1000,
+    config = function(_, opts)
+      require('rose-pine').setup(opts);
+      -- vim.cmd.colorscheme 'rose-pine'
+    end
   }
 }

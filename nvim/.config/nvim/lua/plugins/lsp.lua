@@ -34,11 +34,14 @@ return {
       { "nvim-lua/plenary.nvim" }
     },
     config = function()
+      require('mason').setup({})
+
       require('mason.settings').set({
         ui = {
           border = 'rounded'
         }
       })
+
 
       local lsp = require('lsp-zero').preset({
         name = 'recommended',
@@ -54,13 +57,19 @@ return {
         info = '»'
       })
 
-      lsp.ensure_installed({
+      require('mason-lspconfig').setup({
+        ensure_installed = {
         "tsserver",
         "bashls",
         "jsonls",
         "lua_ls",
         "html",
-      })
+       },
+       handlers = {
+         lsp.default_setup
+       }
+     })
+
 
       vim.diagnostic.config({
         virtual_text = false,

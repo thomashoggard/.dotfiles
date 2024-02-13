@@ -4,3 +4,6 @@
 [submodule "league"]
 	path = league
 	url = git@github.com:thomashoggard/.dotfiles-league.git
+[submodule "alacritty-themes"]
+	path = alacritty/.config/alacritty/themes
+	url = git@github.com:alacritty/alacritty-theme.git

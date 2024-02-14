@@ -9,8 +9,6 @@
 	editor = nvim
 	ignorecase = false
 	excludesfile = /Users/thoggard/.gitignore_global
-[init]
-	defaultBranch = main
 [push]
 	default = current ; Automatically set upstream branch when pushing when specifying -u.
 	autoSetupRemote = true ; Automatically run -u if no upstream branch has been specified.

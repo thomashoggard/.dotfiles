@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/themes/kanagawa_dragon.toml"]
-
-[font]
-normal = { family = 'JetBrains Mono Medium', style = "Regular" }
+import = [
+  "~/.config/alacritty/themes/themes/kanagawa_dragon.toml",
+  "~/.config/alacritty/additional-settings.toml",
+]

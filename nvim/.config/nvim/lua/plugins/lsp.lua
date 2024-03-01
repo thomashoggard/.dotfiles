@@ -43,12 +43,14 @@ return {
       })
 
 
-      local lsp = require('lsp-zero').preset({
-        name = 'recommended',
-        set_lsp_keymaps = {
-          omit = { 'gi' },
-        },
-      })
+      local lsp = require('lsp-zero')
+
+      lsp.on_attach(function(client, bufnr)
+        lsp.default_keymaps({
+          buffer = bufnr,
+          exclude = { 'gi' },
+        })
+      end)
 
       lsp.set_sign_icons({
         error = '✘',
@@ -59,16 +61,16 @@ return {
 
       require('mason-lspconfig').setup({
         ensure_installed = {
-        "tsserver",
-        "bashls",
-        "jsonls",
-        "lua_ls",
-        "html",
-       },
-       handlers = {
-         lsp.default_setup
-       }
-     })
+          "tsserver",
+          "bashls",
+          "jsonls",
+          "lua_ls",
+          "html",
+        },
+        handlers = {
+          lsp.default_setup
+        }
+      })
 
 
       vim.diagnostic.config({

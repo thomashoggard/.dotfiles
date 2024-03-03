@@ -128,9 +128,14 @@ return {
       local cmp = require('cmp')
 
       cmp.setup({
-        mapping = {
-          ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        sources = {
+          { name = 'luasnip' },
+          { name = 'nvim_lsp' },
         },
+        mapping = cmp.mapping.preset.insert({
+          -- Select first item if none are selected.
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        }),
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
@@ -139,6 +144,11 @@ return {
           format = require('lspkind').cmp_format({
             with_text = true,
           }),
+        },
+        snippet = {
+          expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+          end,
         },
       })
 

@@ -12,6 +12,10 @@ return {
         name = "personal",
         path = "~/Documents/Personal",
       },
+      {
+        name = "league",
+        path = "~/Documents/notes/League",
+      },
     },
   },
 }

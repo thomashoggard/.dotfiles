@@ -47,7 +47,7 @@ return {
     },
     opts = {
       defaults = {
-        file_ignore_patterns = { "yarn.lock", "package-lock.json", "__snapshots__" },
+        file_ignore_patterns = { "yarn.lock", "package-lock.json", "pnpm-lock.yaml", "__snapshots__" },
         path_display = { "truncate" },
         sorting_strategy = "ascending",
         layout_config = {

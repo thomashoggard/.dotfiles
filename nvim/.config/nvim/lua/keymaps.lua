@@ -24,6 +24,8 @@ vim.keymap.set("n", "<leader>p", "o<esc>Pk<CR>")
 vim.keymap.set("v", "<leader>p", '"_dP')
 vim.keymap.set({ "v", "n" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", 'gg"+yG')
+-- copy current line without leading/trailing whitespace.
+vim.keymap.set("n", "yl", ':norm _vg_y<CR>')
 
 -- Tabs
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { silent = true })

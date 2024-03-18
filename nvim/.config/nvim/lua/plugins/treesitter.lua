@@ -20,15 +20,15 @@ return {
     end,
     build = ":TSUpdate",
   },
-  {
-    -- Shows the context of the function as you scroll through the code.
-    'nvim-treesitter/nvim-treesitter-context',
-    config = function()
-      require("treesitter-context").setup({
-        enable = true
-      })
-    end,
-  },
+  -- {
+  --   -- Shows the context of the function as you scroll through the code.
+  --   'nvim-treesitter/nvim-treesitter-context',
+  --   config = function()
+  --     require("treesitter-context").setup({
+  --       enable = true
+  --     })
+  --   end,
+  -- },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
     dependencies = {

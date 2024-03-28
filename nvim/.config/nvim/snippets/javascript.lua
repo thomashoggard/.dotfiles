@@ -21,12 +21,12 @@ import { <> } from "<>";
 }))
 table.insert(snippets, import)
 
-local log = s("log", fmta([[
-console.log(<>);
-]], {
-  i(1, ""),
-}))
-table.insert(snippets, log)
+-- local log = s("log", fmta([[
+-- console.log(<>);
+-- ]], {
+--   i(1, ""),
+-- }))
+-- table.insert(snippets, log)
 --
 local func = s("func", fmta([[
 function <>() {

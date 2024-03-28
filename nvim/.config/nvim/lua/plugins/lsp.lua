@@ -43,7 +43,6 @@ return {
         }
       })
 
-
       local lsp = require('lsp-zero')
 
       lsp.on_attach(function(client, bufnr)
@@ -127,6 +126,7 @@ return {
 
       -- Configure cmp
       local cmp = require('cmp')
+      local cmp_action = require('lsp-zero').cmp_action()
 
       cmp.setup({
         sources = {
@@ -136,6 +136,8 @@ return {
         mapping = cmp.mapping.preset.insert({
           -- Select first item if none are selected.
           ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+          ['<C-h>'] = cmp_action.luasnip_jump_backward(),
+          ['<C-l>'] = cmp_action.luasnip_jump_forward(),
         }),
         window = {
           completion = cmp.config.window.bordered(),

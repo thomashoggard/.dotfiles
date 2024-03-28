@@ -13,13 +13,13 @@ export { <> } from "./<>";
 }))
 table.insert(snippets, export)
 
-local import = s("import", fmta([[
-import { <> } from "<>";
-]], {
-  i(2, ""),
-  i(1, ""),
-}))
-table.insert(snippets, import)
+-- local import = s("import", fmta([[
+-- import { <> } from "<>";
+-- ]], {
+--   i(2, ""),
+--   i(1, ""),
+-- }))
+-- table.insert(snippets, import)
 
 -- local log = s("log", fmta([[
 -- console.log(<>);
@@ -28,14 +28,14 @@ table.insert(snippets, import)
 -- }))
 -- table.insert(snippets, log)
 --
-local func = s("func", fmta([[
-function <>() {
-  <>
-}
-]], {
-  i(1, ""),
-  i(2, ""),
-}))
-table.insert(snippets, func)
+-- local func = s("func", fmta([[
+-- function <>() {
+--   <>
+-- }
+-- ]], {
+--   i(1, ""),
+--   i(2, ""),
+-- }))
+-- table.insert(snippets, func)
 
 return snippets, autosnippets

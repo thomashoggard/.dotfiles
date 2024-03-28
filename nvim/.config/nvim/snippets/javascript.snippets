@@ -1,6 +1,23 @@
-snippet log
-			console.log(${0:${TM_SELECTED_TEXT}});
+snippet log "console.log"
+	console.log(${0:${TM_SELECTED_TEXT}});
+snippet const
+	const ${1} = ${2};
+snippet func "function"
+	function ${1:function_name}(${2}) {
+    ${0:${TM_SELECTED_TEXT}}
+	}
+snippet import
+	import { $0 } from "$1";
+## jest related snippets
 snippet test
-				test("$1", () => { $0 });
+	test("$1", () => { 
+		$0 
+	});
 snippet describe
-				describe("$1", () => { $0 });
+	describe("$1", () => { 
+		$0 
+  });
+snippet /** "block comment"
+	/**
+	 * $0
+	 */

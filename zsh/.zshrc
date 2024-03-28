@@ -26,6 +26,7 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 alias vi="nvim"
 alias vim="nvim"
 alias v="nvim"
+alias p="pnpm"
 
 # When running nvim in tmux, create a pipe for the current session.
 tmux_running=$(pgrep tmux)

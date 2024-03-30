@@ -36,3 +36,7 @@ vim.keymap.set("n", "<leader>tt", ":tab split<CR>", { silent = true })
 
 -- Keep cursor in-place when using joining lines.
 vim.keymap.set("n", "J", "mzJ`z");
+
+-- Center when jumping down or up
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")

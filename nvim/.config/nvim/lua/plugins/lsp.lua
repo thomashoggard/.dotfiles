@@ -7,6 +7,7 @@ return {
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
+      { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
       -- Adds VSCode pictograms to cmp.
       { "onsails/lspkind-nvim" },
       -- Show function signatures when you type.
@@ -66,18 +67,24 @@ return {
           "jsonls",
           "lua_ls",
           "html",
+          "eslint-lsp",
         },
         handlers = {
           lsp.default_setup
         }
       })
 
+      require('mason-tool-installer').setup({
+        ensure_installed = {
+          'prettierd',
+          'codespell'
+        },
+      })
+
 
       vim.diagnostic.config({
         virtual_text = false,
       })
-
-
 
       require('lspconfig').tsserver.setup({
         root_dir = require('lspconfig.util').root_pattern('.git')
@@ -120,7 +127,7 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.formatting.prettierd,
-          null_ls.builtins.code_actions.eslint_d,
+          -- null_ls.builtins.code_actions.eslint_d,
         }
       })
 

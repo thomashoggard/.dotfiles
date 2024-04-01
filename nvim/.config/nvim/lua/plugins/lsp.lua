@@ -67,7 +67,7 @@ return {
           "jsonls",
           "lua_ls",
           "html",
-          "eslint-lsp",
+          "eslint",
         },
         handlers = {
           lsp.default_setup

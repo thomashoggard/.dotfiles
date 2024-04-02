@@ -1,10 +1,9 @@
 gui:
   nerdFontsVersion: "3"
   showRandomTip: false
-  showBottomLine: true
   theme:
     selectedLineBgColor:
-      - black
+      - reverse
 git:
   paging:
     colorArg: always

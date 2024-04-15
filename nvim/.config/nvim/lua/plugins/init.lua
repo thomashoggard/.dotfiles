@@ -1,5 +1,10 @@
 return {
   {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+  {
     "phaazon/hop.nvim",
     branch = "v2",
     keys = {

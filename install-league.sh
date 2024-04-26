@@ -1,2 +1,2 @@
 cd ${HOME}/league
-stow --target=${HOME} */
+stow --adopt --target=${HOME} */

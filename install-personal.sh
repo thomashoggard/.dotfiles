@@ -1,2 +1,2 @@
 cd ${HOME}/personal
-stow --target=${HOME} */
+stow --adopt --target=${HOME} */

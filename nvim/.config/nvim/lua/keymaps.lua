@@ -40,3 +40,6 @@ vim.keymap.set("n", "J", "mzJ`z");
 -- Center when jumping down or up
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Trouble
+vim.keymap.set("n", "<leader>d", ":TroubleToggle<CR>")

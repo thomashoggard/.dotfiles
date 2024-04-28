@@ -75,6 +75,7 @@ return {
           mappings = {
             n = {
               ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+              ["q"] = require('telescope.actions').close,
             },
             i = {
               ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist

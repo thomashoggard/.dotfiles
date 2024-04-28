@@ -1,2 +1,2 @@
 cd ${HOME}/personal
-stow --target=${HOME} */
+stow --no-folding --target=${HOME} */

@@ -31,8 +31,10 @@ vim.keymap.set("n", "yl", ':norm _vg_y<CR>')
 
 -- Tabs
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ts", ":tab new<CR>", { silent = true })
-vim.keymap.set("n", "<leader>tt", ":tab split<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tn", ":tab new<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ts", ":tab split<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { silent = true })
 
 -- Keep cursor in-place when using joining lines.
 vim.keymap.set("n", "J", "mzJ`z");

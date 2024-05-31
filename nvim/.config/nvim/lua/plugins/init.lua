@@ -37,7 +37,18 @@ return {
     end
   },
   -- Show linting errors in a panel
-  { "folke/trouble.nvim" },
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>d",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+    },
+    opts = {},
+  },
   {
     "weilbith/nvim-code-action-menu",
     cmd = "CodeActionMenu",

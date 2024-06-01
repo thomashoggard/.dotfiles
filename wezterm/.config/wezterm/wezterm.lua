@@ -1,6 +1,7 @@
 local wezterm = require 'wezterm'
+local additional_settings = require "additional-settings"
 
-return {
+local config = {
   color_scheme = 'kanagawabones',
   colors = {
     background = '#191717'
@@ -19,3 +20,7 @@ return {
     bottom = 0,
   }
 }
+
+additional_settings.apply_to_config(config)
+
+return config

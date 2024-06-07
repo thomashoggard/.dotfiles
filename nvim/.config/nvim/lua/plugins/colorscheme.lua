@@ -1,5 +1,17 @@
 return {
   {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = 'night',
+    },
+    config = function(_, opts)
+      require('tokyonight').setup(opts);
+      vim.cmd.colorscheme 'tokyonight'
+    end
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
@@ -30,34 +42,18 @@ return {
     "sainnhe/gruvbox-material"
   },
   {
-    "sainnhe/everforest",
-    config = function()
-      vim.g.everforest_background = "hard"
-      -- vim.cmd [[colorscheme everforest]]
-    end,
-  },
-  {
     "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     opts = {
+      compile = true,
       background = {
         dark = "dragon"
       },
     },
     config = function(_, opts)
       require('kanagawa').setup(opts);
-      vim.cmd.colorscheme 'kanagawa'
+      -- vim.cmd.colorscheme 'kanagawa'
     end
   },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    lazy = false,
-    priority = 1000,
-    config = function(_, opts)
-      require('rose-pine').setup(opts);
-      -- vim.cmd.colorscheme 'rose-pine'
-    end
-  }
 }

@@ -2,10 +2,10 @@ local wezterm = require 'wezterm'
 local additional_settings = require "additional-settings"
 
 local config = {
-  color_scheme = 'kanagawabones',
-  colors = {
-    background = '#191717'
-  },
+  color_scheme = 'Tokyo Night',
+  -- colors = {
+  --   background = '#191717'
+  -- },
   -- color_scheme = 'Kanagawa Dragon (Gogh)',
   enable_tab_bar = false,
   font_size = 15,

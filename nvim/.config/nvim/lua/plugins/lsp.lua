@@ -64,7 +64,7 @@ return {
           "jsonls",
           "lua_ls",
           "html",
-          "eslint",
+          -- "eslint",
         },
         handlers = {
           lsp.default_setup
@@ -74,6 +74,7 @@ return {
       require('mason-tool-installer').setup({
         ensure_installed = {
           'prettierd',
+          'eslint_d',
           'codespell'
         },
       })

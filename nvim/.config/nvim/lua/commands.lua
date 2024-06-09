@@ -95,3 +95,11 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
     require("nvim-tree.api").tree.open()
   end
 })
+
+-- Show the code actions menu
+vim.api.nvim_create_user_command("CodeActionMenu",
+  function()
+    vim.lsp.buf.code_action()
+  end,
+  {}
+)

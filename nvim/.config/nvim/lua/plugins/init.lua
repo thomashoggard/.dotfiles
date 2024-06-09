@@ -54,13 +54,6 @@ return {
     opts = {},
   },
   {
-    "weilbith/nvim-code-action-menu",
-    cmd = "CodeActionMenu",
-    keys = {
-      { "<leader>a", ":CodeActionMenu<cr>", silent = true }
-    }
-  },
-  {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
     keys = {

@@ -8,7 +8,7 @@ return {
     "phaazon/hop.nvim",
     branch = "v2",
     keys = {
-      { "<leader>fw", ":HopWord<cr>", silent = true }
+      { "<leader>fw", "<cmd>HopWord<cr>", silent = true }
     },
     opts = {
       keys = "etovxqpdygfblzhckisuran"
@@ -57,14 +57,14 @@ return {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
     keys = {
-      { "<F5>", ":UndotreeToggle<CR>", silent = true }
+      { "<F5>", "<cmd>UndotreeToggle<CR>", silent = true }
     }
   },
   -- Delete buffers without closing it's window.
   {
     "moll/vim-bbye",
     keys = {
-      { "<leader>q", ":Bwipeout<CR>", silent = true }
+      { "<leader>q", "<cmd>Bwipeout<CR>", silent = true }
     }
   },
   -- More pretty quickfix list.

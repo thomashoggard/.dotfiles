@@ -3,27 +3,27 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     keys = {
-      { "<C-p>",      ":Telescope git_files<cr>",            desc = "Find Git files",        silent = true },
-      { "<leader>fp", ":Telescope find_files<cr>",           desc = "Find files",            silent = true },
-      { "<leader>fs", ":Telescope lsp_document_symbols<cr>", desc = "Find document symbols", silent = true },
-      { "<leader>fr", ":Telescope lsp_references<cr>",       desc = "Find references",       silent = true },
-      { "<leader>fm", ":Telescope marks<cr>",                desc = "Find marks",            silent = true },
-      { "<leader>fe", ":Telescope resume<cr>",               desc = "Resume",                silent = true },
+      { "<C-p>",      "<cmd>Telescope git_files<cr>",            desc = "Find Git files",        silent = true },
+      { "<leader>fp", "<cmd>Telescope find_files<cr>",           desc = "Find files",            silent = true },
+      { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find document symbols", silent = true },
+      { "<leader>fr", "<cmd>Telescope lsp_references<cr>",       desc = "Find references",       silent = true },
+      { "<leader>fm", "<cmd>Telescope marks<cr>",                desc = "Find marks",            silent = true },
+      { "<leader>fe", "<cmd>Telescope resume<cr>",               desc = "Resume",                silent = true },
       {
         "<leader>fg",
-        ":lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
         desc = "Live Grep",
         silent = true
       },
       {
         "<leader>fb",
-        ":Telescope buffers sort_mru=true ignore_current_buffer=true<cr>",
+        "<cmd>Telescope buffers sort_mru=true ignore_current_buffer=true<cr>",
         desc = "List all buffers in chronological order of last accessed",
         silent = true
       },
       {
         "<leader>fh",
-        ":Telescope help_tags<cr>",
+        "<cmd>Telescope help_tags<cr>",
         desc = "",
         silent = true
       },
@@ -36,7 +36,7 @@ return {
       },
       {
         "<leader>fd",
-        ":Telescope grep_string<cr>",
+        "<cmd>Telescope grep_string<cr>",
         desc = "Find word",
         silent = true
       }

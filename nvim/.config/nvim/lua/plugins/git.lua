@@ -7,7 +7,7 @@ return {
     "kdheepak/lazygit.nvim",
     cmd = "LazyGit",
     keys = {
-      { "<leader>lg", ":LazyGit<cr>" },
+      { "<leader>lg", "<cmd>LazyGit<cr>" },
     },
   },
   {
@@ -36,8 +36,8 @@ return {
       "sindrets/diffview.nvim",
     },
     keys = {
-      { "<leader>gg", ":Neogit<cr>" },
-      { "<leader>gl", ":Neogit log<cr>" },
+      { "<leader>gg", "<cmd>Neogit<cr>" },
+      { "<leader>gl", "<cmd>Neogit log<cr>" },
     },
     opts = {
       disable_commit_confirmation = true,

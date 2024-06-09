@@ -8,7 +8,7 @@ return {
       require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/nvim/snippets" }) -- Load custom snippets
 
       -- Edit snippets within the current session.
-      vim.cmd([[command! LuaSnipEdit :lua require("luasnip.loaders").edit_snippet_files()]])
+      vim.cmd([[command! LuaSnipEdit <cmd>lua require("luasnip.loaders").edit_snippet_files()]])
       vim.keymap.set("n", "<Leader><Leader>s", "<cmd>LuaSnipEdit<cr>", { silent = true, noremap = true })
 
       ls.config.setup({ store_selection_keys = "<Leader>s" })

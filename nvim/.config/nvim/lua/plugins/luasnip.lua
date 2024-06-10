@@ -4,7 +4,7 @@ return {
     config = function()
       local ls = require("luasnip")
 
-      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" })      -- Load custom snippets
+      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" }) -- Load custom snippets
       require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/nvim/snippets" }) -- Load custom snippets
 
       -- Edit snippets within the current session.
@@ -16,6 +16,6 @@ return {
       ls.filetype_extend("NeogitCommitMessage", { "gitcommit" })
       ls.filetype_extend("typescript", { "javascript" })
       ls.filetype_extend("typescriptreact", { "typescript", "javascript" })
-    end
-  }
+    end,
+  },
 }

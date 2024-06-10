@@ -4,12 +4,12 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      style = 'night',
+      style = "night",
     },
     config = function(_, opts)
-      require('tokyonight').setup(opts);
-      vim.cmd.colorscheme 'tokyonight'
-    end
+      require("tokyonight").setup(opts)
+      vim.cmd.colorscheme("tokyonight")
+    end,
   },
   {
     "catppuccin/nvim",
@@ -34,12 +34,12 @@ return {
       },
     },
     config = function(_, opts)
-      require('catppuccin').setup(opts)
+      require("catppuccin").setup(opts)
       -- vim.cmd.colorscheme 'catppuccin'
-    end
+    end,
   },
   {
-    "sainnhe/gruvbox-material"
+    "sainnhe/gruvbox-material",
   },
   {
     "rebelot/kanagawa.nvim",
@@ -48,12 +48,12 @@ return {
     opts = {
       compile = true,
       background = {
-        dark = "dragon"
+        dark = "dragon",
       },
     },
     config = function(_, opts)
-      require('kanagawa').setup(opts);
+      require("kanagawa").setup(opts)
       -- vim.cmd.colorscheme 'kanagawa'
-    end
+    end,
   },
 }

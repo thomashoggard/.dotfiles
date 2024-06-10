@@ -5,35 +5,35 @@ return {
       sections = {
         lualine_c = {
           {
-            'filename'
-          }
+            "filename",
+          },
         },
-        lualine_x = { 'filetype' },
+        lualine_x = { "filetype" },
       },
       inactive_sections = {
         lualine_c = {
           {
-            'filename'
-          }
+            "filename",
+          },
         },
-        lualine_x = { 'filetype' },
+        lualine_x = { "filetype" },
       },
       winbar = {
         lualine_c = {
           {
-            'filename',
-            path = 1
-          }
+            "filename",
+            path = 1,
+          },
         },
       },
       inactive_winbar = {
         lualine_c = {
           {
-            'filename',
-            path = 1
-          }
+            "filename",
+            path = 1,
+          },
         },
-      }
-    }
-  }
+      },
+    },
+  },
 }

@@ -2,13 +2,13 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
     lazy = false,
     keys = {
-      { "<C-n>",     "<cmd>NvimTreeToggle<CR>",   desc = "Toggle nvim-tree",  silent = true },
-      { "<leader>r", "<cmd>NvimTreeRefresh<CR>",  desc = "Refresh nvim-tree", silent = true },
-      { "<leader>n", "<cmd>NvimTreeFindFile<CR>", desc = "Find find",         silent = true },
+      { "<C-n>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle nvim-tree", silent = true },
+      { "<leader>r", "<cmd>NvimTreeRefresh<CR>", desc = "Refresh nvim-tree", silent = true },
+      { "<leader>n", "<cmd>NvimTreeFindFile<CR>", desc = "Find find", silent = true },
     },
     opts = {
       renderer = {
@@ -20,8 +20,8 @@ return {
       },
       git = {
         -- Increasing the timeout to support large projects
-        timeout = 5000
-      }
-    }
+        timeout = 5000,
+      },
+    },
   },
 }

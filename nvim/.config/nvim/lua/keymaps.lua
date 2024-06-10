@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>Y", 'gg"+yG')
 -- copy current line without leading/trailing whitespace into clipboard.
 vim.keymap.set("n", "<leader>yl", '<cmd>norm _vg_"+y<CR>')
 -- copy current line without leading/trailing whitespace.
-vim.keymap.set("n", "yl", '<cmd>norm _vg_y<CR>')
+vim.keymap.set("n", "yl", "<cmd>norm _vg_y<CR>")
 
 -- Tabs
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", { silent = true })
@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<CR>", { silent = true })
 
 -- Keep cursor in-place when using joining lines.
-vim.keymap.set("n", "J", "mzJ`z");
+vim.keymap.set("n", "J", "mzJ`z")
 
 -- Center when jumping down or up
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

@@ -8,11 +8,11 @@ return {
     "phaazon/hop.nvim",
     branch = "v2",
     keys = {
-      { "<leader>fw", "<cmd>HopWord<cr>", silent = true }
+      { "<leader>fw", "<cmd>HopWord<cr>", silent = true },
     },
     opts = {
-      keys = "etovxqpdygfblzhckisuran"
-    }
+      keys = "etovxqpdygfblzhckisuran",
+    },
   },
   -- Always-on highlight for a unique char in every word for f,F and family
   { "unblevable/quick-scope" },
@@ -21,14 +21,14 @@ return {
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup()
-    end
+    end,
   },
   -- Automatically add and rename html tags.
   {
     "windwp/nvim-ts-autotag",
     config = function()
       require("nvim-ts-autotag").setup()
-    end
+    end,
   },
   {
     "kylechui/nvim-surround",
@@ -36,9 +36,9 @@ return {
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({
-        move_cursor = false
+        move_cursor = false,
       })
-    end
+    end,
   },
   -- Show linting errors in a panel
   {
@@ -57,21 +57,21 @@ return {
     "mbbill/undotree",
     cmd = "UndotreeToggle",
     keys = {
-      { "<F5>", "<cmd>UndotreeToggle<CR>", silent = true }
-    }
+      { "<F5>", "<cmd>UndotreeToggle<CR>", silent = true },
+    },
   },
   -- Delete buffers without closing it's window.
   {
     "moll/vim-bbye",
     keys = {
-      { "<leader>q", "<cmd>Bwipeout<CR>", silent = true }
-    }
+      { "<leader>q", "<cmd>Bwipeout<CR>", silent = true },
+    },
   },
   -- More pretty quickfix list.
   {
     "https://gitlab.com/yorickpeterse/nvim-pqf.git",
     config = function()
       require("pqf").setup()
-    end
+    end,
   },
 }

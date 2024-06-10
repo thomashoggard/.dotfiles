@@ -3,47 +3,47 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     keys = {
-      { "<C-p>",      "<cmd>Telescope git_files<cr>",            desc = "Find Git files",        silent = true },
-      { "<leader>fp", "<cmd>Telescope find_files<cr>",           desc = "Find files",            silent = true },
+      { "<C-p>", "<cmd>Telescope git_files<cr>", desc = "Find Git files", silent = true },
+      { "<leader>fp", "<cmd>Telescope find_files<cr>", desc = "Find files", silent = true },
       { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find document symbols", silent = true },
-      { "<leader>fr", "<cmd>Telescope lsp_references<cr>",       desc = "Find references",       silent = true },
-      { "<leader>fm", "<cmd>Telescope marks<cr>",                desc = "Find marks",            silent = true },
-      { "<leader>fe", "<cmd>Telescope resume<cr>",               desc = "Resume",                silent = true },
+      { "<leader>fr", "<cmd>Telescope lsp_references<cr>", desc = "Find references", silent = true },
+      { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Find marks", silent = true },
+      { "<leader>fe", "<cmd>Telescope resume<cr>", desc = "Resume", silent = true },
       {
         "<leader>fg",
         "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
         desc = "Live Grep",
-        silent = true
+        silent = true,
       },
       {
         "<leader>fb",
         "<cmd>Telescope buffers sort_mru=true ignore_current_buffer=true<cr>",
         desc = "List all buffers in chronological order of last accessed",
-        silent = true
+        silent = true,
       },
       {
         "<leader>fh",
         "<cmd>Telescope help_tags<cr>",
         desc = "",
-        silent = true
+        silent = true,
       },
       {
         "<leader>fg",
         '"zy:Telescope live_grep default_text=<C-r>z<cr>',
         mode = "v",
         desc = "Search on selected text",
-        silent = true
+        silent = true,
       },
       {
         "<leader>fd",
         "<cmd>Telescope grep_string<cr>",
         desc = "Find word",
-        silent = true
-      }
+        silent = true,
+      },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-live-grep-args.nvim"
+      "nvim-telescope/telescope-live-grep-args.nvim",
     },
     opts = {
       defaults = {
@@ -56,13 +56,13 @@ return {
           },
         },
       },
-    }
+    },
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     dependencies = {
       "junegunn/fzf.vim",
-      "nvim-telescope/telescope.nvim"
+      "nvim-telescope/telescope.nvim",
     },
     build = "make",
     config = function()
@@ -75,12 +75,12 @@ return {
           mappings = {
             n = {
               ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
-              ["q"] = require('telescope.actions').close,
+              ["q"] = require("telescope.actions").close,
             },
             i = {
-              ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist
-            }
-          }
+              ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
+          },
         },
         extensions = {
           live_grep_args = {
@@ -88,14 +88,14 @@ return {
             mappings = {
               i = {
                 ["<C-k>"] = lga_actions.quote_prompt(),
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       })
 
-      telescope.load_extension('fzf')
+      telescope.load_extension("fzf")
       telescope.load_extension("live_grep_args")
     end,
-  }
+  },
 }

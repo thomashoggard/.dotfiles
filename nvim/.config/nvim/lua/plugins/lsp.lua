@@ -76,7 +76,7 @@ return {
           "prettierd",
           "eslint_d",
           "codespell",
-          -- 'stylua'
+          'stylua'
         },
       })
 

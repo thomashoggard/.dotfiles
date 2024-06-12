@@ -76,7 +76,7 @@ return {
           "prettierd",
           "eslint_d",
           "codespell",
-          'stylua'
+          "stylua",
         },
       })
 
@@ -151,14 +151,22 @@ return {
       })
 
       cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline({
+          -- `c = ...` is a temporary workaround - https://github.com/hrsh7th/nvim-cmp/issues/1835
+          -- Select first item if none are selected.
+          ["<C-y>"] = { c = cmp.mapping.confirm({ select = true }) },
+        }),
         sources = {
           { name = "buffer" },
         },
       })
 
       cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
+        mapping = cmp.mapping.preset.cmdline({
+          -- `c = ...` is a temporary workaround - https://github.com/hrsh7th/nvim-cmp/issues/1835
+          -- Select first item if none are selected.
+          ["<C-y>"] = { c = cmp.mapping.confirm({ select = true }) },
+        }),
         sources = cmp.config.sources({
           { name = "path" },
         }, {

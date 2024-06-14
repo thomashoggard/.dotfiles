@@ -3,6 +3,7 @@ local additional_settings = require("additional-settings")
 
 local config = wezterm.config_builder()
 
+config.term = "wezterm"
 config.color_scheme = "Tokyo Night"
 config.font = wezterm.font({
   family = "JetBrains Mono",

@@ -1,7 +1,5 @@
 vim.keymap.set("i", "jk", "<Esc>")
 
--- TODO: Add ability to switch between buffers quickly, maybe like how we do the quick fix list?
-
 -- Strong left & right
 vim.keymap.set({ "n", "v" }, "H", "_")
 vim.keymap.set({ "n", "v" }, "L", "g_")

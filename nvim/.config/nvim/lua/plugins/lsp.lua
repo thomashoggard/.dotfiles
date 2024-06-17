@@ -1,53 +1,38 @@
 return {
   {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v3.x",
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      -- LSP Support
-      { "neovim/nvim-lspconfig" },
-      { "williamboman/mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
-      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-      -- Adds VSCode pictograms to cmp.
-      { "onsails/lspkind-nvim" },
+      {
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x",
+      },
       -- Show function signatures when you type.
       {
         "ray-x/lsp_signature.nvim",
-        config = function()
-          require("lsp_signature").setup()
+        event = "VeryLazy",
+        opts = {},
+        config = function(_, opts)
+          require("lsp_signature").setup(opts)
         end,
       },
       -- Add https://github.com/b0o/schemastore.nvim types for JSON
       { "b0o/schemastore.nvim" },
-
-      -- Autocompletion
-      { "hrsh7th/nvim-cmp" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-cmdline" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-nvim-lua" },
-      -- Snippets
-      { "saadparwaiz1/cmp_luasnip" },
-      { "L3MON4D3/LuaSnip" },
-      { "nvim-lua/plenary.nvim" },
     },
     config = function()
-      require("mason").setup({})
-
-      require("mason.settings").set({
-        ui = {
-          border = "rounded",
-        },
-      })
-
       local lsp = require("lsp-zero")
+      local lspconfig = require("lspconfig")
+      local mason_lspconfig = require("mason-lspconfig")
+
+      mason_lspconfig.setup_handlers({ handlers = lsp.default_setup })
 
       lsp.on_attach(function(client, bufnr)
         lsp.default_keymaps({
           buffer = bufnr,
           exclude = { "gi" },
         })
+
+        vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr })
       end)
 
       lsp.set_sign_icons({
@@ -57,39 +42,12 @@ return {
         info = "»",
       })
 
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "tsserver",
-          "bashls",
-          "jsonls",
-          "lua_ls",
-          "html",
-          -- "eslint",
-        },
-        handlers = {
-          lsp.default_setup,
-        },
-      })
-
-      require("mason-tool-installer").setup({
-        ensure_installed = {
-          "prettierd",
-          "eslint_d",
-          "codespell",
-          "stylua",
-        },
-      })
-
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-
-      require("lspconfig").tsserver.setup({
-        root_dir = require("lspconfig.util").root_pattern(".git"),
+      lspconfig.tsserver.setup({
+        root_dir = lspconfig.util.root_pattern(".git"),
       })
 
       -- Configure sumneko_lua to understand nvim config files.
-      require("lspconfig").lua_ls.setup({
+      lspconfig.lua_ls.setup({
         settings = {
           Lua = {
             diagnostics = {
@@ -108,7 +66,7 @@ return {
       })
 
       -- Connect json LSP to JSON schemastore.
-      require("lspconfig").jsonls.setup({
+      lspconfig.jsonls.setup({
         settings = {
           json = {
             schemas = require("schemastore").json.schemas(),
@@ -119,60 +77,19 @@ return {
 
       lsp.setup()
 
-      -- Configure cmp
-      local cmp = require("cmp")
-      local cmp_action = require("lsp-zero").cmp_action()
-
-      cmp.setup({
-        sources = {
-          { name = "luasnip" },
-          { name = "nvim_lsp" },
-        },
-        mapping = cmp.mapping.preset.insert({
-          -- Select first item if none are selected.
-          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-          ["<C-h>"] = cmp_action.luasnip_jump_backward(),
-          ["<C-l>"] = cmp_action.luasnip_jump_forward(),
-        }),
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        },
-        formatting = {
-          format = require("lspkind").cmp_format({
-            with_text = true,
-          }),
-        },
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
-        },
+      vim.diagnostic.config({
+        virtual_text = false,
       })
-
-      cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline({
-          -- `c = ...` is a temporary workaround - https://github.com/hrsh7th/nvim-cmp/issues/1835
-          -- Select first item if none are selected.
-          ["<C-y>"] = { c = cmp.mapping.confirm({ select = true }) },
-        }),
-        sources = {
-          { name = "buffer" },
-        },
-      })
-
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline({
-          -- `c = ...` is a temporary workaround - https://github.com/hrsh7th/nvim-cmp/issues/1835
-          -- Select first item if none are selected.
-          ["<C-y>"] = { c = cmp.mapping.confirm({ select = true }) },
-        }),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          { name = "cmdline" },
-        }),
-      })
+    end,
+  },
+  {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-tree.lua",
+    },
+    config = function()
+      require("lsp-file-operations").setup()
     end,
   },
 }

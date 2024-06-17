@@ -1,17 +1,21 @@
 return {
   {
+    "nvim-lua/plenary.nvim",
+    name = "plenary",
+  },
+  {
     "vhyrro/luarocks.nvim",
     priority = 1000,
     config = true,
   },
   {
-    "phaazon/hop.nvim",
-    branch = "v2",
-    keys = {
-      { "<leader>fw", "<cmd>HopWord<cr>", silent = true },
-    },
+    "smoka7/hop.nvim",
+    version = "*",
     opts = {
       keys = "etovxqpdygfblzhckisuran",
+    },
+    keys = {
+      { "<leader>fw", "<cmd>HopWord<cr>", silent = true },
     },
   },
   -- Always-on highlight for a unique char in every word for f,F and family
@@ -19,16 +23,8 @@ return {
   -- Insert or delete brackets, params, quotes in pair.
   {
     "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup()
-    end,
-  },
-  -- Automatically add and rename html tags.
-  {
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
+    event = "InsertEnter",
+    config = true,
   },
   {
     "kylechui/nvim-surround",
@@ -67,9 +63,9 @@ return {
       { "<leader>q", "<cmd>Bwipeout<CR>", silent = true },
     },
   },
-  -- More pretty quickfix list.
+  -- Pretty quickfix list.
   {
-    "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+    "yorickpeterse/nvim-pqf",
     config = function()
       require("pqf").setup()
     end,

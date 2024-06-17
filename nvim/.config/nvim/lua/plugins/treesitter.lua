@@ -4,7 +4,6 @@ return {
     build = "<cmd>TSUpdate",
     opts = {
       auto_install = true,
-      -- ensure_installed = "all",
       highlight = {
         enable = true,
       },
@@ -22,19 +21,17 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
-  -- {
-  --   -- Shows the context of the function as you scroll through the code.
-  --   'nvim-treesitter/nvim-treesitter-context',
-  --   config = function()
-  --     require("treesitter-context").setup({
-  --       enable = true
-  --     })
-  --   end,
-  -- },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
+  },
+  -- Automatically add and rename html tags.
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
   },
 }

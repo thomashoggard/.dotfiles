@@ -3,10 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v3.x",
-      },
+      { "hrsh7th/cmp-nvim-lsp" },
       -- Show function signatures when you type.
       {
         "ray-x/lsp_signature.nvim",
@@ -20,62 +17,79 @@ return {
       { "b0o/schemastore.nvim" },
     },
     config = function()
-      local lsp = require("lsp-zero")
       local lspconfig = require("lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-      mason_lspconfig.setup_handlers({ handlers = lsp.default_setup })
+      local capabilities = cmp_nvim_lsp.default_capabilities()
 
-      lsp.on_attach(function(client, bufnr)
-        lsp.default_keymaps({
-          buffer = bufnr,
-          exclude = { "gi" },
-        })
-
-        vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr })
-      end)
-
-      lsp.set_sign_icons({
-        error = "✘",
-        warn = "▲",
-        hint = "⚑",
-        info = "»",
-      })
-
-      lspconfig.tsserver.setup({
-        root_dir = lspconfig.util.root_pattern(".git"),
-      })
-
-      -- Configure sumneko_lua to understand nvim config files.
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = { "vim" },
-            },
-            workspace = {
-              -- Make the server aware of Neovim runtime files
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.stdpath("config") .. "/lua"] = true,
+      mason_lspconfig.setup_handlers({
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+        ["tsserver"] = function()
+          lspconfig.tsserver.setup({
+            root_dir = lspconfig.util.root_pattern(".git"),
+          })
+        end,
+        ["lua_ls"] = function()
+          -- Configure sumneko_lua to understand nvim config files.
+          lspconfig.lua_ls.setup({
+            settings = {
+              Lua = {
+                diagnostics = {
+                  -- Get the language server to recognize the `vim` global
+                  globals = { "vim" },
+                },
+                workspace = {
+                  -- Make the server aware of Neovim runtime files
+                  library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                  },
+                },
               },
             },
-          },
-        },
+          })
+        end,
+        ["jsonls"] = function()
+          -- Connect json LSP to JSON schemastore.
+          lspconfig.jsonls.setup({
+            settings = {
+              json = {
+                schemas = require("schemastore").json.schemas(),
+                validate = { enable = true },
+              },
+            },
+          })
+        end,
       })
 
-      -- Connect json LSP to JSON schemastore.
-      lspconfig.jsonls.setup({
-        settings = {
-          json = {
-            schemas = require("schemastore").json.schemas(),
-            validate = { enable = true },
-          },
-        },
+      -- Setup key maps
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+        callback = function(ev)
+          local opts = { buffer = ev.buf, silent = true }
+
+          vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+          vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+          vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+          vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+          vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+          vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+          vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+          vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+        end,
       })
 
-      lsp.setup()
+      -- Setup diagnostics.
+      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
 
       vim.diagnostic.config({
         virtual_text = false,
@@ -88,8 +102,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-tree.lua",
     },
-    config = function()
-      require("lsp-file-operations").setup()
-    end,
+    config = true,
   },
 }

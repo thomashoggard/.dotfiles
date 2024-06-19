@@ -81,6 +81,7 @@ return {
           vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
           vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
           vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+          vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
         end,
       })
 
@@ -93,6 +94,7 @@ return {
 
       vim.diagnostic.config({
         virtual_text = false,
+        float = { border = "rounded" },
       })
     end,
   },

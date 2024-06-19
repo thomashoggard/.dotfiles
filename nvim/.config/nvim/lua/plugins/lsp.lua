@@ -21,7 +21,12 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-      local capabilities = cmp_nvim_lsp.default_capabilities()
+      local capabilities = vim.tbl_deep_extend(
+        "force",
+        {},
+        vim.lsp.protocol.make_client_capabilities(),
+        cmp_nvim_lsp.default_capabilities()
+      )
 
       mason_lspconfig.setup_handlers({
         function(server_name)
@@ -94,7 +99,10 @@ return {
 
       vim.diagnostic.config({
         virtual_text = false,
-        float = { border = "rounded" },
+        float = {
+          border = "rounded",
+          header = "",
+        },
       })
     end,
   },

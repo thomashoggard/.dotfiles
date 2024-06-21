@@ -23,14 +23,14 @@ return {
           "jsonls",
           "lua_ls",
           "html",
-          -- "eslint",
+          "eslint",
+          "biome",
         },
       })
 
       mason_tool_installer.setup({
         ensure_installed = {
           "prettierd",
-          "eslint_d",
           "codespell",
           "stylua",
         },

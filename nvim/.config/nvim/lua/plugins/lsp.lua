@@ -1,178 +1,117 @@
 return {
   {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v3.x",
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      -- LSP Support
-      { "neovim/nvim-lspconfig" },
-      { "williamboman/mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
-      { "WhoIsSethDaniel/mason-tool-installer.nvim" },
-      -- Adds VSCode pictograms to cmp.
-      { "onsails/lspkind-nvim" },
+      { "hrsh7th/cmp-nvim-lsp" },
       -- Show function signatures when you type.
       {
         "ray-x/lsp_signature.nvim",
-        config = function()
-          require("lsp_signature").setup()
+        event = "VeryLazy",
+        opts = {},
+        config = function(_, opts)
+          require("lsp_signature").setup(opts)
         end,
       },
       -- Add https://github.com/b0o/schemastore.nvim types for JSON
       { "b0o/schemastore.nvim" },
-
-      -- Autocompletion
-      { "hrsh7th/nvim-cmp" },
-      { "hrsh7th/cmp-buffer" },
-      { "hrsh7th/cmp-path" },
-      { "hrsh7th/cmp-cmdline" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "hrsh7th/cmp-nvim-lua" },
-      -- Snippets
-      { "saadparwaiz1/cmp_luasnip" },
-      { "L3MON4D3/LuaSnip" },
-      { "nvim-lua/plenary.nvim" },
     },
     config = function()
-      require("mason").setup({})
+      local lspconfig = require("lspconfig")
+      local mason_lspconfig = require("mason-lspconfig")
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-      require("mason.settings").set({
-        ui = {
-          border = "rounded",
-        },
+      local capabilities = vim.tbl_deep_extend(
+        "force",
+        {},
+        vim.lsp.protocol.make_client_capabilities(),
+        cmp_nvim_lsp.default_capabilities()
+      )
+
+      mason_lspconfig.setup_handlers({
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+        ["tsserver"] = function()
+          lspconfig.tsserver.setup({
+            root_dir = lspconfig.util.root_pattern(".git"),
+          })
+        end,
+        ["lua_ls"] = function()
+          -- Configure sumneko_lua to understand nvim config files.
+          lspconfig.lua_ls.setup({
+            settings = {
+              Lua = {
+                diagnostics = {
+                  -- Get the language server to recognize the `vim` global
+                  globals = { "vim" },
+                },
+                workspace = {
+                  -- Make the server aware of Neovim runtime files
+                  library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                  },
+                },
+              },
+            },
+          })
+        end,
+        ["jsonls"] = function()
+          -- Connect json LSP to JSON schemastore.
+          lspconfig.jsonls.setup({
+            settings = {
+              json = {
+                schemas = require("schemastore").json.schemas(),
+                validate = { enable = true },
+              },
+            },
+          })
+        end,
       })
 
-      local lsp = require("lsp-zero")
+      -- Setup key maps
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+        callback = function(ev)
+          local opts = { buffer = ev.buf, silent = true }
 
-      lsp.on_attach(function(client, bufnr)
-        lsp.default_keymaps({
-          buffer = bufnr,
-          exclude = { "gi" },
-        })
-      end)
-
-      lsp.set_sign_icons({
-        error = "✘",
-        warn = "▲",
-        hint = "⚑",
-        info = "»",
+          vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+          vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+          vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+          vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+          vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+          vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+          vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+          vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+          vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+        end,
       })
 
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "tsserver",
-          "bashls",
-          "jsonls",
-          "lua_ls",
-          "html",
-          -- "eslint",
-        },
-        handlers = {
-          lsp.default_setup,
-        },
-      })
-
-      require("mason-tool-installer").setup({
-        ensure_installed = {
-          "prettierd",
-          "eslint_d",
-          "codespell",
-          "stylua",
-        },
-      })
+      -- Setup diagnostics.
+      local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+      end
 
       vim.diagnostic.config({
         virtual_text = false,
-      })
-
-      require("lspconfig").tsserver.setup({
-        root_dir = require("lspconfig.util").root_pattern(".git"),
-      })
-
-      -- Configure sumneko_lua to understand nvim config files.
-      require("lspconfig").lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = { "vim" },
-            },
-            workspace = {
-              -- Make the server aware of Neovim runtime files
-              library = {
-                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                [vim.fn.stdpath("config") .. "/lua"] = true,
-              },
-            },
-          },
+        float = {
+          border = "rounded",
+          header = "",
         },
-      })
-
-      -- Connect json LSP to JSON schemastore.
-      require("lspconfig").jsonls.setup({
-        settings = {
-          json = {
-            schemas = require("schemastore").json.schemas(),
-            validate = { enable = true },
-          },
-        },
-      })
-
-      lsp.setup()
-
-      -- Configure cmp
-      local cmp = require("cmp")
-      local cmp_action = require("lsp-zero").cmp_action()
-
-      cmp.setup({
-        sources = {
-          { name = "luasnip" },
-          { name = "nvim_lsp" },
-        },
-        mapping = cmp.mapping.preset.insert({
-          -- Select first item if none are selected.
-          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-          ["<C-h>"] = cmp_action.luasnip_jump_backward(),
-          ["<C-l>"] = cmp_action.luasnip_jump_forward(),
-        }),
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
-        },
-        formatting = {
-          format = require("lspkind").cmp_format({
-            with_text = true,
-          }),
-        },
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
-        },
-      })
-
-      cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline({
-          -- `c = ...` is a temporary workaround - https://github.com/hrsh7th/nvim-cmp/issues/1835
-          -- Select first item if none are selected.
-          ["<C-y>"] = { c = cmp.mapping.confirm({ select = true }) },
-        }),
-        sources = {
-          { name = "buffer" },
-        },
-      })
-
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline({
-          -- `c = ...` is a temporary workaround - https://github.com/hrsh7th/nvim-cmp/issues/1835
-          -- Select first item if none are selected.
-          ["<C-y>"] = { c = cmp.mapping.confirm({ select = true }) },
-        }),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          { name = "cmdline" },
-        }),
       })
     end,
+  },
+  {
+    "antosha417/nvim-lsp-file-operations",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-tree.lua",
+    },
+    config = true,
   },
 }

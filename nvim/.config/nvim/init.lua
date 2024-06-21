@@ -15,4 +15,11 @@ require("options")
 require("keymaps")
 require("commands")
 
-require("lazy").setup("plugins", { ui = { border = "rounded" } })
+require("lazy").setup("plugins", {
+  ui = {
+    border = "rounded",
+  },
+  change_detection = {
+    notify = false,
+  },
+})

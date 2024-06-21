@@ -1,7 +1,5 @@
 vim.keymap.set("i", "jk", "<Esc>")
 
--- TODO: Add ability to switch between buffers quickly, maybe like how we do the quick fix list?
-
 -- Strong left & right
 vim.keymap.set({ "n", "v" }, "H", "_")
 vim.keymap.set({ "n", "v" }, "L", "g_")
@@ -42,6 +40,3 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Center when jumping down or up
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
--- Show code actions menu
-vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeActionMenu<CR>", { silent = true })

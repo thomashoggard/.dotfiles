@@ -2,20 +2,26 @@
   path = ~/.gitconfig-personal
 [include]
   path = ~/.gitconfig-league
+
 [init]
   defaultBranch = main
+
 [core]
 	commitGraph = true
 	editor = nvim
 	ignorecase = false
 	excludesfile = /Users/thoggard/.gitignore_global
+
 [push]
 	default = current ; Automatically set upstream branch when pushing when specifying -u.
 	autoSetupRemote = true ; Automatically run -u if no upstream branch has been specified.
+
 [pull]
 	rebase = true
+
 [rebase]
 	updateRefs = true ; Automatically update stacked branches.
+
 [alias]
 	adog = log --all --decorate --oneline --graph
   ldog = log --graph --abbrev-commit --decorate --date=relative --oneline --branches
@@ -24,21 +30,27 @@
   co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
   odiff = !sh -c 'git diff origin/$(git branch --show-current)'
   mt = mergetool
+
 [pager]
   diff = delta
   log = delta
   reflog = delta
   show = delta
+
 [interactive]
   diffFilter = delta --color-only --features=interactive
+
 [delta]
   side-by-side = true
   diff-so-fancy = false
+
 [mergetool]
 	keepBackup = false
 	trustExitCode = true
+
 [mergetool "nvimdiff4"]
   cmd = nvim $MERGED
+
 [merge]
 	tool = nvimdiff4
 ; [merge]
@@ -47,3 +59,12 @@
 ;   layout = "(LOCAL,REMOTE)/MERGED"
 [advice]
 	addEmptyPathspec = false
+
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIINb4WQl4vDYPjJx4bvckW1PJY6xRBpOrZgrKUZTdKlb
+
+[gpg]
+  format = ssh
+
+[commit]
+  gpgsign = true

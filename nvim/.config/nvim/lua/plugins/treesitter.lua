@@ -1,7 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    build = "<cmd>TSUpdate",
+    build = ":TSUpdate",
     opts = {
       auto_install = true,
       highlight = {

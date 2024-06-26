@@ -23,15 +23,15 @@ SAVEHIST=500
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 # aliases
-alias vi="nvim"
-alias vim="nvim"
-alias v="nvim"
+alias vi="env TERM=wezterm nvim"
+alias vim="env TERM=wezterm nvim"
+alias v="env TERM=wezterm nvim"
 alias p="pnpm"
 
 # When running nvim in tmux, create a pipe for the current session.
 tmux_running=$(pgrep tmux)
 if [[ -n $tmux_running ]]; then
-  alias nvim="nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
+  alias nvim="env TERM=wezterm nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
 fi
 alias lg="lazygit"
 

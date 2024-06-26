@@ -21,10 +21,7 @@ return {
         delay = 250,
         ignore_whitespace = false,
       },
-      current_line_blame_formatter_opts = {
-        relative_time = true,
-      },
-      current_line_blame_formatter = "      <author>, <author_time> • <summary>",
+      current_line_blame_formatter = "      <author>, <author_time:%R> • <summary>",
       current_line_blame_formatter_nc = "      <author>",
     },
   },

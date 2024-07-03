@@ -8,18 +8,6 @@ return {
     priority = 1000,
     config = true,
   },
-  {
-    "smoka7/hop.nvim",
-    version = "*",
-    opts = {
-      keys = "etovxqpdygfblzhckisuran",
-    },
-    keys = {
-      { "<leader>fw", "<cmd>HopWord<cr>", silent = true },
-    },
-  },
-  -- Always-on highlight for a unique char in every word for f,F and family
-  { "unblevable/quick-scope" },
   -- Insert or delete brackets, params, quotes in pair.
   {
     "windwp/nvim-autopairs",

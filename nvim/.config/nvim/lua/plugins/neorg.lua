@@ -1,14 +1,11 @@
 return {}
-
 -- return {
 --   {
 --     "nvim-neorg/neorg",
---     dependencies = {
---       "luarocks.nvim",
---       "nvim-lua/plenary.nvim"
---     },
+--     lazy = false,
+--     version = "*",
 --     config = function()
---       require("neorg").setup {
+--       require("neorg").setup({
 --         load = {
 --           ["core.defaults"] = {},
 --           ["core.concealer"] = {
@@ -16,10 +13,10 @@ return {}
 --               icons = {
 --                 code_block = {
 --                   conceal = true,
---                   width = 'content'
---                 }
---               }
---             }
+--                   width = "content",
+--                 },
+--               },
+--             },
 --           },
 --           ["core.dirman"] = {
 --             config = {
@@ -27,11 +24,11 @@ return {}
 --                 league = "~/notes/league",
 --                 personal = "~/notes/personal",
 --               },
---               default_workspace = "league"
+--               default_workspace = "league",
 --             },
 --           },
 --         },
---       }
+--       })
 --     end,
 --   },
 -- }

@@ -1,8 +1,8 @@
-## Options section
+# ## Options section
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
+# setopt rcexpandparam                                            # Array expension with parameters
 setopt nocheckjobs                                              # Don't warn about running processes when exiting
 setopt numericglobsort                                          # Sort filenames numerically when it makes sense
 setopt nobeep                                                   # No beep
@@ -53,6 +53,12 @@ unalias gco
 gco() {
   is_in_git_repo &&
     git checkout $(git branch | fzf)
+}
+
+unalias gcor
+gcor() {
+  is_in_git_repo &&
+    git checkout $(git branch --remote | sed 's|origin/||' | fzf)
 }
 
 export DOTFILES=$HOME/.dotfiles

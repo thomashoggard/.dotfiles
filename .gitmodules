@@ -1,9 +1,6 @@
 [submodule "personal"]
 	path = personal
-	url = git@github.com:thomashoggard/.dotfiles-personal.git
+	url = git@th.github.com:thomashoggard/.dotfiles-personal.git
 [submodule "league"]
 	path = league
-	url = git@github.com:thomashoggard/.dotfiles-league.git
-[submodule "alacritty-themes"]
-	path = alacritty/.config/alacritty/themes
-	url = git@github.com:alacritty/alacritty-theme.git
+	url = git@th.github.com:thomashoggard/.dotfiles-league.git

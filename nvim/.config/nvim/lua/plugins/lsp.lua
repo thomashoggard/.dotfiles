@@ -34,8 +34,8 @@ return {
             capabilities = capabilities,
           })
         end,
-        ["tsserver"] = function()
-          lspconfig.tsserver.setup({
+        ["ts_ls"] = function()
+          lspconfig.ts_ls.setup({
             root_dir = lspconfig.util.root_pattern(".git"),
           })
         end,

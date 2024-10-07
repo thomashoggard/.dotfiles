@@ -3,13 +3,13 @@ return {
     "MeanderingProgrammer/markdown.nvim",
     main = "render-markdown",
     opts = {
-      heading = {
-        icons = { "◉", "◎", "○", "✺", "▶", "⤷" },
-        position = "inline",
-      },
-      code = {
-        style = "full",
-      },
+      -- heading = {
+      --   icons = { "◉", "◎", "○", "✺", "▶", "⤷" },
+      --   position = "inline",
+      -- },
+      -- code = {
+      --   style = "full",
+      -- },
       bullet = {
         right_pad = 1,
       },

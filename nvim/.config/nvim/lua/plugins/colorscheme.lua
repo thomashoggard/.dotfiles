@@ -5,10 +5,13 @@ return {
     priority = 1000,
     opts = {
       style = "night",
+      on_colors = function(colors)
+        -- colors.green = "#B9DFA7"
+      end,
     },
     config = function(_, opts)
       require("tokyonight").setup(opts)
-      -- vim.cmd.colorscheme("tokyonight")
+      vim.cmd.colorscheme("tokyonight")
     end,
   },
   {
@@ -35,7 +38,7 @@ return {
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin")
+      -- vim.cmd.colorscheme("catppuccin")
     end,
   },
   {

@@ -61,6 +61,7 @@ source $HOME/.zsh_profile
 export VIM_CONFIG="$DOTFILES/nvim/.config/nvim/init.lua"
 
 source "$HOME/.zsh-additional-settings"
+source "$HOME/.zsh-secrets"
 
 light() {
   kitty +kitten themes --reload-in=all Catppuccin-Latte

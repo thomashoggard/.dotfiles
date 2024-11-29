@@ -61,24 +61,10 @@ source $HOME/.zsh_profile
 export VIM_CONFIG="$DOTFILES/nvim/.config/nvim/init.lua"
 
 source "$HOME/.zsh-additional-settings"
-source "$HOME/.zsh-secrets"
 
-light() {
-  kitty +kitten themes --reload-in=all Catppuccin-Latte
-}
-
-dark() {
-  kitty +kitten themes --reload-in=all Catppuccin-Mocha
-}
+# Store secrets like tokens that we don't want to check into source.
+if [[ -f "$HOME/.zsh-secrets" ]]; then
+  source "$HOME/.zsh-secrets"
+fi
 
 path+=("$HOME/.local/bin")
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# pnpm
-# export PNPM_HOME="/home/thoggard/.local/share/pnpm"
-# case ":$PATH:" in
-#   *":$PNPM_HOME:"*) ;;
-#   *) export PATH="$PNPM_HOME:$PATH" ;;
-# esac
-# pnpm end

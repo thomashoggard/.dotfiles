@@ -29,7 +29,7 @@ vim.keymap.set("n", "yl", "<cmd>norm _vg_y<CR>")
 
 -- Tabs
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", { silent = true })
-vim.keymap.set("n", "<leader>tn", "<cmd>tab new<CR>", { silent = true })
+vim.keymap.set("n", "<leader>tt", "<cmd>tab new<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ts", "<cmd>tab split<CR>", { silent = true })
 vim.keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>tp", "<cmd>tabprevious<CR>", { silent = true })

@@ -4,7 +4,7 @@ return {
     opts = {},
     config = function(_, opts)
       require("tokyodark").setup(opts)
-      vim.cmd.colorscheme("tokyodark")
+      -- vim.cmd.colorscheme("tokyodark")
     end,
   },
   {

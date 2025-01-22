@@ -1,6 +1,7 @@
 gui:
   nerdFontsVersion: "3"
   showRandomTip: false
+  expandFocusedSidePanel: true
   theme:
     selectedLineBgColor:
       - reverse

@@ -40,9 +40,11 @@
 [interactive]
   diffFilter = delta --color-only --features=interactive
 
+[include]
+  path = ~/tokyonight_moon.gitconfig
+
 [delta]
   side-by-side = true
-  diff-so-fancy = false
 
 [mergetool]
 	keepBackup = false

@@ -1,4 +1,4 @@
-theme = tokyonight 
+theme = tokyonight
 font-size = 15
 cursor-style = block
 confirm-close-surface = false

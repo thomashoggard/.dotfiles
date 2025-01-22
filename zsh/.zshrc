@@ -27,12 +27,6 @@ alias vi="env TERM=wezterm nvim"
 alias vim="env TERM=wezterm nvim"
 alias v="env TERM=wezterm nvim"
 alias p="pnpm"
-
-# When running nvim in tmux, create a pipe for the current session.
-tmux_running=$(pgrep tmux)
-if [[ -n $tmux_running ]]; then
-  alias nvim="env TERM=wezterm nvim --listen /tmp/nvim-server-$(tmux display-message -p '#S').pipe"
-fi
 alias lg="lazygit"
 
 export ZSH="$HOME/.oh-my-zsh"

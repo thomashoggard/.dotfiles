@@ -4,13 +4,6 @@ vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#ffffff", bg = "#1d3450" })
 
 return {
   {
-    "kdheepak/lazygit.nvim",
-    cmd = "LazyGit",
-    keys = {
-      { "<leader>lg", "<cmd>LazyGit<cr>" },
-    },
-  },
-  {
     -- Git blame virtual text, code change markers.
     "lewis6991/gitsigns.nvim",
     opts = {

@@ -1,4 +1,7 @@
+# theme = catppuccin-mocha
+# theme = Kanagawa Wave
 theme = tokyonight
+# theme = gruvbox-material
 cursor-style = block
 confirm-close-surface = false
 window-padding-x = 2

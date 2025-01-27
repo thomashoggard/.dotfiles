@@ -1,5 +1,14 @@
 return {
   {
+    "sam4llis/nvim-tundra",
+    opts = {},
+    config = function(_, opts)
+      -- vim.g.tundra_biome = "jungle" -- 'arctic' or 'jungle'
+      require("nvim-tundra").setup(opts)
+      -- vim.cmd.colorscheme("tundra")
+    end,
+  },
+  {
     "tiagovla/tokyodark.nvim",
     opts = {},
     config = function(_, opts)
@@ -13,9 +22,6 @@ return {
     priority = 1000,
     opts = {
       style = "night",
-      on_colors = function(colors)
-        -- colors.green = "#B9DFA7"
-      end,
     },
     config = function(_, opts)
       require("tokyonight").setup(opts)
@@ -59,7 +65,8 @@ return {
     opts = {
       compile = true,
       background = {
-        dark = "dragon",
+        -- dark = "dragon",
+        dark = "wave",
       },
     },
     config = function(_, opts)

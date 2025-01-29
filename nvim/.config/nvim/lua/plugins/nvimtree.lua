@@ -15,6 +15,17 @@ return {
         root_folder_label = false,
       },
       view = {
+        -- float = {
+        --   enable = true,
+        --   open_win_config = {
+        --     relative = "editor",
+        --     border = "rounded",
+        --     width = 30,
+        --     height = 50,
+        --     row = 1,
+        --     col = 10,
+        --   },
+        -- },
         adaptive_size = true,
         relativenumber = true,
       },

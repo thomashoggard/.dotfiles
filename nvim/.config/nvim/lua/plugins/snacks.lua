@@ -4,6 +4,7 @@ return {
     opts = {
       lazygit = { enabled = true },
       bufdelete = { enabled = true },
+      snacks = { enabled = true },
     },
     keys = function()
       local snacks = require("snacks")
@@ -35,6 +36,20 @@ return {
           function()
             snacks.bufdelete.all()
           end,
+        },
+        {
+          "<leader>.",
+          function()
+            Snacks.scratch()
+          end,
+          desc = "Toggle Scratch Buffer",
+        },
+        {
+          "<leader>S",
+          function()
+            Snacks.scratch.select()
+          end,
+          desc = "Select Scratch Buffer",
         },
       }
     end,

@@ -32,6 +32,7 @@ return {
         ensure_installed = {
           "prettierd",
           "stylua",
+          "js-debug-adapter",
         },
       })
     end,

@@ -79,10 +79,19 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      compile = true,
-      background = {
-        -- dark = "dragon",
-        dark = "wave",
+      -- compile = true,
+      -- background = {
+      --   -- dark = "dragon",
+      --   dark = "wave",
+      -- },
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = "none",
+            },
+          },
+        },
       },
     },
     config = function(_, opts)

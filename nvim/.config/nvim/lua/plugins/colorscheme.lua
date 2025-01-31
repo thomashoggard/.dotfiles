@@ -16,18 +16,18 @@ return {
   --     -- vim.cmd.colorscheme("tokyodark")
   --   end,
   -- },
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {
-  --     style = "night",
-  --   },
-  --   config = function(_, opts)
-  --     require("tokyonight").setup(opts)
-  --     -- vim.cmd.colorscheme("tokyonight")
-  --   end,
-  -- },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = "night",
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      vim.cmd.colorscheme("tokyonight")
+    end,
+  },
   -- {
   --   "catppuccin/nvim",
   --   name = "catppuccin",
@@ -96,7 +96,7 @@ return {
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
-      vim.cmd.colorscheme("kanagawa")
+      -- vim.cmd.colorscheme("kanagawa")
     end,
   },
 }

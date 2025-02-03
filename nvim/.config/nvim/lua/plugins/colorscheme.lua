@@ -25,7 +25,7 @@ return {
     },
     config = function(_, opts)
       require("tokyonight").setup(opts)
-      vim.cmd.colorscheme("tokyonight")
+      -- vim.cmd.colorscheme("tokyonight")
     end,
   },
   -- {
@@ -96,7 +96,19 @@ return {
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
-      -- vim.cmd.colorscheme("kanagawa")
+      vim.cmd.colorscheme("kanagawa")
+    end,
+  },
+  {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      -- variant = "oled",
+    },
+    config = function(_, opts)
+      require("oldworld").setup(opts)
+      -- vim.cmd.colorscheme("oldworld")
     end,
   },
 }

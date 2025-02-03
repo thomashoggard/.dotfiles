@@ -23,9 +23,12 @@ SAVEHIST=500
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
 # aliases
-alias vi="env TERM=wezterm nvim"
-alias vim="env TERM=wezterm nvim"
-alias v="env TERM=wezterm nvim"
+alias vi="nvim"
+alias vim="nvim"
+alias v="nvim"
+# alias vi="env TERM=wezterm nvim"
+# alias vim="env TERM=wezterm nvim"
+# alias v="env TERM=wezterm nvim"
 alias p="pnpm"
 alias lg="lazygit"
 
@@ -38,17 +41,7 @@ plugins=(git colorize tmux aws docker)
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-is_in_git_repo() {
-  git rev-parse HEAD > /dev/null 2>&1
-}
-
-unalias gco
-gco() {
-  is_in_git_repo &&
-    git checkout $(git branch | fzf)
-}
-
+#
 export DOTFILES=$HOME/.dotfiles
 source $HOME/.zsh_profile
 

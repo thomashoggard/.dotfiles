@@ -5,7 +5,7 @@ vim.keymap.set({ "n", "v" }, "H", "_")
 vim.keymap.set({ "n", "v" }, "L", "g_")
 
 -- Files & Search
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
 -- vim.keymap.set("n", "<leader>e", ":!open %:p:h<CR>", { silent = true })
 
 -- Quick Fix list

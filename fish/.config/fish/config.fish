@@ -1,5 +1,5 @@
 set fish_greeting
-set fish_vi_key_bindings
+# set fish_vi_key_bindings
 
 set -gx PATH $PATH ~/.local/bin
 
@@ -14,7 +14,7 @@ bind \cf "tmux-sessionizer.sh"
 starship init fish | source
 
 # alias g=git
-# alias ga="git add"
+abbr -a ga "git add"
 # alias gaa="git add --all"
 # alias gam="git am"
 # alias gama="git am --abort"

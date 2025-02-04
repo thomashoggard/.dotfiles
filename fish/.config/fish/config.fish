@@ -1,4 +1,5 @@
 set fish_greeting
+set fish_vi_key_bindings
 
 set -gx PATH $PATH ~/.local/bin
 

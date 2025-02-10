@@ -7,7 +7,7 @@ return {
     -- Git blame virtual text, code change markers.
     "lewis6991/gitsigns.nvim",
     opts = {
-      current_line_blame = true,
+      current_line_blame = false,
       current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = "eol",
@@ -18,21 +18,21 @@ return {
       current_line_blame_formatter_nc = "      <author>",
     },
   },
-  {
-    "NeogitOrg/neogit",
-    cmd = "Neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-    },
-    keys = {
-      { "<leader>gg", "<cmd>Neogit<cr>" },
-      { "<leader>gl", "<cmd>Neogit log<cr>" },
-    },
-    opts = {
-      disable_commit_confirmation = true,
-    },
-  },
+  -- {
+  --   "NeogitOrg/neogit",
+  --   cmd = "Neogit",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "sindrets/diffview.nvim",
+  --   },
+  --   keys = {
+  --     { "<leader>gg", "<cmd>Neogit<cr>" },
+  --     { "<leader>gl", "<cmd>Neogit log<cr>" },
+  --   },
+  --   opts = {
+  --     disable_commit_confirmation = true,
+  --   },
+  -- },
   {
     "akinsho/git-conflict.nvim",
     opts = {

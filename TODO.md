@@ -1,1 +1,0 @@
-- Make it so tmux-sessionizer gets it's directories from a file.

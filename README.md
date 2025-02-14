@@ -18,12 +18,6 @@ Using [stow](https://www.gnu.org/software/stow/) you can create a symbolic link 
    1. If on a personal machine, stow personal and then run the script `install-personal.sh`
    2. If on a league machine, stow league and then run the script `install-league.sh`
 
-## Apply dconf configurations
-
-```
-dconf load /apps/guake/ < guake_prefs.ini
-```
-
 ## Adding a submodule
 
 ```sh

@@ -14,7 +14,7 @@ bind \cf "tmux-sessionizer.sh"
 starship init fish | source
 
 function git-recent-checkout
-  set branch (git reflog | egrep -io "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | egrep -v '^[a-f0-9]{40}$' | fzf --print-query | xargs) 
+  set branch (git reflog | grep -Eio "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | grep -Ev '^[a-f0-9]{40}$' | fzf --print-query | xargs) 
 
   if test -z "$branch" 
     echo "Aborting, no branch selected"

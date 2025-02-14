@@ -7,7 +7,8 @@ return {
       { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git status", silent = true },
       { "<leader>fp", "<cmd>Telescope find_files<cr>", desc = "Find files", silent = true },
       { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find document symbols", silent = true },
-      { "<leader>fr", "<cmd>Telescope lsp_references<cr>", desc = "Find references", silent = true },
+      { "<leader>fr", "<cmd>Telescope registers<cr>", desc = "Find registers", silent = true },
+      { "<leader>gr", "<cmd>Telescope lsp_references<cr>", desc = "Find references", silent = true },
       { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Find marks", silent = true },
       { "<leader>fe", "<cmd>Telescope resume<cr>", desc = "Resume", silent = true },
       {

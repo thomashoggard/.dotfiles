@@ -13,6 +13,19 @@ bind \cf "tmux-sessionizer.sh"
 
 starship init fish | source
 
+function git-recent-checkout
+  set branch (git reflog | egrep -io "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | egrep -v '^[a-f0-9]{40}$' | fzf --print-query | xargs) 
+
+  if test -z "$branch" 
+    echo "Aborting, no branch selected"
+  else
+    echo "git switch \"$branch\""
+    git switch "$branch"
+  end
+end
+
+alias gco="git-recent-checkout"
+
 # alias g=git
 abbr -a ga "git add"
 # alias gaa="git add --all"
@@ -56,7 +69,7 @@ abbr -a gc "git commit"
 abbr -a gcm "git checkout main"
 # alias gcmsg="git commit -m"
 # alias "gcn!"="git commit -v --no-edit --amend"
-abbr -a gco "git checkout"
+# abbr -a gco "git checkout"
 # alias gcor="git checkout --recurse-submodules"
 # alias gcount="git shortlog -sn"
 # alias gcp="git cherry-pick"

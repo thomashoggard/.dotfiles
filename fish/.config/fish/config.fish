@@ -1,5 +1,4 @@
 set fish_greeting
-# set fish_vi_key_bindings
 
 set -gx PATH $PATH ~/.local/bin
 
@@ -13,18 +12,7 @@ bind \cf "tmux-sessionizer.sh"
 
 starship init fish | source
 
-function git-recent-checkout
-  set branch (git reflog | grep -Eio "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | grep -Ev '^[a-f0-9]{40}$' | fzf --print-query | xargs) 
-
-  if test -z "$branch" 
-    echo "Aborting, no branch selected"
-  else
-    echo "git switch \"$branch\""
-    git switch "$branch"
-  end
-end
-
-alias gco="git-recent-checkout"
+alias gco="git_recent_checkout"
 
 # alias g=git
 abbr -a ga "git add"
@@ -199,3 +187,4 @@ abbr -a gswc "git switch -c"
 # alias gupv="git pull --rebase -v"
 # alias gwch="git whatchanged -p --abbrev-commit --pretty=medium"
 # alias gwip="git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]""
+

@@ -32,13 +32,13 @@ alias v="nvim"
 alias p="pnpm"
 alias lg="lazygit"
 
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git colorize tmux aws docker)
+# plugins=(git colorize tmux aws docker)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #
@@ -47,7 +47,7 @@ source $HOME/.zsh_profile
 
 export VIM_CONFIG="$DOTFILES/nvim/.config/nvim/init.lua"
 
-source "$HOME/.zsh-additional-settings"
+# source "$HOME/.zsh-additional-settings"
 
 # Store secrets like tokens that we don't want to check into source.
 if [[ -f "$HOME/.zsh-secrets" ]]; then

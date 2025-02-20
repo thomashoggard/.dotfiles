@@ -60,12 +60,36 @@ return {
           })
         end,
         ["jsonls"] = function()
-          -- Connect json LSP to JSON schemastore.
+          -- Connect json LSP to schemastore.
           lspconfig.jsonls.setup({
             settings = {
               json = {
                 schemas = require("schemastore").json.schemas(),
                 validate = { enable = true },
+              },
+            },
+          })
+        end,
+        ["yamlls"] = function()
+          -- Connect yaml LSP to schemastore.
+          lspconfig.yamlls.setup({
+            settings = {
+              yaml = {
+                schemaStore = {
+                  enable = false,
+                  url = "",
+                },
+                schemas = vim.tbl_deep_extend("force", require("schemastore").yaml.schemas(), {
+                  [vim.fn.expand(
+                    "~/repos/services/src/el/masonry/v2/specification/internal/yaml/specs/schemas/node/node-spec.json"
+                  )] = "specs/nodes/**/*.{yaml,yml}",
+                  [vim.fn.expand(
+                    "~/repos/services/src/el/masonry/v2/specification/internal/yaml/specs/schemas/actiontype/action-type-spec.json"
+                  )] = "specs/actiontypes/**/*.{yaml,yml}",
+                  [vim.fn.expand(
+                    "~/repos/services/src/el/masonry/v2/specification/internal/yaml/specs/schemas/nodetype/node-type-spec.json"
+                  )] = "specs/nodetypes/**/*.{yaml,yml}",
+                }),
               },
             },
           })

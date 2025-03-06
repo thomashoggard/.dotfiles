@@ -11,10 +11,12 @@ return {
       { "<leader>gr", "<cmd>Telescope lsp_references<cr>", desc = "Find references", silent = true },
       { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Find marks", silent = true },
       { "<leader>fe", "<cmd>Telescope resume<cr>", desc = "Resume", silent = true },
+      { "<leader>fg", "<cmd>Telescope live_grep_args<cr>", desc = "Live Grep", silent = true },
       {
         "<leader>fg",
-        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
-        desc = "Live Grep",
+        '"zy:Telescope live_grep_args default_text=<C-r>z<cr>',
+        mode = "v",
+        desc = "Search on selected text",
         silent = true,
       },
       {
@@ -23,19 +25,7 @@ return {
         desc = "List all buffers in chronological order of last accessed",
         silent = true,
       },
-      {
-        "<leader>fh",
-        "<cmd>Telescope help_tags<cr>",
-        desc = "",
-        silent = true,
-      },
-      {
-        "<leader>fg",
-        '"zy:Telescope live_grep default_text=<C-r>z<cr>',
-        mode = "v",
-        desc = "Search on selected text",
-        silent = true,
-      },
+      { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "", silent = true },
       {
         "<leader>fd",
         "<cmd>Telescope grep_string<cr>",

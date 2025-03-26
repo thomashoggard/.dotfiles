@@ -21,8 +21,10 @@ opt.completeopt = "menu,menuone,noselect"
 opt.spell = true
 opt.updatetime = 50
 opt.pumheight = 10 -- Maximum number of items to show in popups (cmp)
-opt.fillchars:append("diff:╱")
+opt.fillchars:append("diff: ")
 opt.showmode = false -- Hide the current mode since lualine already shows it.
+
+-- opt.winborder = "rounded" -- disabled until plugins catch up
 
 -- Indent
 opt.expandtab = true -- Convert tabs to spaces.

@@ -4,15 +4,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { "hrsh7th/cmp-nvim-lsp" },
-      -- Show function signatures when you type.
-      {
-        "ray-x/lsp_signature.nvim",
-        event = "VeryLazy",
-        opts = {},
-        config = function(_, opts)
-          require("lsp_signature").setup(opts)
-        end,
-      },
       -- Add https://github.com/b0o/schemastore.nvim types for JSON
       { "b0o/schemastore.nvim" },
     },

@@ -83,7 +83,6 @@ return {
 
       -- Setup diagnostics.
       vim.diagnostic.config({
-        virtual_text = false,
         float = {
           border = "rounded",
           header = "",

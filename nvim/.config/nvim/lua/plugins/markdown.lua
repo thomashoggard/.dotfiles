@@ -1,8 +1,8 @@
 return {
   {
-    "MeanderingProgrammer/markdown.nvim",
-    main = "render-markdown",
+    "MeanderingProgrammer/render-markdown.nvim",
     opts = {
+      file_types = { "markdown", "Avante" },
       -- heading = {
       --   icons = { "◉", "◎", "○", "✺", "▶", "⤷" },
       --   position = "inline",
@@ -19,6 +19,9 @@ return {
       -- },
     },
     name = "render-markdown",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
   },
 }

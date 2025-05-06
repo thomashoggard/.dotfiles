@@ -25,6 +25,7 @@ return {
           "html",
           "eslint",
           "biome",
+          "yamlls",
         },
       })
 

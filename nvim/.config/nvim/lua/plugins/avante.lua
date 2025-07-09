@@ -3,12 +3,12 @@ return {
   event = "VeryLazy",
   version = false,
   opts = {
-    provider = "claude",
-    claude = {
-      endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20241022",
-      temperature = 0,
-      max_tokens = 4096,
+    provider = "copilot",
+    providers = {
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-5-sonnet-20241022",
+      },
     },
   },
   build = "make",

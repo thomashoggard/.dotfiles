@@ -32,6 +32,7 @@ return {
         desc = "Find word",
         silent = true,
       },
+      { "<leader>fc", "<cmd>Telescope quickfix<cr>", desc = "Quick Fix", silent = true },
     },
     dependencies = {
       "nvim-lua/plenary.nvim",

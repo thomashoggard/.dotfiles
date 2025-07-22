@@ -7,13 +7,13 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "biomejs", "prettierd", stop_after_first = true },
-        typescript = { "biomejs", "prettierd", stop_after_first = true },
-        javascriptreact = { "biomejs", "prettierd", stop_after_first = true },
-        typescriptreact = { "biomejs", "prettierd", stop_after_first = true },
-        css = { "prettierd" },
+        javascript = { "biome-organize-imports", "biome", "prettierd" },
+        typescript = { "biome-organize-imports", "biome", "prettierd" },
+        javascriptreact = { "biome-organize-imports", "biome", "prettierd" },
+        typescriptreact = { "biome-organize-imports", "biome", "prettierd" },
+        css = { "biome-organize-imports", "biome", "prettierd" },
         html = { "prettierd" },
-        json = { "biomejs", "prettierd", stop_after_first = true },
+        json = { "biome-organize-imports", "biome", "prettierd" },
         yaml = { "prettierd" },
         markdown = { "prettierd" },
         lua = { "stylua" },

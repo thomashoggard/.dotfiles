@@ -6,6 +6,28 @@ return {
     local conform = require("conform")
 
     conform.setup({
+      formatters = {
+        ["biome-organize-imports"] = {
+          condition = function()
+            return vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true })[1]
+          end,
+        },
+        ["biome"] = {
+          condition = function()
+            return vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true })[1]
+          end,
+        },
+        ["prettierd"] = {
+          condition = function()
+            return vim.fs.find({
+              ".prettierrc",
+              ".prettierrc.json",
+              ".prettierrc.js",
+              "prettier.config.js",
+            }, { upward = true })[1]
+          end,
+        },
+      },
       formatters_by_ft = {
         javascript = { "biome-organize-imports", "biome", "prettierd" },
         typescript = { "biome-organize-imports", "biome", "prettierd" },

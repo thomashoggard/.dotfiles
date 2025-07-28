@@ -32,13 +32,13 @@ return {
 
     cmp.setup({
       sources = cmp.config.sources({
-        { name = "copilot" },
+        -- { name = "copilot" },
         { name = "luasnip" },
         { name = "nvim_lsp" },
       }),
       mapping = cmp.mapping.preset.insert({
         -- Select first item if none are selected.
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-y>"] = cmp.mapping.confirm({ select = false }),
         ["<C-h>"] = function(fallback)
           if luasnip.jumpable(-1) then
             luasnip.jump(-1)

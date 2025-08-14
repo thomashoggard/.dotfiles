@@ -18,6 +18,13 @@ return {
       current_line_blame_formatter_nc = "      <author>",
     },
   },
+  {
+    "sindrets/diffview.nvim",
+    cmd = "Diffview",
+    keys = {
+      { "<leader>gv", "<cmd>DiffviewOpen<cr>" },
+    },
+  },
   -- {
   --   "NeogitOrg/neogit",
   --   cmd = "Neogit",

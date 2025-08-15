@@ -2,19 +2,6 @@ return {
   "hrsh7th/nvim-cmp",
   lazy = false,
   dependencies = {
-    {
-      "zbirenbaum/copilot.lua",
-      config = function()
-        require("copilot").setup({})
-      end,
-    },
-    {
-      "zbirenbaum/copilot-cmp",
-      dependencies = { "zbirenbaum/copilot.lua" },
-      config = function()
-        require("copilot_cmp").setup({})
-      end,
-    },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-cmdline" },
@@ -32,7 +19,6 @@ return {
 
     cmp.setup({
       sources = cmp.config.sources({
-        -- { name = "copilot" },
         { name = "luasnip" },
         { name = "nvim_lsp" },
       }),

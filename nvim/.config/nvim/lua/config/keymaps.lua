@@ -9,7 +9,14 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
 -- vim.keymap.set("n", "<leader>e", ":!open %:p:h<CR>", { silent = true })
 
 -- Quick Fix list
-vim.keymap.set("n", "<C-c>", "<cmd>cclose<CR>")
+-- close command mode `q:` if open, if not then close the qf list
+vim.keymap.set("n", "<C-c>", function()
+  if vim.fn.getcmdwintype() ~= "" then
+    vim.cmd("quit")
+  else
+    vim.cmd("cclose")
+  end
+end)
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>")
 

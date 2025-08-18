@@ -4,7 +4,9 @@ return {
     opts = {
       lazygit = { enabled = true },
       bufdelete = { enabled = true },
-      snacks = { enabled = true },
+      -- scratch = { enabled = true },
+      -- input = { enabled = true },
+      -- notifier = { enabled = true },
     },
     keys = function()
       local snacks = require("snacks")
@@ -38,7 +40,7 @@ return {
           end,
         },
         {
-          "<leader>w",
+          "<leader>aq",
           function()
             snacks.bufdelete.all()
           end,

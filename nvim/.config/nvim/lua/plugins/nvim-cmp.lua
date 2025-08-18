@@ -21,6 +21,7 @@ return {
       sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "render-markdown" },
       }),
       mapping = cmp.mapping.preset.insert({
         -- Select first item if none are selected.

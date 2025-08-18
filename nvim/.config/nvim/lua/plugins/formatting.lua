@@ -19,12 +19,13 @@ return {
         },
         ["prettierd"] = {
           condition = function()
-            return vim.fs.find({
-              ".prettierrc",
-              ".prettierrc.json",
-              ".prettierrc.js",
-              "prettier.config.js",
-            }, { upward = true })[1]
+            return vim.bo.filetype == "markdown"
+              or vim.fs.find({
+                ".prettierrc",
+                ".prettierrc.json",
+                ".prettierrc.js",
+                "prettier.config.js",
+              }, { upward = true })[1]
           end,
         },
       },

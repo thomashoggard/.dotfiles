@@ -2,7 +2,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
-      file_types = { "markdown", "Avante" },
+      -- file_types = { "markdown" },
       -- heading = {
       --   icons = { "◉", "◎", "○", "✺", "▶", "⤷" },
       --   position = "inline",
@@ -10,18 +10,47 @@ return {
       -- code = {
       --   style = "full",
       -- },
-      bullet = {
-        right_pad = 1,
-      },
+      -- bullet = {
+      --   right_pad = 1,
+      -- },
       -- indent = {
       --   enabled = true,
       --   skip_level = 1,
       -- },
+      completions = {
+        lsp = {
+          enabled = true,
+        },
+      },
     },
-    name = "render-markdown",
+    -- name = "render-markdown",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
+    },
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      ui = {
+        enable = false,
+      },
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/Documents/notes/personal",
+        },
+        {
+          name = "work",
+          path = "~/Documents/notes/league",
+        },
+      },
     },
   },
 }

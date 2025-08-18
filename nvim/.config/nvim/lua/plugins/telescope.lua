@@ -3,7 +3,18 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     keys = {
-      { "<C-p>", "<cmd>Telescope git_files<cr>", desc = "Find Git files", silent = true },
+      {
+        "<C-p>",
+        function()
+          if vim.fn.isdirectory(".git") == 1 then
+            vim.cmd("Telescope git_files")
+          else
+            vim.cmd("Telescope find_files")
+          end
+        end,
+        desc = "Find Git files",
+        silent = true,
+      },
       { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git status", silent = true },
       { "<leader>fp", "<cmd>Telescope find_files<cr>", desc = "Find files", silent = true },
       { "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find document symbols", silent = true },

@@ -38,6 +38,9 @@ return {
       "nvim-lua/plenary.nvim",
     },
     opts = {
+      daily_notes = {
+        folder = "0. Inbox",
+      },
       ui = {
         enable = false,
       },

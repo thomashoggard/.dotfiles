@@ -34,6 +34,13 @@ vim.keymap.set("n", "<leader>yl", '<cmd>norm _vg_"+y<CR>')
 -- copy current line without leading/trailing whitespace.
 vim.keymap.set("n", "yl", "<cmd>norm _vg_y<CR>")
 
+-- copy the current file path to the clipboard
+vim.keymap.set("n", "Y", function()
+  local path = vim.fn.expand("%")
+  vim.fn.setreg("+", path)
+  print("Copied " .. path .. " to system clipboard!")
+end, { desc = "[Y]ank [F]ile path" })
+
 -- Tabs
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", { silent = true })
 vim.keymap.set("n", "<leader>tt", "<cmd>tab new<CR>", { silent = true })

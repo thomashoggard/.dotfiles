@@ -27,6 +27,11 @@ return {
           "biome",
           "yamlls",
         },
+        handlers = {
+          ["pkl-lsp"] = function()
+            require("lspconfig").pkl_lsp.setup(require("lsp.pkl_lsp"))
+          end,
+        },
       })
 
       mason_tool_installer.setup({

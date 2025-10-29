@@ -25,7 +25,7 @@ return {
     },
     config = function(_, opts)
       require("tokyonight").setup(opts)
-      vim.cmd.colorscheme("tokyonight")
+      -- vim.cmd.colorscheme("tokyonight")
     end,
   },
   -- {
@@ -74,31 +74,31 @@ return {
       -- vim.cmd.colorscheme("gruvbox-material")
     end,
   },
-  -- {
-  --   "rebelot/kanagawa.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {
-  --     -- compile = true,
-  --     -- background = {
-  --     --   -- dark = "dragon",
-  --     --   dark = "wave",
-  --     -- },
-  --     colors = {
-  --       theme = {
-  --         all = {
-  --           ui = {
-  --             bg_gutter = "none",
-  --           },
-  --         },
-  --       },
-  --     },
-  --   },
-  --   config = function(_, opts)
-  --     require("kanagawa").setup(opts)
-  --     -- vim.cmd.colorscheme("kanagawa")
-  --   end,
-  -- },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      -- compile = true,
+      -- background = {
+      --   -- dark = "dragon",
+      --   dark = "wave",
+      -- },
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = "none",
+            },
+          },
+        },
+      },
+    },
+    config = function(_, opts)
+      require("kanagawa").setup(opts)
+      vim.cmd.colorscheme("kanagawa")
+    end,
+  },
   -- {
   --   "dgox16/oldworld.nvim",
   --   lazy = false,

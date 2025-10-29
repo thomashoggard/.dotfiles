@@ -88,3 +88,6 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 vim.api.nvim_create_user_command("CodeActionMenu", function()
   vim.lsp.buf.code_action()
 end, {})
+
+-- Convert snake_case to camelCase
+vim.api.nvim_create_user_command("SnakeToCamel", [[:'<,'>s/_\(\w\)/\u\1/g]], { range = true })

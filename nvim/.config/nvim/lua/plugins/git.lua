@@ -19,12 +19,27 @@ return {
     },
   },
   {
-    "sindrets/diffview.nvim",
-    cmd = "Diffview",
+    "esmuellert/codediff.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    cmd = "CodeDiff",
     keys = {
-      { "<leader>gv", "<cmd>DiffviewOpen<cr>" },
+      { "<leader>gv", "<cmd>CodeDiff<cr>" },
     },
+    config = function()
+      require("codediff").setup({
+        explorer = {
+          view_mode = "tree",
+        },
+      })
+    end,
   },
+  -- {
+  --   "sindrets/diffview.nvim",
+  --   cmd = "Diffview",
+  --   keys = {
+  --     { "<leader>gv", "<cmd>DiffviewOpen<cr>" },
+  --   },
+  -- },
   -- {
   --   "NeogitOrg/neogit",
   --   cmd = "Neogit",

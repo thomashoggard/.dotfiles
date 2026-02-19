@@ -33,26 +33,26 @@ return {
   --   name = "catppuccin",
   --   lazy = false,
   --   priority = 1000,
-  --   opts = {
-  --     flavour = "mocha",
-  --     term_colors = true,
-  --     transparent_background = false,
-  --     integrations = {
-  --       hop = true,
-  --       lsp_trouble = true,
-  --       neogit = true,
-  --     },
-  --     color_overrides = {
-  --       mocha = {
-  --         base = "#070D1C",
-  --         mantle = "#060B18",
-  --         crust = "#060B18",
-  --       },
-  --     },
-  --   },
+  --   -- opts = {
+  --   --   flavour = "mocha",
+  --   --   term_colors = true,
+  --   --   transparent_background = false,
+  --   --   integrations = {
+  --   --     hop = true,
+  --   --     lsp_trouble = true,
+  --   --     neogit = true,
+  --   --   },
+  --   --   color_overrides = {
+  --   --     mocha = {
+  --   --       base = "#070D1C",
+  --   --       mantle = "#060B18",
+  --   --       crust = "#060B18",
+  --   --     },
+  --   --   },
+  --   -- },
   --   config = function(_, opts)
   --     require("catppuccin").setup(opts)
-  --     -- vim.cmd.colorscheme("catppuccin")
+  --     vim.cmd.colorscheme("catppuccin")
   --   end,
   -- },
   {
@@ -96,19 +96,19 @@ return {
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
-      vim.cmd.colorscheme("kanagawa")
+      -- vim.cmd.colorscheme("kanagawa")
     end,
   },
-  -- {
-  --   "dgox16/oldworld.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {
-  --     -- variant = "oled",
-  --   },
-  --   config = function(_, opts)
-  --     require("oldworld").setup(opts)
-  --     -- vim.cmd.colorscheme("oldworld")
-  --   end,
-  -- },
+  {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      -- variant = "oled",
+    },
+    config = function(_, opts)
+      require("oldworld").setup(opts)
+      vim.cmd.colorscheme("oldworld")
+    end,
+  },
 }

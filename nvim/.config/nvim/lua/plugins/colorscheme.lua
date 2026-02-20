@@ -100,15 +100,11 @@ return {
     end,
   },
   {
-    "dgox16/oldworld.nvim",
+    "rktjmp/lush.nvim",
     lazy = false,
     priority = 1000,
-    opts = {
-      -- variant = "oled",
-    },
-    config = function(_, opts)
-      require("oldworld").setup(opts)
-      vim.cmd.colorscheme("oldworld")
+    config = function()
+      vim.cmd.colorscheme("mellow_lush")
     end,
   },
 }

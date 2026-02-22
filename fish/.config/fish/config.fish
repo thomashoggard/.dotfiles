@@ -14,6 +14,8 @@ starship init fish | source
 
 alias gco="git_recent_checkout"
 
+set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
+
 # alias g=git
 abbr -a ga "git add"
 # alias gaa="git add --all"

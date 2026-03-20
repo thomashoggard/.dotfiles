@@ -29,32 +29,33 @@ return {
       require("codediff").setup({
         explorer = {
           view_mode = "tree",
+          indent_markers = false,
         },
+      })
+      -- Monkey-patch group headers to use a distinct highlight
+      vim.api.nvim_set_hl(0, "CodeDiffGroupHeader", { link = "Title", default = true })
+      local nodes = require("codediff.ui.explorer.nodes")
+      local orig_prepare_node = nodes.prepare_node
+      nodes.prepare_node = function(node, max_width, selected_path, selected_group)
+        if node.data and node.data.type == "group" then
+          local Line = require("codediff.ui.lib.line")
+          local line = Line()
+          line:append(" ", "CodeDiffGroupHeader")
+          line:append(node.text, "CodeDiffGroupHeader")
+          return line
+        end
+        return orig_prepare_node(node, max_width, selected_path, selected_group)
+      end
+
+      vim.api.nvim_create_autocmd("WinEnter", {
+        callback = function()
+          if vim.bo.filetype == "codediff-explorer" then
+            vim.wo.spell = false
+          end
+        end,
       })
     end,
   },
-  -- {
-  --   "sindrets/diffview.nvim",
-  --   cmd = "Diffview",
-  --   keys = {
-  --     { "<leader>gv", "<cmd>DiffviewOpen<cr>" },
-  --   },
-  -- },
-  -- {
-  --   "NeogitOrg/neogit",
-  --   cmd = "Neogit",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "sindrets/diffview.nvim",
-  --   },
-  --   keys = {
-  --     { "<leader>gg", "<cmd>Neogit<cr>" },
-  --     { "<leader>gl", "<cmd>Neogit log<cr>" },
-  --   },
-  --   opts = {
-  --     disable_commit_confirmation = true,
-  --   },
-  -- },
   {
     "akinsho/git-conflict.nvim",
     opts = {
@@ -67,16 +68,4 @@ return {
       },
     },
   },
-  -- {
-  --   "pwntester/octo.nvim",
-  --   cmd = "Octo",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --     "nvim-tree/nvim-web-devicons",
-  --   },
-  --   config = function()
-  --     require("octo").setup()
-  --   end,
-  -- },
 }

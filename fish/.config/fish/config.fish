@@ -1,6 +1,7 @@
 set fish_greeting
 
 set -gx PATH $PATH ~/.local/bin
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
 alias vi="nvim"
 alias vim="nvim"

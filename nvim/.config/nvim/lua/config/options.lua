@@ -23,7 +23,7 @@ opt.updatetime = 50
 opt.pumheight = 10 -- Maximum number of items to show in popups (cmp)
 opt.showmode = false -- Hide the current mode since lualine already shows it.
 
--- opt.winborder = "rounded" -- disabled until plugins catch up
+opt.winborder = "rounded" -- Rounded borders on all floating windows
 
 -- Indent
 opt.expandtab = true -- Convert tabs to spaces.

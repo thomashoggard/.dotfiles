@@ -3,18 +3,17 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp" },
+      { "saghen/blink.cmp" },
       { "b0o/schemastore.nvim" },
     },
     config = function()
       require("lspconfig")
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
       local capabilities = vim.tbl_deep_extend(
         "force",
         {},
         vim.lsp.protocol.make_client_capabilities(),
-        cmp_nvim_lsp.default_capabilities()
+        require("blink.cmp").get_lsp_capabilities()
       )
 
       vim.lsp.config("*", {

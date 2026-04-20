@@ -50,26 +50,6 @@ return {
             return
           end
 
-          -- Folds: jsx/tsx use indent (treesitter folds are janky there),
-          -- everything else uses the treesitter foldexpr.
-          if ft == "javascriptreact" or ft == "typescriptreact" then
-            vim.opt_local.foldmethod = "indent"
-          else
-            vim.opt_local.foldmethod = "expr"
-            vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-          end
-
-          vim.schedule(function()
-            if vim.fn.mode() ~= "t" then
-              vim.cmd("silent! normal! zx")
-            end
-          end)
-
-          -- Indent: opt out for languages with known-bad indent queries.
-          if not vim.tbl_contains({ "python", "html", "yaml", "markdown" }, ft) then
-            vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-          end
-
           if vim.fn.executable("tree-sitter") ~= 1 then
             return
           end

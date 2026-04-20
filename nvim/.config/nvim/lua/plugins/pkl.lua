@@ -2,17 +2,10 @@ return {
   "apple/pkl-neovim",
   lazy = true,
   ft = "pkl",
-  dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      build = function(_)
-        vim.cmd("TSUpdate")
-      end,
-    },
-  },
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   build = function()
     require("pkl-neovim").init()
-    vim.cmd("TSInstall pkl")
+    require("nvim-treesitter").install({ "pkl" }):wait(300000)
   end,
   config = function()
     vim.g.pkl_neovim = {

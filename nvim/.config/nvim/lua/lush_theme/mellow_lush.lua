@@ -294,14 +294,14 @@ local theme = lush(function(injected_functions)
     -- =====================================================================
     -- Telescope
     -- =====================================================================
-    TelescopeBorder({ fg = c.bg, bg = c.bg }),
+    TelescopeBorder({ fg = c.gray04, bg = c.bg }),
     TelescopeNormal({ fg = c.fg, bg = c.bg }),
     TelescopePreviewTitle({ fg = c.black, bg = c.green, gui = "bold" }),
-    TelescopeResultsTitle({ fg = c.bg, bg = c.bg }),
+    TelescopeResultsTitle({ fg = c.black, bg = c.gray04, gui = "bold" }),
     TelescopePromptTitle({ fg = c.black, bg = c.cyan, gui = "bold" }),
-    TelescopePromptBorder({ fg = c.gray01, bg = c.gray01 }),
-    TelescopePromptNormal({ fg = c.gray06, bg = c.gray01 }),
-    TelescopePromptCounter({ fg = c.gray04, bg = c.gray01 }),
+    TelescopePromptBorder({ fg = c.gray04, bg = c.bg }),
+    TelescopePromptNormal({ fg = c.gray06, bg = c.bg }),
+    TelescopePromptCounter({ fg = c.gray04, bg = c.bg }),
     TelescopeMatching({ fg = c.yellow, gui = "underline" }),
 
     -- =====================================================================

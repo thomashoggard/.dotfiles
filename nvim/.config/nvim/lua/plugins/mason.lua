@@ -26,6 +26,7 @@ return {
           "eslint",
           "biome",
           "yamlls",
+          "pyright",
         },
         handlers = {
           ["pkl-lsp"] = function()

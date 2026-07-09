@@ -193,3 +193,7 @@ abbr -a gswc "git switch -c"
 
 # fnm
 fnm env --use-on-cd | source
+
+# >>> railway initialize >>>
+source "$HOME/.railway/env.fish"
+# <<< railway initialize <<<
